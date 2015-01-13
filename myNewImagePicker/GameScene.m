@@ -432,13 +432,14 @@ float myScale = .1;
                                       ]]  ];
                 [self addChild:sprite];
                 SKEmitterNode *myExitEmitter =  [NSKeyedUnarchiver unarchiveObjectWithFile:myPath];
-                [myExitEmitter setScale:.1];
+                [myExitEmitter setScale:10];
                 [myExitEmitter runAction:[SKAction sequence:@[
-                                                              [SKAction fadeInWithDuration:(NSTimeInterval) 2.5],
-                                                              [SKAction fadeOutWithDuration:(NSTimeInterval) 2.5],
-                                                              [SKAction removeFromParent],
-                                                              ]]];
+                                                              [SKAction fadeInWithDuration:10.0],
+                                     [SKAction waitForDuration:2.0],
+                                     [SKAction removeFromParent],
+                                     ]]  ];
                 [sprite addChild:myExitEmitter];
+
             } // end of loopcount
         }
     } // end of touches loop
