@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-Ly-hVS">
+                                <rect key="frame" x="16" y="241" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="203" width="103" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickMyImage3:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d2f-yk-sw1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-Hp-m1x">
+                                <rect key="frame" x="16" y="459" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="389" width="103" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickMyImage4:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ele-wl-3lg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-Ck-d9t">
+                                <rect key="frame" x="16" y="135" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="115" width="103" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickMyImage2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iXd-cy-rK7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-V8-JsZ">
+                                <rect key="frame" x="16" y="340" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="293" width="103" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickMyImage5:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6QP-MR-xoj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnK-R8-FQU">
+                                <rect key="frame" x="16" y="34" width="103" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="22" width="103" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="pickMyImage1:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WA0-yi-Rul"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-xa-dLq">
+                                <rect key="frame" x="16" y="72" width="103" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="60" width="103" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SelectMyImage1FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8ys-bO-PxF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
+                                <rect key="frame" x="16" y="173" width="103" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="153" width="103" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SelectMyImage2FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Wz-0K-HhO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfJ-nA-jwO">
+                                <rect key="frame" x="16" y="378" width="103" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="331" width="103" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SelectMyImage5FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rI1-Nc-8yG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FH-EyG">
+                                <rect key="frame" x="16" y="497" width="103" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="427" width="103" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SelectMyImage4FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KDP-g8-hmS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POI-jt-P8H">
+                                <rect key="frame" x="16" y="273" width="103" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="241" width="103" height="38"/>
+                                </variation>
+                                <connections>
+                                    <action selector="SelectMyImage3FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ghv-e7-Y0F"/>
+                                </connections>
+                            </button>
+                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="80" verticalHuggingPriority="60" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" fixedFrame="YES" image="Andy" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-bR-fjb">
+                                <rect key="frame" x="250" y="38" width="80" height="80"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="127" y="20" width="80" height="80"/>
+                                </variation>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="80" verticalHuggingPriority="60" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" fixedFrame="YES" image="Danny" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-lx-blb">
+                                <rect key="frame" x="250" y="245" width="80" height="80"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="127" y="201" width="80" height="80"/>
+                                </variation>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="80" verticalHuggingPriority="60" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" fixedFrame="YES" image="Cindy" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-hW-K2C">
+                                <rect key="frame" x="252" y="139" width="80" height="80"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="129" y="113" width="80" height="80"/>
+                                </variation>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="80" verticalHuggingPriority="60" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" fixedFrame="YES" image="Dad" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Iq-vMw">
+                                <rect key="frame" x="252" y="463" width="80" height="80"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="129" y="387" width="80" height="80"/>
+                                </variation>
+                            </imageView>
+                            <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="80" verticalHuggingPriority="180" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" fixedFrame="YES" image="Mike" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-oL-8X5">
+                                <rect key="frame" x="250" y="351" width="80" height="80"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="127" y="291" width="80" height="80"/>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJn-9N-FmD">
+                                <rect key="frame" x="340" y="190" width="119" height="65"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="Play"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="217" y="188" width="87" height="44"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7V6-tn-P1q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-Cr-Obz">
+                                <rect key="frame" x="357" y="270" width="85" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <size key="titleShadowOffset" width="7" height="10"/>
+                                <state key="normal" title="Quit"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="215" y="253" width="90" height="40"/>
+                                </variation>
+                                <connections>
+                                    <action selector="quitGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mwj-sd-qU7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="myImage1" destination="bKu-bR-fjb" id="7e7-jz-xC1"/>
+                        <outlet property="myImage2" destination="U4t-hW-K2C" id="bk7-cn-8s5"/>
+                        <outlet property="myImage3" destination="IoR-lx-blb" id="fVV-dO-HdK"/>
+                        <outlet property="myImage4" destination="FJY-Iq-vMw" id="EZx-zZ-h1z"/>
+                        <outlet property="myImage5" destination="iyJ-oL-8X5" id="vfO-cB-D7V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-34" y="-281"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Andy" width="320" height="315"/>
+        <image name="Cindy" width="320" height="320"/>
+        <image name="Dad" width="296" height="320"/>
+        <image name="Danny" width="320" height="292"/>
+        <image name="Mike" width="249" height="320"/>
+    </resources>
+</document>
