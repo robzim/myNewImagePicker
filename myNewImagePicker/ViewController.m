@@ -37,6 +37,7 @@
     //  code to play the game here
     SKView *skView = [[SKView alloc] init];
     //
+    //
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     //
