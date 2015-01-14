@@ -90,7 +90,6 @@ float myScale = .1;
     // rz set up the labels describing the scene
     //
     [self myLabels];
-    [self runAction:[SKAction playSoundFileNamed:@"BG Music.m4a" waitForCompletion:YES]];
     //
 }
 
