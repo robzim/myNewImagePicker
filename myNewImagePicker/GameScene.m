@@ -69,7 +69,7 @@ float myScale = .1;
 -(void)didMoveToView:(SKView *)view {
     [self runAction:[SKAction repeatActionForever:[SKAction playSoundFileNamed:@"BG Music.m4a" waitForCompletion:YES]]];
     /* Setup your scene here */
-    NSArray *myControlValues  = [[ NSArray alloc] initWithObjects:@"DZ",@"MZ",@"AZ", @"CZ" , @"RZ", @"Spray", @"Quit", nil] ;
+    NSArray *myControlValues  = [[ NSArray alloc] initWithObjects:@"1",@"2",@"3", @"4", @"5", @"Spray", @"Quit", nil] ;
     
     UISegmentedControl *myControl = [[ UISegmentedControl alloc] initWithItems:myControlValues ];
 //    UISegmentedControl *myControl = [[ UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:mySpriteImage1, mySpriteImage2, mySpriteImage3, mySpriteImage4, mySpriteImage5, nil]];
@@ -127,7 +127,8 @@ float myScale = .1;
                                                             ]];
     switch (myValue) {
         case 0: {
-            SKSpriteNode *myImageSprite1 = [ SKSpriteNode spriteNodeWithImageNamed:@"Danny"];
+            SKSpriteNode *myImageSprite1 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage1]];
+//            SKSpriteNode *myImageSprite1 = [ SKSpriteNode spriteNodeWithImageNamed:@"Danny"];
             myImageSprite1.position = CGPointMake(CGRectGetMidX(self.frame) - 100, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite1 setScale: myScale];
             myImageSprite1.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite1.size];
@@ -139,7 +140,9 @@ float myScale = .1;
             break;
         }
         case 1: {
-            SKSpriteNode *myImageSprite2 = [ SKSpriteNode spriteNodeWithImageNamed:@"Mike"];
+            //SKSpriteNode *myImageSprite2 = [ SKSpriteNode spriteNodeWithImageNamed:@"Mike"];
+            SKSpriteNode *myImageSprite2 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
+//            SKSpriteNode myImageSprite2 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
             myImageSprite2.position = CGPointMake(CGRectGetMidX(self.frame) - 50, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite2 setScale: myScale];
             myImageSprite2.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite2.size];
@@ -151,7 +154,8 @@ float myScale = .1;
             break;
         }
         case 2: {
-            SKSpriteNode *myImageSprite3 = [ SKSpriteNode spriteNodeWithImageNamed:@"Andy"];
+            SKSpriteNode *myImageSprite3 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage3]];
+//            SKSpriteNode *myImageSprite3 = [ SKSpriteNode spriteNodeWithImageNamed:@"Andy"];
             myImageSprite3.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite3 setScale: myScale];
             myImageSprite3.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite3.size];
@@ -163,7 +167,8 @@ float myScale = .1;
             break;
         }
         case 3: {
-            SKSpriteNode *myImageSprite4 = [ SKSpriteNode spriteNodeWithImageNamed:@"Cindy"];
+            //SKSpriteNode *myImageSprite4 = [ SKSpriteNode spriteNodeWithImageNamed:@"Cindy"];
+            SKSpriteNode *myImageSprite4 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage4]];
             myImageSprite4.position = CGPointMake(CGRectGetMidX(self.frame) + 50, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite4 setScale: myScale];
             myImageSprite4.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite4.size];
@@ -175,7 +180,8 @@ float myScale = .1;
             break;
         }
         case 4: {
-            SKSpriteNode *myImageSprite5 = [ SKSpriteNode spriteNodeWithImageNamed:@"Dad"];
+//            SKSpriteNode *myImageSprite5 = [ SKSpriteNode spriteNodeWithImageNamed:@"Dad"];
+            SKSpriteNode *myImageSprite5 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage5]];
             myImageSprite5.position = CGPointMake(CGRectGetMidX(self.frame) + 100, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite5 setScale: myScale];
             myImageSprite5.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite5.size];
@@ -417,7 +423,7 @@ float myScale = .1;
                 sprite.physicsBody.restitution = myRestitution;
                 CGSize mySpriteSize = sprite.size;
 //                NSLog(@"X = %f  Y = %f", mySpriteSize.width, mySpriteSize.height);
-                if (mySpriteSize.width > 320) {
+                if (mySpriteSize.width > 640) {
                     sprite.xScale = sprite.yScale = (myScale / 4) ;
                 }
                 else {

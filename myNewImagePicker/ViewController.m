@@ -138,7 +138,7 @@
         [myCameraPicker1 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"Return" otherButtonTitles:nil];
+        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlert show];
 //        NSLog(@"setting to photo library");
         [myCameraPicker1 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -158,7 +158,7 @@
         [myCameraPicker2 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"Return" otherButtonTitles:nil];
+        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlert show];
         [myCameraPicker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
@@ -176,7 +176,7 @@
     }
     else
     {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"Return" otherButtonTitles:nil];
+        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlert show];
         [myCameraPicker3 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
@@ -196,7 +196,7 @@
     }
     else
     {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"Return" otherButtonTitles:nil];
+        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlert show];
         [myCameraPicker4 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
@@ -214,7 +214,7 @@
     }
     else
     {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"Return" otherButtonTitles:nil];
+        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlert show];
         [myCameraPicker5 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
