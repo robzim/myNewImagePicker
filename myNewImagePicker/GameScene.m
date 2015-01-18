@@ -21,49 +21,6 @@ float myScale = .1;
 @implementation GameScene
 @synthesize mySpriteImage1, mySpriteImage2, mySpriteImage3, mySpriteImage4, mySpriteImage5;
 
-- (void)didBeginContact:(SKPhysicsContact *)contact {
-        //NSLog(@"Contact started between %@ and %@", contact.bodyA, contact.bodyB);
-}
-
-- (void)didEndContact:(SKPhysicsContact *)contact {
-    
-        
-        bool myWait =  YES;
-        
-        if ( contact.bodyA.contactTestBitMask == 0x1 ){
-            switch (contact.bodyB.contactTestBitMask) {
-                                        case 1:
-                                            // rz a dropped sprite hits another dropped sprite
-                                            [self runAction:[SKAction playSoundFileNamed:@"hit.m4a" waitForCompletion:myWait]];
-                                            break;
-                case 2:
-                    // rz a dropped sprite hits another dropped sprite
-                    [self runAction:[SKAction playSoundFileNamed:@"cymbalhit.m4a" waitForCompletion:myWait]];
-                    break;
-                case 4:
-                    [self runAction:[SKAction playSoundFileNamed:@"boom.m4a" waitForCompletion:myWait]];
-                    break;
-                default:
-                    break;
-            }
-        }
-        if (contact.bodyA.contactTestBitMask == 0x2 ){
-            switch (contact.bodyB.contactTestBitMask) {
-                case 2:
-                    [self runAction:[SKAction playSoundFileNamed:@"ow.m4a" waitForCompletion:myWait]];
-                    break;
-                case 3:
-                    // rz an image sprite hits a dropped sprite
-                    [self runAction:[SKAction playSoundFileNamed:@"crash.m4a" waitForCompletion:myWait]];
-                    break;
-                case 4:
-                    [self runAction:[SKAction playSoundFileNamed:@"hit.m4a" waitForCompletion:myWait]];
-                    break;
-                default:
-                    break;
-            }
-        }
-}
 
 
 -(void)didMoveToView:(SKView *)view {
@@ -72,26 +29,74 @@ float myScale = .1;
     NSArray *myControlValues  = [[ NSArray alloc] initWithObjects:@"1",@"2",@"3", @"4", @"5", @"Spray", @"Quit", nil] ;
     
     UISegmentedControl *myControl = [[ UISegmentedControl alloc] initWithItems:myControlValues ];
-//    UISegmentedControl *myControl = [[ UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:mySpriteImage1, mySpriteImage2, mySpriteImage3, mySpriteImage4, mySpriteImage5, nil]];
-
-    int myWidth = 50;
+    //    UISegmentedControl *myControl = [[ UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:mySpriteImage1, mySpriteImage2, mySpriteImage3, mySpriteImage4, mySpriteImage5, nil]];
+    
+    //    int myWidth = 50;
     
     [myControl setFrame:CGRectMake(20, 20 , 290 , 50)];
-    [myControl setWidth:(myWidth) forSegmentAtIndex:0];
+    //    [myControl setWidth:(myWidth) forSegmentAtIndex:0];
     [myControl addTarget:self action:@selector(mySwitchChanged:) forControlEvents:UIControlEventValueChanged ];
     [myControl setSelectedSegmentIndex:-1];
     [self.view addSubview:myControl];
-    self.physicsWorld.contactDelegate = self;
+    
     //
     //  set up the physics body so the sprites don't fall through the bottom
     //
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+    self.physicsWorld.contactDelegate = self;
     //
     // rz set up the labels describing the scene
     //
     [self myLabels];
     //
 }
+
+
+- (void)didBeginContact:(SKPhysicsContact *)contact {
+    //NSLog(@"Contact started between %@ and %@", contact.bodyA, contact.bodyB);
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact {
+    
+    
+    bool myWait =  YES;
+    
+    if ( contact.bodyA.contactTestBitMask == 0x1 ){
+        switch (contact.bodyB.contactTestBitMask) {
+            case 1:
+                // rz a dropped sprite hits another dropped sprite
+                [self runAction:[SKAction playSoundFileNamed:@"hit.m4a" waitForCompletion:myWait]];
+                break;
+            case 2:
+                // rz a dropped sprite hits another dropped sprite
+                [self runAction:[SKAction playSoundFileNamed:@"cymbalhit.m4a" waitForCompletion:myWait]];
+                break;
+            case 4:
+                [self runAction:[SKAction playSoundFileNamed:@"boom.m4a" waitForCompletion:myWait]];
+                break;
+            default:
+                break;
+        }
+    }
+    if (contact.bodyA.contactTestBitMask == 0x2 ){
+        switch (contact.bodyB.contactTestBitMask) {
+            case 2:
+                [self runAction:[SKAction playSoundFileNamed:@"ow.m4a" waitForCompletion:myWait]];
+                break;
+            case 3:
+                // rz an image sprite hits a dropped sprite
+                [self runAction:[SKAction playSoundFileNamed:@"crash.m4a" waitForCompletion:myWait]];
+                break;
+            case 4:
+                [self runAction:[SKAction playSoundFileNamed:@"hit.m4a" waitForCompletion:myWait]];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+
 
 -(void)myLabels{
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
@@ -113,7 +118,7 @@ float myScale = .1;
     [self addChild:myLabel];
     [self addChild:my2ndLabel];
     
-
+    
 }
 
 
@@ -128,7 +133,7 @@ float myScale = .1;
     switch (myValue) {
         case 0: {
             SKSpriteNode *myImageSprite1 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage1]];
-//            SKSpriteNode *myImageSprite1 = [ SKSpriteNode spriteNodeWithImageNamed:@"Danny"];
+            //            SKSpriteNode *myImageSprite1 = [ SKSpriteNode spriteNodeWithImageNamed:@"Danny"];
             myImageSprite1.position = CGPointMake(CGRectGetMidX(self.frame) - 100, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite1 setScale: myScale];
             myImageSprite1.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite1.size];
@@ -142,7 +147,7 @@ float myScale = .1;
         case 1: {
             //SKSpriteNode *myImageSprite2 = [ SKSpriteNode spriteNodeWithImageNamed:@"Mike"];
             SKSpriteNode *myImageSprite2 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
-//            SKSpriteNode myImageSprite2 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
+            //            SKSpriteNode myImageSprite2 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
             myImageSprite2.position = CGPointMake(CGRectGetMidX(self.frame) - 50, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite2 setScale: myScale];
             myImageSprite2.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite2.size];
@@ -155,7 +160,7 @@ float myScale = .1;
         }
         case 2: {
             SKSpriteNode *myImageSprite3 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage3]];
-//            SKSpriteNode *myImageSprite3 = [ SKSpriteNode spriteNodeWithImageNamed:@"Andy"];
+            //            SKSpriteNode *myImageSprite3 = [ SKSpriteNode spriteNodeWithImageNamed:@"Andy"];
             myImageSprite3.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite3 setScale: myScale];
             myImageSprite3.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite3.size];
@@ -180,7 +185,7 @@ float myScale = .1;
             break;
         }
         case 4: {
-//            SKSpriteNode *myImageSprite5 = [ SKSpriteNode spriteNodeWithImageNamed:@"Dad"];
+            //            SKSpriteNode *myImageSprite5 = [ SKSpriteNode spriteNodeWithImageNamed:@"Dad"];
             SKSpriteNode *myImageSprite5 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage5]];
             myImageSprite5.position = CGPointMake(CGRectGetMidX(self.frame) + 100, CGRectGetMaxY(self.frame) - myYOffset );
             [myImageSprite5 setScale: myScale];
@@ -195,7 +200,7 @@ float myScale = .1;
         case 5:
             [self mySpray];
             break;
-            case 6:
+        case 6:
             exit(0);
         default:
             break;
@@ -222,10 +227,6 @@ float myScale = .1;
         SKSpriteNode *colorsprite13 = [SKSpriteNode spriteNodeWithColor:[UIColor orangeColor] size:CGSizeMake(myColorSpriteSize, myColorSpriteSize)  ];     // 1.0, 0.5, 0.0 RGB
         SKSpriteNode *colorsprite14 = [SKSpriteNode spriteNodeWithColor:[UIColor purpleColor] size:CGSizeMake(myColorSpriteSize, myColorSpriteSize)  ];     // 0.5, 0.0, 0.5 RGB
         SKSpriteNode *colorsprite15 = [SKSpriteNode spriteNodeWithColor:[UIColor brownColor] size:CGSizeMake(myColorSpriteSize, myColorSpriteSize)  ];      // 0.6, 0.4, 0.2 RGB
-        
-        
-        
-        
         colorsprite1.position = CGPointMake(CGRectGetMidX(self.frame) - 175 , CGRectGetMaxY(self.frame) - myYOffset );
         colorsprite2.position = CGPointMake(CGRectGetMidX(self.frame) - 150 , CGRectGetMaxY(self.frame) - myYOffset );
         colorsprite3.position = CGPointMake(CGRectGetMidX(self.frame) - 125 , CGRectGetMaxY(self.frame) - myYOffset );
@@ -393,36 +394,23 @@ float myScale = .1;
     /* Called when a touch begins */
     NSString *myPath = [[NSBundle mainBundle] pathForResource:@"myParticle" ofType:@"sks"];
     //
+    
+    NSArray *mySpriteNames = [[NSArray alloc] initWithObjects:mySpriteImage1, mySpriteImage2, mySpriteImage3, mySpriteImage4, mySpriteImage5, nil];
+    
     SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage1]];
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
+        UIImage *mySpriteImage = [[UIImage alloc] init];
+        
         for (int myLoopCount = 1 ; myLoopCount < myLoops ; myLoopCount++) {
-            for (int myI = 1; myI <=5 ; myI++) {
-                switch (myI) {
-                    case 1:
-                        sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage1]];
-                        break;
-                    case 2:
-                        sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
-                        break;
-                    case 3:
-                        sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage3]];
-                        break;
-                    case 4:
-                        sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage4]];
-                        break;
-                    case 5:
-                        sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage5]];
-                        break;
-                    default:
-                        break;
-                }
+            for ( mySpriteImage in mySpriteNames ) {
+                sprite = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage]];
                 sprite.position = location;
                 sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:sprite.size];
                 sprite.physicsBody.mass = myMassMult ; // make them heavy if we want to
                 sprite.physicsBody.restitution = myRestitution;
                 CGSize mySpriteSize = sprite.size;
-//                NSLog(@"X = %f  Y = %f", mySpriteSize.width, mySpriteSize.height);
+                //                NSLog(@"X = %f  Y = %f", mySpriteSize.width, mySpriteSize.height);
                 if (mySpriteSize.width > 640) {
                     sprite.xScale = sprite.yScale = (myScale / 4) ;
                 }
@@ -440,13 +428,13 @@ float myScale = .1;
                 [myExitEmitter setScale:10];
                 [myExitEmitter runAction:[SKAction sequence:@[
                                                               [SKAction fadeInWithDuration:10.0],
-                                     [SKAction waitForDuration:2.0],
-                                     [SKAction removeFromParent],
-                                     ]]  ];
+                                                              [SKAction waitForDuration:2.0],
+                                                              [SKAction removeFromParent],
+                                                              ]]  ];
                 [sprite addChild:myExitEmitter];
-
-            } // end of loopcount
-        }
+            }
+        } // end of loopcount
+        
     } // end of touches loop
 }
 
@@ -457,13 +445,13 @@ float myScale = .1;
 }
 
 -(void)didSimulatePhysics{
-//    NSLog(@"count = %d",self.children.count);
+    //    NSLog(@"count = %d",self.children.count);
     if ( self.children.count > 600) {
         [self enumerateChildNodesWithName:@"colorsprite" usingBlock:^(SKNode *node, BOOL *stop) {
             [node removeFromParent];
         }];
     }
-
+    
     
 }
 
