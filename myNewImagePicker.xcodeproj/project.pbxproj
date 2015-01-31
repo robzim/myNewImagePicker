@@ -7,10 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C557F291A7553340013A8E7 /* Leopard.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F281A7553340013A8E7 /* Leopard.png */; };
+		7C557F2B1A7556A10013A8E7 /* Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F2A1A7556A10013A8E7 /* Blue.png */; };
+		7C557F2D1A7557FA0013A8E7 /* Grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F2C1A7557FA0013A8E7 /* Grey.png */; };
+		7C557F2F1A7558E40013A8E7 /* Wood.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F2E1A7558E40013A8E7 /* Wood.png */; };
+		7C557F371A755A590013A8E7 /* BrownSwirly.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F301A755A590013A8E7 /* BrownSwirly.png */; };
+		7C557F381A755A590013A8E7 /* Swirly.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F311A755A590013A8E7 /* Swirly.png */; };
+		7C557F391A755A590013A8E7 /* Checker.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F321A755A590013A8E7 /* Checker.png */; };
+		7C557F3A1A755A590013A8E7 /* Basket.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F331A755A590013A8E7 /* Basket.png */; };
+		7C557F3B1A755A590013A8E7 /* Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F341A755A590013A8E7 /* Green.png */; };
+		7C557F3C1A755A590013A8E7 /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F351A755A590013A8E7 /* Red.png */; };
+		7C557F3D1A755A590013A8E7 /* Yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F361A755A590013A8E7 /* Yellow.png */; };
+		7C557F421A7572E60013A8E7 /* Rocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F3E1A7572E60013A8E7 /* Rocks.png */; };
+		7C557F431A7572E60013A8E7 /* Paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F3F1A7572E60013A8E7 /* Paper.png */; };
+		7C557F441A7572E60013A8E7 /* Marble.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F401A7572E60013A8E7 /* Marble.png */; };
+		7C557F451A7572E60013A8E7 /* Bricks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C557F411A7572E60013A8E7 /* Bricks.png */; };
 		7C686C331A4F02B900374018 /* BG Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C686C321A4F02B900374018 /* BG Music.m4a */; };
 		7C7474601A2A5A260020788B /* myParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C74745E1A2A5A260020788B /* myParticle.sks */; };
 		7C7474611A2A5A260020788B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C74745F1A2A5A260020788B /* spark.png */; };
 		7C7474641A2AA90F0020788B /* boom.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C7474621A2AA90F0020788B /* boom.m4a */; };
+		7C915AE21A75761600A68AA6 /* Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C915AE11A75761600A68AA6 /* Stars.png */; };
 		7CB837311A52F07000A3685E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB837301A52F07000A3685E /* Images.xcassets */; };
 		7CD312AE1A4C7A1F00D5E541 /* ow.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312A81A4C7A1F00D5E541 /* ow.m4a */; };
 		7CD312AF1A4C7A1F00D5E541 /* cymbalhit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312A91A4C7A1F00D5E541 /* cymbalhit.m4a */; };
@@ -39,10 +55,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C557F281A7553340013A8E7 /* Leopard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Leopard.png; sourceTree = "<group>"; };
+		7C557F2A1A7556A10013A8E7 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue.png; sourceTree = "<group>"; };
+		7C557F2C1A7557FA0013A8E7 /* Grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grey.png; sourceTree = "<group>"; };
+		7C557F2E1A7558E40013A8E7 /* Wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wood.png; sourceTree = "<group>"; };
+		7C557F301A755A590013A8E7 /* BrownSwirly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrownSwirly.png; sourceTree = "<group>"; };
+		7C557F311A755A590013A8E7 /* Swirly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swirly.png; sourceTree = "<group>"; };
+		7C557F321A755A590013A8E7 /* Checker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checker.png; sourceTree = "<group>"; };
+		7C557F331A755A590013A8E7 /* Basket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Basket.png; sourceTree = "<group>"; };
+		7C557F341A755A590013A8E7 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Green.png; sourceTree = "<group>"; };
+		7C557F351A755A590013A8E7 /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
+		7C557F361A755A590013A8E7 /* Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yellow.png; sourceTree = "<group>"; };
+		7C557F3E1A7572E60013A8E7 /* Rocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rocks.png; sourceTree = "<group>"; };
+		7C557F3F1A7572E60013A8E7 /* Paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Paper.png; sourceTree = "<group>"; };
+		7C557F401A7572E60013A8E7 /* Marble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Marble.png; sourceTree = "<group>"; };
+		7C557F411A7572E60013A8E7 /* Bricks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bricks.png; sourceTree = "<group>"; };
 		7C686C321A4F02B900374018 /* BG Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BG Music.m4a"; sourceTree = "<group>"; };
 		7C74745E1A2A5A260020788B /* myParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = myParticle.sks; path = ../../newEyeCandy/newEyeCandy/myParticle.sks; sourceTree = "<group>"; };
 		7C74745F1A2A5A260020788B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../../newEyeCandy/newEyeCandy/spark.png; sourceTree = "<group>"; };
 		7C7474621A2AA90F0020788B /* boom.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = boom.m4a; path = ../../newEyeCandy/newEyeCandy/boom.m4a; sourceTree = "<group>"; };
+		7C915AE11A75761600A68AA6 /* Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stars.png; sourceTree = "<group>"; };
 		7CB837301A52F07000A3685E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7CD312A81A4C7A1F00D5E541 /* ow.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ow.m4a; sourceTree = "<group>"; };
 		7CD312A91A4C7A1F00D5E541 /* cymbalhit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = cymbalhit.m4a; sourceTree = "<group>"; };
@@ -53,7 +85,7 @@
 		7CE2DA631A2A5175005729D5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		7CE2DA641A2A5175005729D5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		7CE2DA661A2A51DE005729D5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myNewImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CE53F5F1A2A1A2E00F2F802 /* Bouncy Bouncy Photo Fun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bouncy Bouncy Photo Fun.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE53F631A2A1A2E00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE53F641A2A1A2E00F2F802 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CE53F661A2A1A2E00F2F802 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,7 +94,7 @@
 		7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7CE53F6D1A2A1A2E00F2F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE53F721A2A1A2F00F2F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7CE53F781A2A1A2F00F2F802 /* myNewImagePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myNewImagePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CE53F781A2A1A2F00F2F802 /* Bouncy Bouncy Photo Fun Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bouncy Bouncy Photo Fun Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE53F7D1A2A1A2F00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE53F7E1A2A1A2F00F2F802 /* myNewImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myNewImagePickerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,8 +129,8 @@
 		7CE53F601A2A1A2E00F2F802 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */,
-				7CE53F781A2A1A2F00F2F802 /* myNewImagePickerTests.xctest */,
+				7CE53F5F1A2A1A2E00F2F802 /* Bouncy Bouncy Photo Fun.app */,
+				7CE53F781A2A1A2F00F2F802 /* Bouncy Bouncy Photo Fun Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +158,22 @@
 		7CE53F621A2A1A2E00F2F802 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7C557F3E1A7572E60013A8E7 /* Rocks.png */,
+				7C557F3F1A7572E60013A8E7 /* Paper.png */,
+				7C557F401A7572E60013A8E7 /* Marble.png */,
+				7C557F411A7572E60013A8E7 /* Bricks.png */,
+				7C557F301A755A590013A8E7 /* BrownSwirly.png */,
+				7C915AE11A75761600A68AA6 /* Stars.png */,
+				7C557F311A755A590013A8E7 /* Swirly.png */,
+				7C557F321A755A590013A8E7 /* Checker.png */,
+				7C557F331A755A590013A8E7 /* Basket.png */,
+				7C557F341A755A590013A8E7 /* Green.png */,
+				7C557F351A755A590013A8E7 /* Red.png */,
+				7C557F361A755A590013A8E7 /* Yellow.png */,
+				7C557F281A7553340013A8E7 /* Leopard.png */,
+				7C557F2A1A7556A10013A8E7 /* Blue.png */,
+				7C557F2C1A7557FA0013A8E7 /* Grey.png */,
+				7C557F2E1A7558E40013A8E7 /* Wood.png */,
 				7CD312A81A4C7A1F00D5E541 /* ow.m4a */,
 				7CD312A91A4C7A1F00D5E541 /* cymbalhit.m4a */,
 				7CD312AA1A4C7A1F00D5E541 /* snare.m4a */,
@@ -160,9 +208,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */ = {
+		7CE53F5E1A2A1A2E00F2F802 /* Bouncy Bouncy Photo Fun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePicker" */;
+			buildConfigurationList = 7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "Bouncy Bouncy Photo Fun" */;
 			buildPhases = (
 				7CE53F5B1A2A1A2E00F2F802 /* Sources */,
 				7CE53F5C1A2A1A2E00F2F802 /* Frameworks */,
@@ -172,14 +220,14 @@
 			);
 			dependencies = (
 			);
-			name = myNewImagePicker;
+			name = "Bouncy Bouncy Photo Fun";
 			productName = myNewImagePicker;
-			productReference = 7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */;
+			productReference = 7CE53F5F1A2A1A2E00F2F802 /* Bouncy Bouncy Photo Fun.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7CE53F771A2A1A2F00F2F802 /* myNewImagePickerTests */ = {
+		7CE53F771A2A1A2F00F2F802 /* Bouncy Bouncy Photo Fun Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CE53F851A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePickerTests" */;
+			buildConfigurationList = 7CE53F851A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "Bouncy Bouncy Photo Fun Tests" */;
 			buildPhases = (
 				7CE53F741A2A1A2F00F2F802 /* Sources */,
 				7CE53F751A2A1A2F00F2F802 /* Frameworks */,
@@ -190,9 +238,9 @@
 			dependencies = (
 				7CE53F7A1A2A1A2F00F2F802 /* PBXTargetDependency */,
 			);
-			name = myNewImagePickerTests;
+			name = "Bouncy Bouncy Photo Fun Tests";
 			productName = myNewImagePickerTests;
-			productReference = 7CE53F781A2A1A2F00F2F802 /* myNewImagePickerTests.xctest */;
+			productReference = 7CE53F781A2A1A2F00F2F802 /* Bouncy Bouncy Photo Fun Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -227,8 +275,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */,
-				7CE53F771A2A1A2F00F2F802 /* myNewImagePickerTests */,
+				7CE53F5E1A2A1A2E00F2F802 /* Bouncy Bouncy Photo Fun */,
+				7CE53F771A2A1A2F00F2F802 /* Bouncy Bouncy Photo Fun Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,20 +286,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C557F2F1A7558E40013A8E7 /* Wood.png in Resources */,
 				7CD312B31A4C7A1F00D5E541 /* crash.m4a in Resources */,
+				7C557F421A7572E60013A8E7 /* Rocks.png in Resources */,
 				7CD312AE1A4C7A1F00D5E541 /* ow.m4a in Resources */,
+				7C557F381A755A590013A8E7 /* Swirly.png in Resources */,
 				7CD312B11A4C7A1F00D5E541 /* imagehit.m4a in Resources */,
+				7C557F2B1A7556A10013A8E7 /* Blue.png in Resources */,
+				7C557F3D1A755A590013A8E7 /* Yellow.png in Resources */,
 				7C7474641A2AA90F0020788B /* boom.m4a in Resources */,
 				7CB837311A52F07000A3685E /* Images.xcassets in Resources */,
+				7C557F3B1A755A590013A8E7 /* Green.png in Resources */,
+				7C915AE21A75761600A68AA6 /* Stars.png in Resources */,
 				7CE2DA671A2A51DE005729D5 /* GameScene.sks in Resources */,
+				7C557F431A7572E60013A8E7 /* Paper.png in Resources */,
 				7C686C331A4F02B900374018 /* BG Music.m4a in Resources */,
 				7CD312AF1A4C7A1F00D5E541 /* cymbalhit.m4a in Resources */,
+				7C557F371A755A590013A8E7 /* BrownSwirly.png in Resources */,
 				7C7474611A2A5A260020788B /* spark.png in Resources */,
 				7CD312B21A4C7A1F00D5E541 /* hit.m4a in Resources */,
 				7CE53F6E1A2A1A2E00F2F802 /* Main.storyboard in Resources */,
+				7C557F3A1A755A590013A8E7 /* Basket.png in Resources */,
+				7C557F441A7572E60013A8E7 /* Marble.png in Resources */,
+				7C557F451A7572E60013A8E7 /* Bricks.png in Resources */,
 				7CE53F731A2A1A2F00F2F802 /* LaunchScreen.xib in Resources */,
+				7C557F2D1A7557FA0013A8E7 /* Grey.png in Resources */,
+				7C557F291A7553340013A8E7 /* Leopard.png in Resources */,
 				7C7474601A2A5A260020788B /* myParticle.sks in Resources */,
+				7C557F3C1A755A590013A8E7 /* Red.png in Resources */,
 				7CD312B01A4C7A1F00D5E541 /* snare.m4a in Resources */,
+				7C557F391A755A590013A8E7 /* Checker.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +353,7 @@
 /* Begin PBXTargetDependency section */
 		7CE53F7A1A2A1A2F00F2F802 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */;
+			target = 7CE53F5E1A2A1A2E00F2F802 /* Bouncy Bouncy Photo Fun */;
 			targetProxy = 7CE53F791A2A1A2F00F2F802 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -466,7 +530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePicker" */ = {
+		7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "Bouncy Bouncy Photo Fun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CE53F831A2A1A2F00F2F802 /* Debug */,
@@ -475,7 +539,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CE53F851A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePickerTests" */ = {
+		7CE53F851A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "Bouncy Bouncy Photo Fun Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CE53F861A2A1A2F00F2F802 /* Debug */,
