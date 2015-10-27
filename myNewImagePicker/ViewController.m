@@ -123,9 +123,6 @@
 - (IBAction)pickMyImage1:(id)sender {
     myImageNum = 1 ;
     ///
-    // rz seems that performing the test the second time crashes the program
-    //
-    //
 //    NSLog(@"just before the test");
     bool myTest1 = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
     myCameraPicker1 = [[ UIImagePickerController alloc] init];
@@ -262,6 +259,16 @@
     [ picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+//
+//
+//
+//    rz
+//   setting prefersStatusBarHidden makes the top of the screen (status bar) hidden so the buttons work all
+//    the way to the top of the screen
+//
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 
 
 

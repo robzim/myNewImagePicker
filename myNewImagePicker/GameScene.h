@@ -9,7 +9,7 @@
 @import SpriteKit;
 @import UIKit;
 @import AVFoundation;
-
+@import CoreMotion;
 
 @interface GameScene : SKScene<SKPhysicsContactDelegate>
 
@@ -18,10 +18,6 @@
 @property UIImage  *mySpriteImage3;
 @property UIImage  *mySpriteImage4;
 @property UIImage  *mySpriteImage5;
-
-@property (nonatomic, retain) AVAudioPlayer *player1;
-@property (nonatomic, retain) AVAudioPlayer *player2;
-
 
 
 @end
