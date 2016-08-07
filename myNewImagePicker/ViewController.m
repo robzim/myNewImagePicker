@@ -43,11 +43,17 @@
     //
     // Create and configure the scene.
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
-    //[scene setBackgroundColor:[UIColor blackColor]];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    [scene setSize:self.view.bounds.size];
+    scene.scaleMode = SKSceneScaleModeAspectFit;
     //
+    
+    
+//    [skView setShowsFPS:YES];
+//    [skView setShowsDrawCount:YES];
+//    [skView setShowsNodeCount:YES];
+//    [skView setShowsQuadCount:YES];
+    
     //
-    [scene setBackgroundColor:[UIColor blackColor]];
     // rz set the images in the scene here
     //
     [scene setMySpriteImage1:myImage1.image];
@@ -57,12 +63,14 @@
     [scene setMySpriteImage5:myImage5.image];
     // Present the scene.
     [self setView:skView];
-    [skView presentScene:scene transition:[SKTransition doorwayWithDuration:3.0]];
+    
+    [skView presentScene:scene];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -135,8 +143,10 @@
         [myCameraPicker1 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [myAlert show];
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *myAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [myAlertController addAction:myAlertAction];
+        [self presentViewController:myAlertController animated:YES completion:nil ];
 //        NSLog(@"setting to photo library");
         [myCameraPicker1 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
@@ -155,8 +165,10 @@
         [myCameraPicker2 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [myAlert show];
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *myAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [myAlertController addAction:myAlertAction];
+        [self presentViewController:myAlertController animated:YES completion:nil ];
         [myCameraPicker2 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     [self presentViewController:myCameraPicker2 animated:YES completion:nil];
@@ -173,8 +185,10 @@
     }
     else
     {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [myAlert show];
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *myAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [myAlertController addAction:myAlertAction];
+        [self presentViewController:myAlertController animated:YES completion:nil ];
         [myCameraPicker3 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     [self presentViewController:myCameraPicker3 animated:YES completion:nil];
@@ -193,8 +207,10 @@
     }
     else
     {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [myAlert show];
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *myAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [myAlertController addAction:myAlertAction];
+        [self presentViewController:myAlertController animated:YES completion:nil ];
         [myCameraPicker4 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     [self presentViewController:myCameraPicker4 animated:YES completion:nil];
@@ -211,8 +227,10 @@
     }
     else
     {
-        UIAlertView *myAlert = [[ UIAlertView alloc ] initWithTitle:@"ALERT" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [myAlert show];
+        UIAlertController *myAlertController = [UIAlertController alertControllerWithTitle:@"No Camera" message:@"This device has no camera or the camera is disabled.  Select images from the Photo Library." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *myAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [myAlertController addAction:myAlertAction];
+        [self presentViewController:myAlertController animated:YES completion:nil ];
         [myCameraPicker5 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     [self presentViewController:myCameraPicker5 animated:YES completion:nil];
@@ -222,6 +240,8 @@
 
 
 - (IBAction)quitGame:(id)sender {
+    
+    
     exit(0);
 }
 

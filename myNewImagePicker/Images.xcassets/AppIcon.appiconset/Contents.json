@@ -3,106 +3,122 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "eyeCandyIcons1.png",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon.png",
       "scale" : "1x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "eyeCandyIcons1-1.png",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-7.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "eyeCandyIcons1-2.png",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-2.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-8.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-9.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
       "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-10.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "eyeCandyIcons1-3.png",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-3.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-11.png",
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-12.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-13.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-14.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-15.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-16.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-17.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-18.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-19.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-4.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-5.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "car",
-      "size" : "120x120",
-      "scale" : "1x"
+      "size" : "83.5x83.5",
+      "idiom" : "ipad",
+      "filename" : "Bouncy Bouncy Photo Chaos Icon-6.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
