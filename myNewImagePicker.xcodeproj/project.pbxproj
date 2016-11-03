@@ -34,6 +34,7 @@
 		7C686C331A4F02B900374018 /* BG Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C686C321A4F02B900374018 /* BG Music.m4a */; };
 		7C915AE21A75761600A68AA6 /* Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C915AE11A75761600A68AA6 /* Stars.png */; };
 		7CB837311A52F07000A3685E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB837301A52F07000A3685E /* Images.xcassets */; };
+		7CBF84FE1DC940A200C25068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF84FD1DC940A200C25068 /* Main.storyboard */; };
 		7CC010A21D0D9F1200DCCC4B /* tick.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CC010A11D0D9F1200DCCC4B /* tick.m4a */; };
 		7CC4F69D1D098C66003B9DCA /* marimba.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CC4F69C1D098C66003B9DCA /* marimba.m4a */; };
 		7CD312AE1A4C7A1F00D5E541 /* ow.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312A81A4C7A1F00D5E541 /* ow.m4a */; };
@@ -49,7 +50,6 @@
 		7CE53F651A2A1A2E00F2F802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F641A2A1A2E00F2F802 /* main.m */; };
 		7CE53F681A2A1A2E00F2F802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */; };
 		7CE53F6B1A2A1A2E00F2F802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */; };
-		7CE53F6E1A2A1A2E00F2F802 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE53F6C1A2A1A2E00F2F802 /* Main.storyboard */; };
 		7CE53F731A2A1A2F00F2F802 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */; };
 		7CFD94CF1D0ADE72005EB4D0 /* pia18014-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */; };
 		7CFD94D11D0ADF28005EB4D0 /* myColorSpriteEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD94D01D0ADF28005EB4D0 /* myColorSpriteEmitter.sks */; };
@@ -83,6 +83,7 @@
 		7C686C321A4F02B900374018 /* BG Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BG Music.m4a"; sourceTree = "<group>"; };
 		7C915AE11A75761600A68AA6 /* Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stars.png; sourceTree = "<group>"; };
 		7CB837301A52F07000A3685E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7CBF84FD1DC940A200C25068 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7CC010A11D0D9F1200DCCC4B /* tick.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.m4a; sourceTree = "<group>"; };
 		7CC4F69C1D098C66003B9DCA /* marimba.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = marimba.m4a; sourceTree = "<group>"; };
 		7CD312A81A4C7A1F00D5E541 /* ow.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ow.m4a; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7CE53F691A2A1A2E00F2F802 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7CE53F6D1A2A1A2E00F2F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CE53F721A2A1A2F00F2F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7CE53F7D1A2A1A2F00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE53F7E1A2A1A2F00F2F802 /* myNewImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myNewImagePickerTests.m; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				7CE53F691A2A1A2E00F2F802 /* ViewController.h */,
 				7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */,
 				7CB837301A52F07000A3685E /* Images.xcassets */,
-				7CE53F6C1A2A1A2E00F2F802 /* Main.storyboard */,
+				7CBF84FD1DC940A200C25068 /* Main.storyboard */,
 				7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */,
 				7CE53F621A2A1A2E00F2F802 /* Supporting Files */,
 			);
@@ -248,12 +248,13 @@
 		7CE53F571A2A1A2E00F2F802 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Robert Zimmelman";
 				TargetAttributes = {
 					7CE53F5E1A2A1A2E00F2F802 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 8RV36K5JJ4;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -293,6 +294,7 @@
 				7CD312AE1A4C7A1F00D5E541 /* ow.m4a in Resources */,
 				7C557F381A755A590013A8E7 /* Swirly.png in Resources */,
 				7C2F778A1D0D92340091E43C /* myTextureSpriteEmitter.sks in Resources */,
+				7CBF84FE1DC940A200C25068 /* Main.storyboard in Resources */,
 				7CD312B11A4C7A1F00D5E541 /* imagehit.m4a in Resources */,
 				7C3154741CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg in Resources */,
 				7C557F2B1A7556A10013A8E7 /* Blue.png in Resources */,
@@ -311,7 +313,6 @@
 				7CFD94CF1D0ADE72005EB4D0 /* pia18014-full.png in Resources */,
 				7C557F371A755A590013A8E7 /* BrownSwirly.png in Resources */,
 				7CD312B21A4C7A1F00D5E541 /* hit.m4a in Resources */,
-				7CE53F6E1A2A1A2E00F2F802 /* Main.storyboard in Resources */,
 				7C557F3A1A755A590013A8E7 /* Basket.png in Resources */,
 				7C557F441A7572E60013A8E7 /* Marble.png in Resources */,
 				7C557F451A7572E60013A8E7 /* Bricks.png in Resources */,
@@ -342,14 +343,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7CE53F6C1A2A1A2E00F2F802 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CE53F6D1A2A1A2E00F2F802 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -374,8 +367,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -397,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -418,8 +413,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -434,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -447,8 +444,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.zimmelman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = myNewImagePicker;
@@ -463,8 +461,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.zimmelman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = myNewImagePicker;

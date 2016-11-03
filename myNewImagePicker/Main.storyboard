@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,235 +18,220 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-ap-UVn">
-                                <rect key="frame" x="176" y="71" width="259" height="458"/>
+                            <stackView opaque="NO" tag="10" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-ap-UVn" userLabel="Menu Stack View">
+                                <rect key="frame" x="19.5" y="15" width="292" height="450"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-1p-nKb">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="458"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-1p-nKb">
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="450"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r2R-OX-D0x" userLabel="Stack View 1">
                                                 <rect key="frame" x="0.0" y="0.0" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Hv-bOm">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Hv-bOm" userLabel="CamLib1 Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnK-R8-FQU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="pickMyImage1:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WA0-yi-Rul"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-xa-dLq">
-                                                                <rect key="frame" x="0.0" y="52" width="74" height="38"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="Gpy-Tb-MKx"/>
-                                                                    <constraint firstAttribute="height" constant="38" id="rC2-Wb-zgJ"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="SelectMyImage1FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8ys-bO-PxF"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="etacarinae_hubble_900.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-bR-fjb">
                                                         <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="t5O-Hl-9tJ">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                             <constraint firstAttribute="width" constant="90" id="xsf-gt-9MP">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dlz-HU-JdT" userLabel="Stack View 2">
-                                                <rect key="frame" x="0.0" y="92" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="90" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-6O-uGN">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-6O-uGN" userLabel="CamLib2 Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-Ck-d9t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="pickMyImage2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iXd-cy-rK7"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
-                                                                <rect key="frame" x="0.0" y="52" width="74" height="38"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="Yq4-FW-X4b"/>
-                                                                    <constraint firstAttribute="height" constant="38" id="ssJ-bp-Ti7"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="SelectMyImage2FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Wz-0K-HhO"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="hs-2003-28-a-25_percent_jpg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-hW-K2C">
                                                         <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="bBz-rV-lEC">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                             <constraint firstAttribute="width" constant="90" id="jP6-c7-EOS">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-Lh-zQz" userLabel="Stack View 3">
-                                                <rect key="frame" x="0.0" y="184" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="180" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-yw-ixl">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-yw-ixl" userLabel="CamLib3 Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-Ly-hVS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="pickMyImage3:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d2f-yk-sw1"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POI-jt-P8H">
-                                                                <rect key="frame" x="0.0" y="52" width="74" height="38"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="6hh-Ov-L16"/>
-                                                                    <constraint firstAttribute="height" constant="38" id="XTx-mT-InZ"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="SelectMyImage3FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ghv-e7-Y0F"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="flame.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-lx-blb">
                                                         <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="8SD-iT-F8f">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                             <constraint firstAttribute="height" constant="90" id="Q1n-WM-GTu">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Jk-pg-FXO" userLabel="Stack View 4">
-                                                <rect key="frame" x="0.0" y="276" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="270" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-5S-4sF">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-5S-4sF" userLabel="CamLib4 Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-V8-JsZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="pickMyImage4:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Nd8-D1-VIo"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfJ-nA-jwO">
-                                                                <rect key="frame" x="0.0" y="52" width="74" height="38"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="38" id="CTw-s6-Hxd"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="UEl-Zg-Jam"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="SelectMyImage4FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4fP-9f-UYp"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="pia18014-full.png" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Iq-vMw">
                                                         <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="0L4-cA-dDY">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                             <constraint firstAttribute="height" constant="90" id="yX1-sV-xat">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-S0-kEa" userLabel="Stack View 5">
-                                                <rect key="frame" x="0.0" y="368" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="360" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-no-saf">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-no-saf" userLabel="CamLib5 Stack View">
                                                         <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-Hp-m1x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="52"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="pickMyImage5:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d4C-SK-fdB"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FH-EyG">
-                                                                <rect key="frame" x="0.0" y="52" width="74" height="38"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="NVZ-nc-Gc9"/>
-                                                                    <constraint firstAttribute="height" constant="38" id="q6A-hK-2rR"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="SelectMyImage5FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4ZQ-dw-yyI"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="Forces Image copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-oL-8X5">
                                                         <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="X9X-AA-XGs">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                            <constraint firstAttribute="width" constant="90" id="X9X-AA-XGs">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                             <constraint firstAttribute="height" constant="90" id="yJ3-OE-yeL">
-                                                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="210"/>
                                                             </constraint>
                                                         </constraints>
                                                     </imageView>
@@ -250,19 +240,30 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-AA-l4v" userLabel="PlayQuit Stack View">
-                                        <rect key="frame" x="184" y="144" width="75" height="170"/>
+                                        <rect key="frame" x="194" y="98.5" width="98" height="253"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJn-9N-FmD">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                                <state key="normal" title="Play"/>
+                                                <state key="normal" title="Go"/>
                                                 <connections>
                                                     <action selector="playGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7V6-tn-P1q"/>
                                                 </connections>
                                             </button>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-o5-HI5">
+                                                <rect key="frame" x="0.0" y="110" width="98" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" title="Leaderboard"/>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="ShowLeaderboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="asA-b5-FA2"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-Cr-Obz">
-                                                <rect key="frame" x="0.0" y="110" width="75" height="60"/>
+                                                <rect key="frame" x="0.0" y="193" width="98" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
                                                 <state key="normal" title="Quit"/>
@@ -274,11 +275,20 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-Re-3Cw">
+                                <rect key="frame" x="229" y="440" width="81" height="30"/>
+                                <state key="normal" title="Instructions"/>
+                                <connections>
+                                    <segue destination="b0V-ZQ-lRF" kind="presentation" id="Ot0-cd-9sw"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FJX-ap-UVn" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" constant="5.5" id="Sq9-ZN-VWN"/>
+                            <constraint firstAttribute="trailing" secondItem="ZxK-Re-3Cw" secondAttribute="trailing" constant="10" id="ZDS-HT-fey"/>
                             <constraint firstItem="FJX-ap-UVn" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="aID-m9-bmZ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ZxK-Re-3Cw" secondAttribute="bottom" constant="10" id="g44-Yq-gkX"/>
                         </constraints>
                     </view>
                     <connections>
@@ -291,7 +301,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-88" y="-536"/>
+            <point key="canvasLocation" x="-241" y="-646"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cDu-tX-fwm">
+            <objects>
+                <viewController id="b0V-ZQ-lRF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zMj-1T-lIo"/>
+                        <viewControllerLayoutGuide type="bottom" id="EqS-wE-smA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kEq-oV-cNd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzw-e1-9b9">
+                                <rect key="frame" x="10" y="429" width="34" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <segue destination="vlc-Xw-mqG" kind="unwind" unwindAction="unwindToThisViewController:" id="hGg-cG-jrS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-wz-HIM">
+                                <rect key="frame" x="10" y="50" width="300" height="380"/>
+                                <string key="text">Choose photos from your library or take pictures with your camera.  Press the Go button and watch the craziness as YOUR PICTURES fly around each other and create chaos!</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="72"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <string key="userLabel">Choose photos from your library or take pictures with your camera.  Then Press the Play button and your photos will be in the game.  Flick a fireball at your photos and watch them break up into little pieces, or watch your photos hit each other and do crazy things!</string>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="zzw-e1-9b9" secondAttribute="bottom" constant="10" id="6NQ-0m-7Hd"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ra8-wz-HIM" secondAttribute="bottom" constant="50" id="7u9-dV-RQ5"/>
+                            <constraint firstItem="Ra8-wz-HIM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kEq-oV-cNd" secondAttribute="top" constant="50" id="cE7-zD-p4l"/>
+                            <constraint firstItem="Ra8-wz-HIM" firstAttribute="centerY" secondItem="kEq-oV-cNd" secondAttribute="centerY" id="ezK-FX-stC"/>
+                            <constraint firstItem="zzw-e1-9b9" firstAttribute="leading" secondItem="kEq-oV-cNd" secondAttribute="leading" constant="10" id="grp-OO-AUx"/>
+                            <constraint firstItem="Ra8-wz-HIM" firstAttribute="centerX" secondItem="kEq-oV-cNd" secondAttribute="centerX" id="jfn-UL-mS1"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ra8-wz-HIM" secondAttribute="trailing" constant="10" id="rYl-Fs-dQ5"/>
+                            <constraint firstItem="Ra8-wz-HIM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kEq-oV-cNd" secondAttribute="leading" constant="10" id="wZY-qf-P8L"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fY3-ap-2bM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vlc-Xw-mqG" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="476.25" y="-647.5"/>
         </scene>
     </scenes>
     <resources>

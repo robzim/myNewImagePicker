@@ -32,6 +32,119 @@
 
 @synthesize myImage1, myPicker1, myImage2, myPicker2, myImage3, myPicker3, myImage4, myImage5, myPicker4, myPicker5, myCameraPicker1, myCameraPicker2, myCameraPicker3, myCameraPicker4, myCameraPicker5;
 
+@synthesize myCountdownTimer;
+@synthesize myTimeRemaining;
+
+@synthesize mySceneFromTheView;
+@synthesize myViewFromTheScene;
+
+
+GameScene *myScene2;
+SKView *myView2;
+
+
+- (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
+{
+    NSLog(@"unwound to here");
+}
+
+
+-(void)myShowTimesUpController{
+    //    [myTutorialButton setHidden:YES];
+    [myCountdownTimer invalidate];
+    myCountdownTimer=nil;
+    UIAlertController *myQuitAlertController = [UIAlertController alertControllerWithTitle:@"Time's UP!" message:@"Do you want to Quit or Continue?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self myStartCountdownTimer];
+        [[self.view viewWithTag:11111] setHidden:NO];
+        [myQuitAlertController removeFromParentViewController];
+    }];
+    UIAlertAction *myQuitAction = [UIAlertAction actionWithTitle:@"Quit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        exit(0);
+    }];
+    [myQuitAlertController addAction:myCancelAction];
+    [myQuitAlertController addAction:myQuitAction];
+    [self presentViewController:myQuitAlertController animated:YES completion:^{
+        [[[self view]viewWithTag:99999] setHidden:YES];
+        //
+        //
+        //
+        //  this is meant to re-start gameplay
+        // from Shoot The Planes (myDropSpaceShips starts the dropping of the ships)
+        //        [myScene2 myDropSpaceships];
+    }];
+    
+    //Do something interesting here.
+    
+    
+}
+
+-(void)myReportHighScore {
+    if (myScene2.myScore > myScene2.myHighScore) {
+        UIAlertController *myReportHighScoreAlert = [UIAlertController alertControllerWithTitle:@"Report Score?" message:@"Would you like to report your Score?" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [myReportHighScoreAlert removeFromParentViewController];
+            [self myStartCountdownTimer];
+        }];
+        UIAlertAction *myDefaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            NSLog(@"want to repot high score %d",myScene2.myScore);
+            {
+                int64_t score = myScene2.myScore;
+                GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier: @"org.zimmelman.flick_at_photos_high_scores"];
+                scoreReporter.value = score;
+                scoreReporter.context = 0;
+                
+                NSArray *scores = @[scoreReporter];
+                [GKScore reportScores:scores withCompletionHandler:^(NSError *error) {
+                    //Do something interesting here.
+                    NSLog(@"Completed Reporting Scores");
+                }];
+            }
+            
+            //        [myReportScoreForLeaderboardID:@"org.zimmelman.flick_at_photos_high_scores"];
+        }];
+        [myReportHighScoreAlert addAction:myDefaultAction];
+        [myReportHighScoreAlert addAction:myCancelAction];
+        [self presentViewController:myReportHighScoreAlert animated:YES completion:^{
+            NSLog(@"Reported High Score");
+            
+        } ];
+        //
+        //
+        //
+    }
+    
+    
+    
+}
+
+
+
+-(void)myTimesUpAndReportHighScore{
+    if (myScene2.myScore > myScene2.myHighScore) {
+        [self myReportHighScore];
+    }
+    [self myShowTimesUpController];
+}
+
+
+-(void)myDoTimeLoop{
+    [self setMyTimeRemaining: [NSNumber numberWithInteger: [myTimeRemaining integerValue] - 1]];
+    if ([myTimeRemaining integerValue] <= 0) {
+        [self myTimesUpAndReportHighScore];
+    }
+    [(SKLabelNode *)  [myScene2 childNodeWithName:@"TimeLabel" ] setText: [NSString stringWithFormat:@"Time = %03ld",(long)myTimeRemaining.integerValue]];
+}
+
+
+-(void)myStartCountdownTimer{
+    // set time remaining low for testing
+    //    [self setMyTimeRemaining:[NSNumber numberWithInteger:120]];
+    [self setMyTimeRemaining:[NSNumber numberWithInteger:60]];
+    myCountdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(myDoTimeLoop) userInfo:nil repeats:YES];
+}
+
+
 
 - (IBAction)playGame:(id)sender {
     //  code to play the game here
@@ -65,6 +178,17 @@
     [self setView:skView];
     
     [skView presentScene:scene];
+    
+    
+    myView2 = skView;
+    myScene2 = scene;
+    
+    myViewFromTheScene = skView;
+    mySceneFromTheView = (GKScene *) scene;
+
+    
+    [self myStartCountdownTimer];
+
 }
 
 
@@ -223,6 +347,8 @@
     myCameraPicker5.delegate = self;
     myCameraPicker5.allowsEditing = YES;
     if (myTest1) {
+
+//        [myCameraPicker5 setMediaTypes:@[  ]];
         [myCameraPicker5 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else

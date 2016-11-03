@@ -5,6 +5,7 @@
 
 //  Copyright (c) 2014 Robert Zimmelman. All rights reserved.
 //
+#import <sys/utsname.h>
 
 @import SpriteKit;
 @import UIKit;
@@ -31,6 +32,9 @@
 @property NSOperationQueue *myQueue;
 
 @property SKAction *myImageSpriteAction;
+@property int myScore;
+@property uint64_t myHighScore;
 
+@property SKEmitterNode *mySnowParticle;
 
 @end

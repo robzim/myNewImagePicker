@@ -9,12 +9,19 @@
 @import UIKit;
 @import SpriteKit;
 @import AVFoundation;
-
+@import GameKit;
+@import MobileCoreServices;
 
 @interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
 int  myImageNum;
 }
+
+
+
+@property NSNumber *myTimeRemaining;
+@property NSTimer *myCountdownTimer;
+
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage2;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage3;
@@ -51,6 +58,8 @@ int  myImageNum;
 @property (strong,nonatomic) UIImagePickerController *myCameraPicker4;
 @property (strong,nonatomic) UIImagePickerController *myCameraPicker5;
 
+@property GKScene *mySceneFromTheView;
+@property SKView *myViewFromTheScene;
 
 
 
