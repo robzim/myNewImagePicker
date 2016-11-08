@@ -37,4 +37,7 @@
 
 @property SKEmitterNode *mySnowParticle;
 
+@property float myTimeSinceLastFrame;
+@property float myLastTimeSample;
+
 @end

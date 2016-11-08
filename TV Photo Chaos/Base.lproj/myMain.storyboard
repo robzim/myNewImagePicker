@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="499-42-d0g">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="dEh-eV-dlg">
+            <objects>
+                <viewController id="499-42-d0g" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TiC-Vw-u93"/>
+                        <viewControllerLayoutGuide type="bottom" id="3TX-uQ-fmp"/>
+                    </layoutGuides>
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="weF-Pa-zaM" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vca-xB-sas">
+                                <rect key="frame" x="1616" y="974" width="284" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Instructions"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="oNQ-dt-3Tt">
+                                <rect key="frame" x="185" y="352" width="1550" height="376"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Wug-vl-aaj">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="376"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="etacarinae_hubble_900" translatesAutoresizingMaskIntoConstraints="NO" id="wu5-Sf-xcN">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="270" id="Ksi-MW-uFP"/>
+                                                    <constraint firstAttribute="height" constant="270" id="hDz-gt-DsY"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baj-q0-BRG">
+                                                <rect key="frame" x="35" y="290" width="200" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Library"/>
+                                                <connections>
+                                                    <action selector="pickMyImage1:" destination="dFW-Nd-Df7" eventType="primaryActionTriggered" id="KHx-U1-2Lf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xg0-rN-AkI">
+                                        <rect key="frame" x="320" y="0.0" width="270" height="376"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hs-2003-28-a-25_percent_jpg" translatesAutoresizingMaskIntoConstraints="NO" id="R4Y-Oh-9DI">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="a8B-KQ-taw"/>
+                                                    <constraint firstAttribute="width" constant="270" id="rsE-wJ-wA0"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IR2-GP-Myd">
+                                                <rect key="frame" x="35" y="290" width="200" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Library"/>
+                                                <connections>
+                                                    <action selector="pickMyImage2:" destination="dFW-Nd-Df7" eventType="primaryActionTriggered" id="P6s-ey-Th8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ML0-gt-GHK">
+                                        <rect key="frame" x="640" y="0.0" width="270" height="376"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flame" translatesAutoresizingMaskIntoConstraints="NO" id="k3O-nk-HSW">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="270" id="2MH-5H-9kd"/>
+                                                    <constraint firstAttribute="height" constant="270" id="BAC-On-gjU"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGB-21-Wx8">
+                                                <rect key="frame" x="35" y="290" width="200" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Library"/>
+                                                <connections>
+                                                    <action selector="pickMyImage3:" destination="dFW-Nd-Df7" eventType="primaryActionTriggered" id="a68-ss-3Ah"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uw5-2G-XSw">
+                                        <rect key="frame" x="960" y="0.0" width="270" height="376"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pia18014-full" translatesAutoresizingMaskIntoConstraints="NO" id="oBk-sV-sho">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="270" id="3tt-jo-wIH"/>
+                                                    <constraint firstAttribute="height" constant="270" id="6su-mz-5yw"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IcI-XS-EuB">
+                                                <rect key="frame" x="35" y="290" width="200" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Library"/>
+                                                <connections>
+                                                    <action selector="pickMyImage4:" destination="dFW-Nd-Df7" eventType="primaryActionTriggered" id="pMF-MW-d9C"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="K4f-Jf-p8p">
+                                        <rect key="frame" x="1280" y="0.0" width="270" height="376"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Forces Image copy" translatesAutoresizingMaskIntoConstraints="NO" id="j0A-Kt-ACn">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="270" id="UxP-Z9-RYi"/>
+                                                    <constraint firstAttribute="height" constant="270" id="g7y-Tf-G85"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-zn-eUa">
+                                                <rect key="frame" x="35" y="290" width="200" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Library"/>
+                                                <connections>
+                                                    <action selector="pickMyImage5:" destination="dFW-Nd-Df7" eventType="primaryActionTriggered" id="pAE-pt-emv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T64-pi-gdk">
+                                <rect key="frame" x="896" y="974" width="129" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="playGame:" destination="dFW-Nd-Df7" eventType="primaryActionTriggered" id="WgC-ct-94d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vca-xB-sas" secondAttribute="trailing" constant="20" id="1TM-vG-XEU"/>
+                            <constraint firstItem="3TX-uQ-fmp" firstAttribute="top" secondItem="T64-pi-gdk" secondAttribute="bottom" constant="20" id="CIf-iT-cul"/>
+                            <constraint firstItem="oNQ-dt-3Tt" firstAttribute="centerX" secondItem="weF-Pa-zaM" secondAttribute="centerX" id="D5d-22-dhe"/>
+                            <constraint firstItem="3TX-uQ-fmp" firstAttribute="top" secondItem="vca-xB-sas" secondAttribute="bottom" constant="20" id="MiR-C7-AOa"/>
+                            <constraint firstItem="oNQ-dt-3Tt" firstAttribute="centerY" secondItem="weF-Pa-zaM" secondAttribute="centerY" id="iMU-09-tbB"/>
+                            <constraint firstItem="T64-pi-gdk" firstAttribute="centerX" secondItem="weF-Pa-zaM" secondAttribute="centerX" id="tbo-XF-6yf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFW-Nd-Df7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Forces Image copy" width="360" height="307"/>
+        <image name="etacarinae_hubble_900" width="270" height="270"/>
+        <image name="flame" width="360" height="360"/>
+        <image name="hs-2003-28-a-25_percent_jpg" width="574" height="321"/>
+        <image name="pia18014-full" width="338" height="221"/>
+    </resources>
+</document>

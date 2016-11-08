@@ -50,11 +50,13 @@ SKView *myView2;
 
 
 -(void)myShowTimesUpController{
-    //    [myTutorialButton setHidden:YES];
+    [myScene2 setPaused:YES];
     [myCountdownTimer invalidate];
     myCountdownTimer=nil;
     UIAlertController *myQuitAlertController = [UIAlertController alertControllerWithTitle:@"Time's UP!" message:@"Do you want to Quit or Continue?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 setPaused:NO];
+
         [self myStartCountdownTimer];
         [[self.view viewWithTag:11111] setHidden:NO];
         [myQuitAlertController removeFromParentViewController];
@@ -139,14 +141,16 @@ SKView *myView2;
 
 -(void)myStartCountdownTimer{
     // set time remaining low for testing
-    //    [self setMyTimeRemaining:[NSNumber numberWithInteger:120]];
-    [self setMyTimeRemaining:[NSNumber numberWithInteger:60]];
+        [self setMyTimeRemaining:[NSNumber numberWithInteger:120]];
+//    [self setMyTimeRemaining:[NSNumber numberWithInteger:15]];
+//    [self setMyTimeRemaining:[NSNumber numberWithInteger:60]];
     myCountdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(myDoTimeLoop) userInfo:nil repeats:YES];
 }
 
 
 
 - (IBAction)playGame:(id)sender {
+
     //  code to play the game here
     SKView *skView = [[SKView alloc] init];
     //
@@ -189,13 +193,6 @@ SKView *myView2;
     
     [self myStartCountdownTimer];
 
-}
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 

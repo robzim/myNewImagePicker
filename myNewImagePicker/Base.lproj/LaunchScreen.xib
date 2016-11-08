@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina3_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,7 +19,7 @@
                     <rect key="frame" x="20" y="114" width="440" height="252"/>
                     <attributedString key="attributedText">
                         <fragment>
-                            <string key="content">Bouncy Bouncy Photo Chaos!  Do Nothing!  Select photos from your library or use your camera to take photos, then press "Play" to watch the action!</string>
+                            <string key="content">Photo Chaos!  Do Nothing!  Select photos from your library or use your camera to take photos, then press the "Go" button to watch the action!</string>
                             <attributes>
                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <font key="NSFont" size="36" name=".SFNSDisplay"/>

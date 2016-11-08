@@ -43,6 +43,13 @@
 		7CD312B11A4C7A1F00D5E541 /* imagehit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AB1A4C7A1F00D5E541 /* imagehit.m4a */; };
 		7CD312B21A4C7A1F00D5E541 /* hit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AC1A4C7A1F00D5E541 /* hit.m4a */; };
 		7CD312B31A4C7A1F00D5E541 /* crash.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AD1A4C7A1F00D5E541 /* crash.m4a */; };
+		7CDD87371DCAC204009EFFED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD87361DCAC204009EFFED /* main.m */; };
+		7CDD873A1DCAC204009EFFED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD87391DCAC204009EFFED /* AppDelegate.m */; };
+		7CDD873C1DCAC204009EFFED /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD873B1DCAC204009EFFED /* GameScene.sks */; };
+		7CDD873E1DCAC204009EFFED /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD873D1DCAC204009EFFED /* Actions.sks */; };
+		7CDD87401DCAC204009EFFED /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD873F1DCAC204009EFFED /* Game.xcassets */; };
+		7CDD87491DCAC204009EFFED /* myMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD87471DCAC204009EFFED /* myMain.storyboard */; };
+		7CDD874B1DCAC204009EFFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CDD874A1DCAC204009EFFED /* Assets.xcassets */; };
 		7CE2DA651A2A5175005729D5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2DA641A2A5175005729D5 /* GameScene.m */; };
 		7CE2DA671A2A51DE005729D5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE2DA661A2A51DE005729D5 /* GameScene.sks */; };
 		7CE4D6091ADD6D9F00CB198B /* myParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE4D6071ADD6D9F00CB198B /* myParticle.sks */; };
@@ -92,6 +99,16 @@
 		7CD312AB1A4C7A1F00D5E541 /* imagehit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = imagehit.m4a; sourceTree = "<group>"; };
 		7CD312AC1A4C7A1F00D5E541 /* hit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit.m4a; sourceTree = "<group>"; };
 		7CD312AD1A4C7A1F00D5E541 /* crash.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = crash.m4a; sourceTree = "<group>"; };
+		7CDD87331DCAC203009EFFED /* TV Photo Chaos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV Photo Chaos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CDD87361DCAC204009EFFED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7CDD87381DCAC204009EFFED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7CDD87391DCAC204009EFFED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7CDD873B1DCAC204009EFFED /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		7CDD873D1DCAC204009EFFED /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		7CDD873F1DCAC204009EFFED /* Game.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Game.xcassets; sourceTree = "<group>"; };
+		7CDD87481DCAC204009EFFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/myMain.storyboard; sourceTree = "<group>"; };
+		7CDD874A1DCAC204009EFFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7CDD874C1DCAC204009EFFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE2DA631A2A5175005729D5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		7CE2DA641A2A5175005729D5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		7CE2DA661A2A51DE005729D5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -112,6 +129,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7CDD87301DCAC203009EFFED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CE53F5C1A2A1A2E00F2F802 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -122,11 +146,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CDD87341DCAC204009EFFED /* DO NOT USE OLD TV Photo Chaos */ = {
+			isa = PBXGroup;
+			children = (
+				7CDD87381DCAC204009EFFED /* AppDelegate.h */,
+				7CDD87391DCAC204009EFFED /* AppDelegate.m */,
+				7CDD873B1DCAC204009EFFED /* GameScene.sks */,
+				7CDD873D1DCAC204009EFFED /* Actions.sks */,
+				7CDD873F1DCAC204009EFFED /* Game.xcassets */,
+				7CDD87471DCAC204009EFFED /* myMain.storyboard */,
+				7CDD874A1DCAC204009EFFED /* Assets.xcassets */,
+				7CDD874C1DCAC204009EFFED /* Info.plist */,
+				7CDD87351DCAC204009EFFED /* Supporting Files */,
+			);
+			name = "DO NOT USE OLD TV Photo Chaos";
+			path = "TV Photo Chaos";
+			sourceTree = "<group>";
+		};
+		7CDD87351DCAC204009EFFED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7CDD87361DCAC204009EFFED /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		7CE53F561A2A1A2E00F2F802 = {
 			isa = PBXGroup;
 			children = (
 				7CE53F611A2A1A2E00F2F802 /* Bouncy Bouncy Photo Chaos */,
 				7CE53F7B1A2A1A2F00F2F802 /* myNewImagePickerTests */,
+				7CDD87341DCAC204009EFFED /* DO NOT USE OLD TV Photo Chaos */,
 				7CE53F601A2A1A2E00F2F802 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */,
+				7CDD87331DCAC203009EFFED /* TV Photo Chaos.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,13 +193,13 @@
 		7CE53F611A2A1A2E00F2F802 /* Bouncy Bouncy Photo Chaos */ = {
 			isa = PBXGroup;
 			children = (
+				7CE53F691A2A1A2E00F2F802 /* ViewController.h */,
+				7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */,
 				7CE2DA631A2A5175005729D5 /* GameScene.h */,
 				7CE2DA641A2A5175005729D5 /* GameScene.m */,
 				7CE2DA661A2A51DE005729D5 /* GameScene.sks */,
 				7CE53F661A2A1A2E00F2F802 /* AppDelegate.h */,
 				7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */,
-				7CE53F691A2A1A2E00F2F802 /* ViewController.h */,
-				7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */,
 				7CB837301A52F07000A3685E /* Images.xcassets */,
 				7CBF84FD1DC940A200C25068 /* Main.storyboard */,
 				7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */,
@@ -225,6 +276,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7CDD87321DCAC203009EFFED /* TV Photo Chaos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CDD874F1DCAC204009EFFED /* Build configuration list for PBXNativeTarget "TV Photo Chaos" */;
+			buildPhases = (
+				7CDD872F1DCAC203009EFFED /* Sources */,
+				7CDD87301DCAC203009EFFED /* Frameworks */,
+				7CDD87311DCAC203009EFFED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TV Photo Chaos";
+			productName = "TV Photo Chaos";
+			productReference = 7CDD87331DCAC203009EFFED /* TV Photo Chaos.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePicker" */;
@@ -251,6 +319,11 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Robert Zimmelman";
 				TargetAttributes = {
+					7CDD87321DCAC203009EFFED = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8RV36K5JJ4;
+						ProvisioningStyle = Automatic;
+					};
 					7CE53F5E1A2A1A2E00F2F802 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 8RV36K5JJ4;
@@ -272,11 +345,24 @@
 			projectRoot = "";
 			targets = (
 				7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */,
+				7CDD87321DCAC203009EFFED /* TV Photo Chaos */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7CDD87311DCAC203009EFFED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CDD873C1DCAC204009EFFED /* GameScene.sks in Resources */,
+				7CDD873E1DCAC204009EFFED /* Actions.sks in Resources */,
+				7CDD87401DCAC204009EFFED /* Game.xcassets in Resources */,
+				7CDD87491DCAC204009EFFED /* myMain.storyboard in Resources */,
+				7CDD874B1DCAC204009EFFED /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CE53F5D1A2A1A2E00F2F802 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +415,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7CDD872F1DCAC203009EFFED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CDD873A1DCAC204009EFFED /* AppDelegate.m in Sources */,
+				7CDD87371DCAC204009EFFED /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7CE53F5B1A2A1A2E00F2F802 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +438,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7CDD87471DCAC204009EFFED /* myMain.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CDD87481DCAC204009EFFED /* Base */,
+			);
+			name = myMain.storyboard;
+			sourceTree = "<group>";
+		};
 		7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -354,6 +457,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7CDD874D1DCAC204009EFFED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				INFOPLIST_FILE = "TV Photo Chaos/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		7CDD874E1DCAC204009EFFED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				INFOPLIST_FILE = "TV Photo Chaos/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
 		7CE53F801A2A1A2F00F2F802 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -476,6 +620,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7CDD874F1DCAC204009EFFED /* Build configuration list for PBXNativeTarget "TV Photo Chaos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CDD874D1DCAC204009EFFED /* Debug */,
+				7CDD874E1DCAC204009EFFED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7CE53F5A1A2A1A2E00F2F802 /* Build configuration list for PBXProject "myNewImagePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
