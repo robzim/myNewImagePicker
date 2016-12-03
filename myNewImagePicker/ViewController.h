@@ -11,13 +11,14 @@
 @import AVFoundation;
 @import GameKit;
 @import MobileCoreServices;
+@import MediaPlayer;
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate,MPMediaPickerControllerDelegate,AVAudioPlayerDelegate>
 {
 int  myImageNum;
 }
 
-
+@property NSURL *myTempURL;
 
 @property NSNumber *myTimeRemaining;
 @property NSTimer *myCountdownTimer;
@@ -27,6 +28,7 @@ int  myImageNum;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage3;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage4;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage5;
+
 
 
 
@@ -42,6 +44,7 @@ int  myImageNum;
 - (IBAction)pickMyImage4:(id)sender;
 - (IBAction)pickMyImage5:(id)sender;
 - (IBAction)playGame:(id)sender;
+- (IBAction)SelectMusic:(UIButton *)sender;
 
 - (IBAction)quitGame:(id)sender;
 
@@ -58,9 +61,14 @@ int  myImageNum;
 @property (strong,nonatomic) UIImagePickerController *myCameraPicker4;
 @property (strong,nonatomic) UIImagePickerController *myCameraPicker5;
 
+
+//
+//
+// do some tests to see the right way to do this, or else just use nsnotifications
 @property GKScene *mySceneFromTheView;
 @property SKView *myViewFromTheScene;
 
+@property AVAudioPlayer *myAudioPlayer;
 
 
 @end

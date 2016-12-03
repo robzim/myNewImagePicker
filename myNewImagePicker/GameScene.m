@@ -16,13 +16,18 @@ float myImageSpriteDamping = 0.0;
 
 float myRestitution = 0.5;
 
-vector_float2 mySourceVector;
-vector_float2 myDestVector;
+int mySpriteCount = 0;
+
+//vector_float2 mySourceVector;
+//vector_float2 myDestVector;
+
+
+
 
 
 float myImageSpriteMass = 0.5;
-float myImageSpriteRestitution = 0.9;
-float myImageSpriteSize = 100;
+float myImageSpriteRestitution = 0.7;
+float myImageSpriteSize = 0;
 float myPhotoSpriteScale = 1.0;
 
 
@@ -38,7 +43,7 @@ float myColorSpriteRestitution = 0.5;
 int myNumberOfLoopsForSquares = 20;
 
 int myShape = 0;
-
+int myFrameWidth;
 
 //
 int myCircleSpriteSize = 4;
@@ -47,8 +52,10 @@ float myCircleSpriteRestitution = 1.01;
 int myCircleSpriteLoops = 3;
 
 
+int myAllocCount = 0;
+
 dispatch_queue_t myDispatchQueue;
-dispatch_queue_t myColorQueue;
+//dispatch_queue_t myColorQueue;
 
 
 
@@ -62,13 +69,29 @@ dispatch_queue_t myColorQueue;
     UISelectionFeedbackGenerator *myUISelectionFeedbackGenerator;
     UINotificationFeedbackGenerator *myNotificationFeedbackGenerator;
     
+    SKWarpGeometryGrid *myWarpGeometryGrid;
+    SKWarpGeometryGrid *myReverseWarpGeometryGrid;
 }
+
+
+
+
+@synthesize myDropPicturesTimer;
 @synthesize mySpriteImage1, mySpriteImage2, mySpriteImage3, mySpriteImage4, mySpriteImage5;
 @synthesize myImageSprite1, myImageSprite2, myImageSprite3, myImageSprite4, myImageSprite5;
 
+@synthesize myTexture;
+
+@synthesize myTexture1;
+@synthesize myTexture2;
+@synthesize myTexture3;
+@synthesize myTexture4;
+@synthesize myTexture5;
+
+
 @synthesize myImageSpriteAction;
 @synthesize myBG;
-@synthesize myQueue;
+@synthesize myOperationQueue;
 @synthesize myScore;
 @synthesize myHighScore;
 @synthesize mySnowParticle;
@@ -76,67 +99,256 @@ dispatch_queue_t myColorQueue;
 @synthesize myTimeSinceLastFrame;
 @synthesize myLastTimeSample;
 
+@synthesize firstNode;
+@synthesize secondNode;
+
+@synthesize myAudioPlayer;
+@synthesize myAudioLevelLabel;
+@synthesize myInstantPower;
+@synthesize myAveragePower;
+
+@synthesize myTestNumber;
+
+@synthesize myMusicURL;
+//@synthesize myMusicPlayer;
+
+//-(void)didApplyConstraints{
+
+float myLastInstantPower;
+float myPowerDifference;
+//    float myLastAveragePower = myAveragePower;
+    
+    
+    
+//    myInstantPower=0;
+//    myAveragePower=0;
+//    [myAudioPlayer updateMeters];
+//    for (int i = 0 ; i < myAudioPlayer.numberOfChannels;  i++) {
+//        myInstantPower+= [myAudioPlayer peakPowerForChannel:i];
+//        myAveragePower+= [myAudioPlayer averagePowerForChannel:i];
+//    }
+//    myInstantPower = myInstantPower / myAudioPlayer.numberOfChannels;
+//    myAveragePower = myAveragePower / myAudioPlayer.numberOfChannels;
+//    //    }
+//    float myPowerDifference = myLastInstantPower - myInstantPower;
+
+    //        [self myCalculateAudioPeaks];
+    //    [myAudioLevelLabel setText:[NSString stringWithFormat:@"Level = %f dB",myInstantPower]];
+    //    }];
+    
+    //
+    //
+    //
+    //
+    //
+    //   use the excursions (myPowerDifference) to tell the beats regardless of dB
+    //
+//    if (myPowerDifference > 1.0) {
+//        NSLog(@"Instant = %f dB, Avg = %f dB, Diff %f",myInstantPower,myAveragePower,myPowerDifference);
+//    }
+    
+    //    if (myInstantPower > -5.0) {
+//    [self enumerateChildNodesWithName:@"photosprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+//        [node runAction:[SKAction scaleTo:2.0-(myInstantPower/-1.0) duration:0.00]];
+//    }];
+    
+//}
+
+-(void)myAddChild: (SKNode *) theNode{
+    myAllocCount++;
+    NSLog(@"%d Allocs",myAllocCount);
+    [self addChild:theNode];
+}
+
+
 -(void)update:(NSTimeInterval)currentTime{
+    
     myTimeSinceLastFrame = currentTime - myLastTimeSample;
     myLastTimeSample = currentTime;
-    if (myTimeSinceLastFrame > 0.3) {
-        NSLog(@"REMOVING - Slow");
+    //    NSLog(@"T = %f",myTimeSinceLastFrame);
+    if ((myTimeSinceLastFrame > 0.3) && (myTimeSinceLastFrame < 10.0)  ) {
+        NSLog(@"IN UPDATE -- REMOVING - Slow");
+        [myDropPicturesTimer invalidate];
+        [myOperationQueue cancelAllOperations];
+        [myOperationQueue setSuspended:YES];
         [self removeAllChildren];
         [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [myOperationQueue setSuspended:NO];
+        [self myStartDropPicturesTimer];
+    }
+    
+    [self myCalculateAudioPeaks];
+    
+    
+    
+    
+//    NSLog(@"instant Power  %f",myInstantPower);
+//    NSLog(@"Power Difference %f",myPowerDifference);
+    if ((myPowerDifference > 1.0) || (myPowerDifference < -1.0)  ) {
+        [self enumerateChildNodesWithName:@"photosprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+            
+            //
+            //  bump the sizes up and down here
+            float myScaleTo = myInstantPower / 2.0;
+            //
+            [node runAction:[SKAction sequence:@[
+//                                                 [SKAction fadeOutWithDuration:0.0],
+//                                                 //                                                 [SKAction waitForDuration:0.2],
+//                                                 [SKAction fadeInWithDuration:0.0],
+                                                 [SKAction scaleTo:myScaleTo duration:0.0],
+//                                                 [SKAction waitForDuration:0.2],
+                                                 [SKAction scaleTo:1.0 duration:0.0],
+                                                 ]]];
+        }];
+        
+        [self enumerateChildNodesWithName:@"segmentsprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
+            // flash the segments
+            [node runAction:[SKAction sequence:@[
+                                                 [SKAction fadeOutWithDuration:0.0],
+//                                                 [SKAction waitForDuration:0.2],
+                                                 [SKAction fadeInWithDuration:0.0],
+                                                 ]]];
+        }];
+        
     }
 }
 
 
 
+-(void)myCalculateAudioPeaks{
+    myInstantPower=0;
+    [myAudioPlayer updateMeters];
+    for (int i = 0 ; i < myAudioPlayer.numberOfChannels;  i++) {
+        myInstantPower+= [myAudioPlayer peakPowerForChannel:i];
+        //        myAveragePower+= [myAudioPlayer averagePowerForChannel:i];
+    }
+    myInstantPower = myInstantPower / myAudioPlayer.numberOfChannels;
+    //    myAveragePower = myAveragePower / myAudioPlayer.numberOfChannels;
+    myPowerDifference = myInstantPower - myLastInstantPower;
+    myLastInstantPower = myInstantPower;
+    
 
+}
 
 
 -(void)myDropPictures{
-    int myPic = (arc4random()%5)+1;
-    NSLog(@"Picure %d, TimeSinceLastFrame %f",myPic,myTimeSinceLastFrame);
-    switch (myPic) {
-        case 1:
-        {
-            [self myDropPicture1];
-        }
-            break;
-        case 2:
-        {
-            [self myDropPicture2];
-        }
-            break;
-        case 3:
-        {
-            [self myDropPicture3];
-        }
-            break;
-        case 4:
-        {
-            [self myDropPicture4];
-        }
-            break;
-        case 5:
-        {
-            [self myDropPicture5];
-        }
-            break;
-        default:
-            break;
+    if ((myTimeSinceLastFrame > 0.2) && (myTimeSinceLastFrame < 10.0)  ) {
+        NSLog(@"IN DROP PICTURES - REMOVING - Slow");
+        [myOperationQueue cancelAllOperations];
+        [myDropPicturesTimer invalidate];
+        [myOperationQueue setSuspended:YES];
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [myOperationQueue setSuspended:NO];
+        [self myStartDropPicturesTimer];
+        return;
+    } else {
+        int myPic = (arc4random()%5)+1;
+        //    NSLog(@"Picure %d, TimeSinceLastFrame %f",myPic,myTimeSinceLastFrame);
+        [self myDropPictureNumber:myPic];
     }
 }
 
 
 
--(void)didMoveToView:(SKView *)view {
 
+-(void)myStartDropPicturesTimer{
+    myDropPicturesTimer = [NSTimer scheduledTimerWithTimeInterval:3.5 target:self selector:@selector(myDropPictures) userInfo:nil repeats:YES];
+    
+    //    myAudioLevelLabel = [SKLabelNode labelNodeWithText:@"test"];
+    //    [myAudioLevelLabel setPosition:CGPointMake(100.0, 100.0)];
+    //    [myAudioLevelLabel setFontColor:[UIColor whiteColor]];
+    //    [myAudioLevelLabel setZPosition:15.0];
+    //    [myAudioLevelLabel setName:@"test"];
+    //    [self myAddChild:myAudioLevelLabel];
+    
+    
+    
+    
+}
+
+-(void)didMoveToView:(SKView *)view {
+    NSLog(@"Music URL in GameScene.m %@",myMusicURL);
+    [self myStartTheGame];
+}
+
+
+-(void)myStartTheGame{
+//    NSURL *fileURL;
+//    if (myMusicURL) {
+//            fileURL = myMusicURL;
+//    } else {
+//        NSString *soundFilePath =
+//        //    [[NSBundle mainBundle] pathForResource: @"Normalized 03 Respect"
+//        //         [[NSBundle mainBundle] pathForResource: @"Smooth Criminal"
+//        //     [[NSBundle mainBundle] pathForResource: @"01 Welcome to My Life"
+//        
+//        //         [[NSBundle mainBundle] pathForResource: @"Normalized 12 Desafinado"
+//        //         [[NSBundle mainBundle] pathForResource: @"05 Dream On"
+//        [[NSBundle mainBundle] pathForResource: @"Shoot The Planes Intro Music"
+//                                        ofType: @"mp3"];
+//        
+//        
+//        fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+//    }
+//    
+//
+//
+//    NSLog(@"Music URL %@, Test Number %@",myMusicURL,myTestNumber);
+//    AVAudioPlayer *newPlayer =
+////    [[AVAudioPlayer alloc] initWithContentsOfURL: myMusicURL
+//     [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
+//                                           error: nil];
+//    self.myAudioPlayer = newPlayer;
+    
+    
+    
+    
+//    [myAudioPlayer prepareToPlay];
+//    [myAudioPlayer setDelegate: self];
+//    [myAudioPlayer setMeteringEnabled:YES];
+//    [myAudioPlayer setNumberOfLoops:-1];
+//    [myAudioPlayer play];
+    
+    
+    
+    
+    //    myTexture1 = [SKTexture textureWithImage:mySpriteImage1];
+    //    myTexture2 = [SKTexture textureWithImage:mySpriteImage2];
+    //    myTexture3 = [SKTexture textureWithImage:mySpriteImage3];
+    //    myTexture4 = [SKTexture textureWithImage:mySpriteImage4];
+    //    myTexture5 = [SKTexture textureWithImage:mySpriteImage5];
+    
+    
+//    [NSTimer scheduledTimerWithTimeInterval:10.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
+//        NSLog(@"%d Allocs from AddChild Count",mySpriteCount);
+//    }];
+    
+    myFrameWidth = self.view.frame.size.width;
+    myImageSprite1 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage1]];
+
+    myImageSprite2 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage2]];
+
+
+    myImageSprite3 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage3]];
+
+
+    myImageSprite4 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage4]];
+
+
+    myImageSprite5 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage5]];
+
+    
+    
+    
     myHeavyImpactFeedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
     myMediumImpactFeedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
     myLightImpactFeedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
     myUISelectionFeedbackGenerator = [[UISelectionFeedbackGenerator alloc] init];
     myNotificationFeedbackGenerator = [[UINotificationFeedbackGenerator alloc] init];
-//    CGFloat w = (self.size.width + self.size.height) * 0.05;
-
-    myImageSpriteSize = (self.size.width + self.size.height) * 0.08;
+    //    CGFloat w = (self.size.width + self.size.height) * 0.05;
+    
+    myImageSpriteSize = (self.size.width + self.size.height) * 0.1;
     
     struct utsname systemInfo;
     uname(&systemInfo);
@@ -173,24 +385,27 @@ dispatch_queue_t myColorQueue;
     
     //    mySlowMotionMode = FALSE;
     //    myLeaderboardID = @"org.zimmelman.flick_at_photos_high_scores";
-    myQueue = [NSOperationQueue mainQueue];
+    
+    //    myOperationQueue = [NSOperationQueue mainQueue];
     myScore = 0;
     //    [self myMakeScoreLabels];
-    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(myDropPictures) userInfo:nil repeats:YES];
-    mySourceVector = vector2(2.0f, 2.0f);
-    myDestVector = vector2(2.0f, 2.0f);
-        NSString *mySnowParticlePath = [[NSBundle mainBundle] pathForResource:@"mySnowEmitter" ofType:@"sks"];
-        mySnowParticle =  [NSKeyedUnarchiver unarchiveObjectWithFile:mySnowParticlePath];
+    [self myStartDropPicturesTimer];
+//    myDropPicturesTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(myDropPictures) userInfo:nil repeats:YES];
+//    mySourceVector = vector2(2.0f, 2.0f);
+//    myDestVector = vector2(2.0f, 2.0f);
+    NSString *mySnowParticlePath = [[NSBundle mainBundle] pathForResource:@"mySnowEmitter" ofType:@"sks"];
+    mySnowParticle =  [NSKeyedUnarchiver unarchiveObjectWithFile:mySnowParticlePath];
     //
     myDispatchQueue = dispatch_queue_create("myqueue", DISPATCH_QUEUE_CONCURRENT);
-    myColorQueue = dispatch_queue_create("mycolorqueue", DISPATCH_QUEUE_CONCURRENT);
+    //    myColorQueue = dispatch_queue_create("mycolorqueue", DISPATCH_QUEUE_CONCURRENT);
     
-    [self myMakeIntroLabels];
     //        [self makeMyInstructionLabels];
     
-    // rz set the gravity to be light
+    // rz set the gravity to be light   (0.5 looks ok)
+    //    [self.physicsWorld setGravity:CGVectorMake(0.0, -0.5)];
+    [self.physicsWorld setGravity:CGVectorMake(0.0, -2.5)];
+    //    [self.physicsWorld setSpeed:0.1];
     
-    [self.physicsWorld setGravity:CGVectorMake(0.0, -0.5)];
     [self setBackgroundColor:[UIColor blackColor]];
     [self.view setIgnoresSiblingOrder:YES];
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
@@ -199,15 +414,19 @@ dispatch_queue_t myColorQueue;
     self.physicsBody.contactTestBitMask = 0x04;
     self.physicsWorld.contactDelegate = self;
     //
+    [self myMakeIntroLabels];
 }
+
+
 
 -(void)myMakeIntroLabels{
     SKLabelNode *myHoldOnLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
     myHoldOnLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame) + 100 );
+                                         CGRectGetMidY(self.frame) + 100 );
     [myHoldOnLabel setZPosition:20.0];
     myHoldOnLabel.text = @"Hold On...";
-    [self addChild:myHoldOnLabel];
+    [self myAddChild:myHoldOnLabel];
+
     [myHoldOnLabel runAction:[SKAction sequence:@[
                                                   [SKAction waitForDuration:3.0],
                                                   [SKAction group:@[
@@ -222,18 +441,18 @@ dispatch_queue_t myColorQueue;
                                                                         sequence:@[
                                                                                    [SKAction waitForDuration:3.0],
                                                                                    [SKAction fadeAlphaTo:1.0 duration:1.0],
-                                                                                    [SKAction waitForDuration:5.0],
-                                                                                    [SKAction fadeAlphaTo:0.0 duration:3.0],
-                                                                                    [SKAction waitForDuration:60.0],
-                                                                                    ]]];
+                                                                                   [SKAction waitForDuration:5.0],
+                                                                                   [SKAction fadeAlphaTo:0.0 duration:3.0],
+                                                                                   [SKAction waitForDuration:60.0],
+                                                                                   ]]];
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
     myLabel.text = @"Try again with Your Pictures";
     SKLabelNode *my2ndLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
     my2ndLabel.text = @"From the Camera or Library!";
     //
     // set the font size proportional to the image sprite size
-    myLabel.fontSize = myImageSpriteSize/3.0;
-    my2ndLabel.fontSize = myImageSpriteSize/3.0;
+    myLabel.fontSize = myImageSpriteSize/5.0;
+    my2ndLabel.fontSize = myImageSpriteSize/5.0;
     myLabel.horizontalAlignmentMode = my2ndLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     [myLabel setZPosition:20.0];
     [my2ndLabel setZPosition:20.0];
@@ -241,8 +460,11 @@ dispatch_queue_t myColorQueue;
                                    CGRectGetMidY(self.frame) - 100 );
     my2ndLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                       CGRectGetMidY(self.frame) - 160);
-    [self addChild:myLabel];
-    [self addChild:my2ndLabel];
+    [self myAddChild:myLabel];
+
+
+    [self myAddChild:my2ndLabel];
+
     [myLabel setAlpha:0.0];
     [my2ndLabel setAlpha:0.0];
     [myLabel runAction:myIntroHelperLabelAction];
@@ -250,104 +472,121 @@ dispatch_queue_t myColorQueue;
     
 }
 
-
-
-
-- (void)myDropPicture1{
-    myImageSprite1 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage1]];
-    myImageSprite1.position = CGPointMake(CGRectGetMidX(self.frame) - 100, CGRectGetMaxY(self.frame) - myYOffset );
-    //            dispatch_async(myColorQueue, ^{
-    [myImageSprite1 setSize:CGSizeMake(myImageSpriteSize, myImageSpriteSize)];
-    myImageSprite1.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite1.size];
-    myImageSprite1.physicsBody.restitution = myImageSpriteRestitution;
-    myImageSprite1.physicsBody.contactTestBitMask = 0x02;
-    //            [myImageSprite1.physicsBody setMass:myImageSpriteMass];
-    [myImageSprite1 setName:@"photosprite"];
-    [myImageSprite1 runAction:myImageSpriteAction];
-    [self addChild:myImageSprite1];
-    [myImageSprite1.physicsBody setLinearDamping:myImageSpriteDamping];
-    
+-(void)didEvaluateActions{
+    [super didEvaluateActions];
+    if (myTimeSinceLastFrame > 0.2) {
+        NSLog(@"in DIDEVALUATEACTIONS AND Removing Objects: --- SLOW");
+        [myDropPicturesTimer invalidate];
+        [myOperationQueue cancelAllOperations];
+        [myOperationQueue setSuspended:YES];
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [myOperationQueue setSuspended:NO];
+        [self myStartDropPicturesTimer];
+    }
 }
 
--(void)myDropPicture2{
-    myImageSprite2 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage2]];
-    myImageSprite2.position = CGPointMake(CGRectGetMidX(self.frame) - 50, CGRectGetMaxY(self.frame) - myYOffset );
-    //            dispatch_async(myColorQueue, ^{
-    [myImageSprite2 setSize:CGSizeMake(myImageSpriteSize, myImageSpriteSize)];
-    //            });
-    myImageSprite2.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite2.size];
-    myImageSprite2.physicsBody.restitution = myImageSpriteRestitution;
-    myImageSprite2.physicsBody.contactTestBitMask = 0x02;
-    //            [myImageSprite2.physicsBody setMass:myImageSpriteMass];
-    [myImageSprite2 setName:@"photosprite"];
-    [myImageSprite2 runAction:myImageSpriteAction];
-    [self addChild:myImageSprite2];
-    [myImageSprite2.physicsBody setLinearDamping:myImageSpriteDamping];
-    
+-(void)didSimulatePhysics{
+    [super didSimulatePhysics];
+    if (myTimeSinceLastFrame > 0.2) {
+        NSLog(@"in DIDSIMULATEPYSICS AND Removing Objects: --- SLOW");
+        [myDropPicturesTimer invalidate];
+        [myOperationQueue cancelAllOperations];
+        [myOperationQueue setSuspended:YES];
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [myOperationQueue setSuspended:NO];
+        [self myStartDropPicturesTimer];
+    }
 }
 
 
-- (void)myDropPicture3{
-    myImageSprite3 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage3]];
-    myImageSprite3.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame) - myYOffset );
+-(void)myDropPictureNumber: (int) thePictureNumber{
+    
+    // dont drop more than 3 pictures in the scene at once to avoid the memory leak
+    // and dont drop pictures if the frame refresh is getting too slow
+    NSLog(@"Child Count %lu",(unsigned long)self.children.count);
+    if ((myTimeSinceLastFrame > 0.2) || ( self.children.count > 300 ))   {
+        NSLog(@"Returning Early from DropPictureNumber: --- SLOW OR TOO MANY SPRITES");
+        [myOperationQueue cancelAllOperations];
+        [myOperationQueue setSuspended:YES];
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [myOperationQueue setSuspended:NO];
+        return;
+    }
+    myCustomSpriteNode *myPictureSprite = [myCustomSpriteNode alloc];
+
+    switch (thePictureNumber) {
+        case 1:
+            myPictureSprite = [myImageSprite1 copy];
+            break;
+        case 2:
+            myPictureSprite = [myImageSprite2 copy];
+            //            [myPictureSprite setTexture:[SKTexture textureWithImage:mySpriteImage2]];
+            break;
+        case 3:
+            myPictureSprite = [myImageSprite3 copy];
+            //            [myPictureSprite setTexture:[SKTexture textureWithImage:mySpriteImage3]];
+            break;
+        case 4:
+            myPictureSprite = [myImageSprite4 copy];
+            //            [myPictureSprite setTexture:[SKTexture textureWithImage:mySpriteImage4]];
+            break;
+        case 5:
+            myPictureSprite = [myImageSprite5 copy];
+            //            [myPictureSprite setTexture:[SKTexture textureWithImage:mySpriteImage5]];
+            break;
+        default:
+            break;
+    }
+    //    int myRandomMultiplierSeed = arc4random()%2;
+    float myRandomMultiplier = 1.0;
+    //    if (myRandomMultiplierSeed == 1) {
+    //        myRandomMultiplier = -1.0;
+    //    }
+    
+    int myRandomXPosition = (arc4random()%myFrameWidth) * myRandomMultiplier;
+//    NSLog(@"X = %d",myRandomXPosition);
+    myPictureSprite.position = CGPointMake(myRandomXPosition, CGRectGetMaxY(self.frame) - myYOffset );
     //            dispatch_async(myColorQueue, ^{
-    [myImageSprite3 setSize:CGSizeMake(myImageSpriteSize, myImageSpriteSize)];
-    //            });
-    myImageSprite3.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite3.size];
-    myImageSprite3.physicsBody.restitution = myImageSpriteRestitution;
-    myImageSprite3.physicsBody.contactTestBitMask = 0x02;
-    //            [myImageSprite3.physicsBody setMass:myImageSpriteMass];
-    [myImageSprite3 setName:@"photosprite"];
-    [myImageSprite3 runAction:myImageSpriteAction];
-    [self addChild:myImageSprite3];
-    [myImageSprite3.physicsBody setLinearDamping:myImageSpriteDamping];
+    [myPictureSprite setSize:CGSizeMake(myImageSpriteSize, myImageSpriteSize)];
+    myPictureSprite.physicsBody = [ SKPhysicsBody bodyWithCircleOfRadius:myPictureSprite.size.width/2.0];
+    myPictureSprite.physicsBody.restitution = myImageSpriteRestitution;
+    myPictureSprite.physicsBody.contactTestBitMask = 0x02;
+    //            [myPictureSprite.physicsBody setMass:myImageSpriteMass];
+    [myPictureSprite setName:@"photosprite"];
+    [myPictureSprite runAction:myImageSpriteAction];
+    [myPictureSprite setBlendMode:SKBlendModeReplace];
+    [self myAddChild:myPictureSprite];
+
+
+    [myPictureSprite.physicsBody setLinearDamping:myImageSpriteDamping];
     
 }
 
 
-- (void)myDropPicture4{
-    myImageSprite4 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage4]];
-    myImageSprite4.position = CGPointMake(CGRectGetMidX(self.frame) + 50, CGRectGetMaxY(self.frame) - myYOffset );
-    //            dispatch_async(myColorQueue, ^{
-    [myImageSprite4 setSize:CGSizeMake(myImageSpriteSize, myImageSpriteSize)];
-    //            });
+
+
+-(void)myWarpSprite: (myCustomSpriteNode *) theSprite  {
     
-    myImageSprite4.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite4.size];
-    myImageSprite4.physicsBody.restitution = myImageSpriteRestitution;
-    myImageSprite4.physicsBody.contactTestBitMask = 0x02;
-    //    [myImageSprite4.physicsBody setMass:myImageSpriteMass];
-    [myImageSprite4 setName:@"photosprite"];
-    [myImageSprite4 runAction:myImageSpriteAction];
-    [self addChild:myImageSprite4];
-    [myImageSprite4.physicsBody setLinearDamping:myImageSpriteDamping];
+    if (myTimeSinceLastFrame > 0.2) {
+        NSLog(@"Returning Early from WarpSprite --- SLOW");
+        [myOperationQueue cancelAllOperations];
+        [myDropPicturesTimer invalidate];
+        
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [self myStartDropPicturesTimer];
+        return;
+    }
+    int myWarpGeometryGridSize = 3;
     
-}
-
-- (void)myDropPicture5{
-    myImageSprite5 = [SKSpriteNode spriteNodeWithTexture:[ SKTexture textureWithImage:mySpriteImage5]];
-    myImageSprite5.position = CGPointMake(CGRectGetMidX(self.frame) + 100, CGRectGetMaxY(self.frame) - myYOffset );
-    //            dispatch_async(myColorQueue, ^{
-    [myImageSprite5 setSize:CGSizeMake(myImageSpriteSize, myImageSpriteSize)];
-    //            });
-    myImageSprite5.physicsBody = [ SKPhysicsBody bodyWithRectangleOfSize:myImageSprite5.size];
-    myImageSprite5.physicsBody.restitution = myImageSpriteRestitution;
-    myImageSprite5.physicsBody.contactTestBitMask = 0x02;
-    //            [myImageSprite5.physicsBody setMass:myImageSpriteMass];
-    [myImageSprite5 setName:@"photosprite"];
-    [myImageSprite5 runAction:myImageSpriteAction];
-    [self addChild:myImageSprite5];
-    [myImageSprite5.physicsBody setLinearDamping:myImageSpriteDamping];
+    vector_float2 myReferenceGrid[myWarpGeometryGridSize * myWarpGeometryGridSize];
+    vector_float2 mySources[myWarpGeometryGridSize * myWarpGeometryGridSize];
+    vector_float2 myDests[myWarpGeometryGridSize * myWarpGeometryGridSize];
     
-}
-
-
-
--(void)myWarpSprite: (SKSpriteNode *) theSprite  {
-    int myGridSize = 3;
-    vector_float2 myReferenceGrid[myGridSize * myGridSize];
-    vector_float2 mySources[myGridSize * myGridSize];
-    vector_float2 myDests[myGridSize * myGridSize];
-    float myIncrement = 1.0 / myGridSize ;
+    float myIncrement = 1.0 / myWarpGeometryGridSize ;
     float myRandomX;
     float myRandomY;
     int myGridEntry = 0;
@@ -356,9 +595,12 @@ dispatch_queue_t myColorQueue;
     float myDestX;
     float myDestY;
     int myRandomDirection;
-    for (int myRow = myGridSize  ; myRow > 0 ; myRow-- ) {
-        for (int myCol = 0  ; myCol < myGridSize ; myCol++) {
-            myRandomDirection = arc4random()%2;
+    
+    int myRandomDurationSeed = arc4random()%100;
+    float myRandomDuration = (myRandomDurationSeed/100.0)*3.0;
+    
+    for (int myRow = myWarpGeometryGridSize  ; myRow > 0 ; myRow-- ) {
+        for (int myCol = 0  ; myCol < myWarpGeometryGridSize ; myCol++) {
             myRandomX = arc4random()%100;
             myRandomX = (myRandomX / 1000.0) ;
             myRandomY = arc4random()%100;
@@ -380,15 +622,64 @@ dispatch_queue_t myColorQueue;
             } else {
                 myDestY = myGridYValue - myRandomY;
             }
-//            NSLog(@"Source Grid Entry %d X %f  Y %f",myGridEntry,myGridXValue,myGridYValue);
-//            NSLog(@"Destination Grid Entry %d X %f  Y %f",myGridEntry,myDestX,myDestY);
+            //            NSLog(@"Source Grid Entry %d X %f  Y %f",myGridEntry,myGridXValue,myGridYValue);
+            //            NSLog(@"Destination Grid Entry %d X %f  Y %f",myGridEntry,myDestX,myDestY);
             myDests[myGridEntry] = vector2(myDestX,myDestY);
             myGridEntry++;
         }
     }
-    SKWarpGeometryGrid *myWarpGeometryGrid = [SKWarpGeometryGrid gridWithColumns:myGridSize-1 rows:myGridSize-1 sourcePositions:mySources destPositions:myDests];
+    myWarpGeometryGrid = [SKWarpGeometryGrid gridWithColumns:myWarpGeometryGridSize-1 rows:myWarpGeometryGridSize-1 sourcePositions:mySources destPositions:myDests];
+    
+    myReverseWarpGeometryGrid = [SKWarpGeometryGrid gridWithColumns:myWarpGeometryGridSize-1 rows:myWarpGeometryGridSize-1 sourcePositions:myDests destPositions:mySources];
     [theSprite setWarpGeometry:myWarpGeometryGrid];
-    [theSprite runAction:[SKAction warpTo:myWarpGeometryGrid duration:3.0]];
+    
+    int myRandomWarpAction = arc4random()%4;
+    int myRandomSpinDirection = arc4random()%2;
+    float myRandomSpinMultiplier = 1.0;
+    if (myRandomSpinDirection == 1 ) {
+        myRandomSpinMultiplier = -1.0;
+    }
+    
+    // take some pressure off the contact tester in CPU
+    //    [theSprite.physicsBody setDynamic:NO];
+    
+    if (myRandomWarpAction == 0) {
+        [theSprite runAction: [SKAction repeatActionForever:
+                               [SKAction sequence:@[
+                                                    [SKAction warpTo:myWarpGeometryGrid duration:myRandomDuration],
+                                                    [SKAction warpTo:myReverseWarpGeometryGrid duration:2.5],
+                                                    ]]]];
+    } else if (myRandomWarpAction == 1) {
+        [theSprite runAction: [SKAction repeatActionForever:
+                               [SKAction sequence:@[
+                                                    [SKAction warpTo:myWarpGeometryGrid duration:myRandomDuration],
+                                                    [SKAction warpTo:myReverseWarpGeometryGrid duration:1.5],
+                                                    ]]]];
+        
+    } else if (myRandomWarpAction == 2) {
+        [theSprite runAction: [SKAction repeatActionForever:
+                               
+                               [SKAction group:@[
+                                                 
+                                                 
+                                                 [SKAction sequence:@[
+                                                                      [SKAction warpTo:myWarpGeometryGrid duration:myRandomDuration],
+                                                                      [SKAction warpTo:myReverseWarpGeometryGrid duration:myRandomDuration],
+                                                                      ]],
+                                                 [SKAction rotateByAngle:(M_PI * myRandomSpinMultiplier) duration:myRandomDuration],
+                                                 ]]]];
+    } else if (myRandomWarpAction == 3) {
+        [theSprite runAction: [SKAction repeatActionForever:
+                               
+                               [SKAction group:@[
+                                                 [SKAction sequence:@[
+                                                                      [SKAction warpTo:myWarpGeometryGrid duration:0.5],
+                                                                      [SKAction warpTo:myReverseWarpGeometryGrid duration:1.25],
+                                                                      ]],
+                                                 [SKAction rotateByAngle:(M_PI * myRandomSpinMultiplier) duration:2.0],
+                                                 ]]]];
+    }
+    
     
 }
 
@@ -396,9 +687,22 @@ dispatch_queue_t myColorQueue;
 
 
 - (void)didBeginContact:(SKPhysicsContact *)contact {
-    SKNode *firstNode;
-    SKNode *secondNode;
-//    NSArray *myNodes = [NSArray arrayWithObjects:firstNode, secondNode, nil];
+    //    [[NSOperationQueue mainQueue] cancelAllOperations];
+    if (myTimeSinceLastFrame > 0.2) {
+        NSLog(@"Returning Early from DidBeginContact --- SLOW");
+        [myDropPicturesTimer invalidate];
+        [myOperationQueue cancelAllOperations];
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [self myStartDropPicturesTimer];
+        return;
+    }
+    
+    
+    
+    //    SKNode *firstNode;
+    //    SKNode *secondNode;
+    //    NSArray *myNodes = [NSArray arrayWithObjects:firstNode, secondNode, nil];
     if (contact.bodyA.node.physicsBody.contactTestBitMask < contact.bodyB.node.physicsBody.contactTestBitMask) {
         firstNode = contact.bodyA.node;
         secondNode = contact.bodyB.node;
@@ -418,47 +722,55 @@ dispatch_queue_t myColorQueue;
         if ([deviceType isEqualToString:@"iPhone9"]) {
             [myMediumImpactFeedbackGenerator impactOccurred];
         }
+        int myRandomPhotoPhotoAction = arc4random()%3;
         
-//        if (myScore > 0) {
-//            myScore--;
-//        }
-        int myRandomPhotoPhotoAction = arc4random()%2;
         for (SKNode *theNode in [NSArray arrayWithObjects:firstNode,secondNode, nil]) {
             if (myRandomPhotoPhotoAction == 0) {
+                //                [myOperationQueue addOperationWithBlock:^{
+                
                 [theNode  runAction:[SKAction sequence:@[
                                                          [SKAction runBlock:^{
-                    [self myWarpSprite:(SKSpriteNode *) theNode];
+                    [self myWarpSprite:(myCustomSpriteNode *) theNode];
                 }],
                                                          [SKAction waitForDuration:5.0],
                                                          
                                                          [SKAction scaleTo:0.1 duration:0.25],
-                                                         [SKAction group:(NSArray<SKAction *> *)@[
-                                                                                                  [SKAction fadeAlphaTo:0.5 duration:5.0],
-                                                                                                  [SKAction scaleTo:1.0 duration:5.0],
-                                                                                                  ]],
-                                                         // don't remove this because it will eventually
-                                                         // get removed when it gets segmented
-//                                                         [SKAction removeFromParent],
-                                                         ]]];
-            } else if (myRandomPhotoPhotoAction == 1){
+                                                         [SKAction removeFromParent],
+                                                         ]]
+                 //                            withKey:@"warpspriteaction"
+                 ];
+                
+                //                }];
+                
+            }
+            
+            else if (myRandomPhotoPhotoAction == 1){
+                //                [myOperationQueue addOperationWithBlock:^{
                 [theNode  runAction:[SKAction sequence:@[
                                                          [SKAction runBlock:^{
-                    [self myBetterSegmentPhotoAndDrop: (SKSpriteNode *) theNode];
+                    [self myBetterSegmentPhotoAndDrop: (myCustomSpriteNode *) theNode];
                 }],
-                                                         [SKAction scaleTo:1.1 duration:0.1],
                                                          [SKAction waitForDuration:0.1],
-                                                         [SKAction group:(NSArray<SKAction *> *)@[
-                                                                                                  [SKAction fadeAlphaTo:0.1 duration:0.1],
-                                                                                                  [SKAction scaleTo:0.1 duration:0.1],
-                                                                                                  ]],
-                                                         [SKAction removeFromParent],
-                                                         ]]];
+                                                         [SKAction scaleTo:0.1 duration:0.1],
+                                                         [SKAction removeFromParent],]]
+                 ];
+                //                }];
+            }
+            else if (myRandomPhotoPhotoAction == 2){
+                //                [myOperationQueue addOperationWithBlock:^{
+                [theNode  runAction:[SKAction sequence:@[
+                                                         [SKAction runBlock:^{
+                    [self myParticleSystemFromPhoto: (myCustomSpriteNode *) theNode];
+                }],
+                                                         [SKAction waitForDuration:1.0],
+                                                         [SKAction removeFromParent],]]
+                 ];
+                //                }];
             }
         }
     }
     //
     //
-    // flicked sprite = 0x01
     // photo sprite = 0x02
     //
     // wall = 0x04
@@ -470,27 +782,56 @@ dispatch_queue_t myColorQueue;
         if ([deviceType isEqualToString:@"iPhone9"]) {
             [myLightImpactFeedbackGenerator impactOccurred];
         }
-//        else {
-//            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-//        }
-                SKNode *myS = [mySnowParticle copy];
-                [myS setPosition:contact.contactPoint];
-                [self addChild:myS];
-                [myS runAction:[SKAction sequence:@[[SKAction waitForDuration:0.5],
-                                                    [SKAction removeFromParent],]]];
+        //        else {
+        //            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
+        //        }
+        
+        //        dispatch_async(myDispatchQueue, ^{
+        SKNode *myS = [mySnowParticle copy];
+        [myS setPosition:firstNode.position];
+        //        [myS setPosition:contact.contactPoint];
+        [self myAddChild:myS];
+    
+
+        [myS runAction:[SKAction sequence:@[[SKAction waitForDuration:0.5],
+                                            [SKAction removeFromParent],]]];
+        //        });
+        
     }
 }
 
+-(void)myParticleSystemFromPhoto: (myCustomSpriteNode *) thePhoto  {
+    [thePhoto setSize:CGSizeMake(5.0, 5.0)];
+    SKEmitterNode *myPP = [mySnowParticle copy];
+    [myPP setParticleTexture:thePhoto.texture];
+    [myPP setPosition:thePhoto.position];
+    [myPP setZPosition:10.0];
+    [self myAddChild:myPP];
 
 
+    [myPP setParticleBlendMode:SKBlendModeReplace];
+    [myPP runAction:[SKAction sequence:@[
+                                         [SKAction waitForDuration:1.0],
+                                         [SKAction removeFromParent],
+                                         ]]];
+    
+    
+}
 
--(void)myBetterSegmentPhotoAndDrop: (SKSpriteNode *) thePhoto  {
+
+-(void)myBetterSegmentPhotoAndDrop: (myCustomSpriteNode *) thePhoto  {
     if (myTimeSinceLastFrame > 0.2) {
         NSLog(@"Returning Early from Segment --- SLOW");
+        [myOperationQueue cancelAllOperations];
+        [myDropPicturesTimer invalidate];
+        [myOperationQueue setSuspended:YES];
+        [self removeAllChildren];
+        [self setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+        [myOperationQueue setSuspended:NO];
+        [self myStartDropPicturesTimer];
         return;
     }
     // first grab the texture.  we'll use the texture from here on
-    SKTexture *myTexture = [[SKTexture alloc] init];
     myTexture = thePhoto.texture;
     int myRandomMass = arc4random()%10;
     int myRandomGravity = arc4random()%3;
@@ -504,14 +845,18 @@ dispatch_queue_t myColorQueue;
     float myRandomScaleToDuration = arc4random()%100;
     myRandomScaleToDuration = (myRandomScaleToDuration/100.0);
     
-    int myRandomFirstWaitFor = arc4random()%9;
+    float myRandomFirstWaitFor = arc4random()%9;
+    myRandomFirstWaitFor = myRandomFirstWaitFor/10.0;
+    myRandomFirstWaitFor*=2.0;
     float myRandomSecondWaitFor = arc4random()%10;
     myRandomSecondWaitFor = myRandomSecondWaitFor/10.0;
+    myRandomSecondWaitFor*=2.0;
     float myRandomScaleOutDuration = arc4random()%10;
     myRandomScaleOutDuration = myRandomScaleOutDuration/10.0;
     float myRandomIncrement = arc4random()%20;
     myRandomIncrement = (myRandomIncrement/100.0)+0.1;
-    NSLog(@"Mass %d, Drop %d, Increment %f,Segment %d, Colorize %d, 1st Wait %d, Scale %d, Restitution Set %d, Restitution = %f, 2nd Wait %f, Gravity %d, ScaleTo Time %f, ScaleOut Time %f",myRandomMass, myTypeOfDrop, myRandomIncrement, myTypeOfSegment, myTypeOfColorize, myRandomFirstWaitFor, myRandomScaleTo, myRandomRestitutionSet, myRandomRestitution,   myRandomSecondWaitFor, myRandomGravity, myRandomScaleToDuration, myRandomScaleOutDuration);
+    int myRandomGeometryAction = arc4random()%4;
+//    NSLog(@"Mass %d, Drop %d, Increment %f,Segment %d, Colorize %d, 1st Wait %f, Scale %d, Restitution Set %d, Restitution = %f, 2nd Wait %f, Gravity %d, ScaleTo Time %f, ScaleOut Time %f, Geometry Remove %d",myRandomMass, myTypeOfDrop, myRandomIncrement, myTypeOfSegment, myTypeOfColorize, myRandomFirstWaitFor, myRandomScaleTo, myRandomRestitutionSet, myRandomRestitution,   myRandomSecondWaitFor, myRandomGravity, myRandomScaleToDuration, myRandomScaleOutDuration,myRandomGeometryAction);
     CGPoint myPosition = thePhoto.position;
     //    float myIncrement = 0.10;
     float myIncrement = myRandomIncrement;
@@ -520,11 +865,11 @@ dispatch_queue_t myColorQueue;
     //    CGSize myPhotoSize = CGSizeMake(thePhoto.size.width * myIncrement * 2.0, thePhoto.size.height * myIncrement * 2.0 );
     for (float x = 0.0 ; x < 1.0 ; x = x + myIncrement) {
         for (float y = 0.0 ; y < 1.0 ; y = y + myIncrement) {
-            SKSpriteNode *mySegment;
+            myCustomSpriteNode *mySegment;
             if (myTypeOfSegment == 0 ) {
-                mySegment = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithRect:CGRectMake(x, y, myIncrement, myIncrement) inTexture:myTexture]];
+                mySegment = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithRect:CGRectMake(x, y, myIncrement, myIncrement) inTexture:myTexture]];
             } else if (myTypeOfSegment == 1) {
-                mySegment = [SKSpriteNode spriteNodeWithTexture:myTexture];
+                mySegment = [myCustomSpriteNode spriteNodeWithTexture:myTexture];
             }
             if (myTypeOfDrop == 1) {
                 CGVector theOffset = CGVectorMake(x*100.0, y*100.0);
@@ -535,12 +880,19 @@ dispatch_queue_t myColorQueue;
             }
             [mySegment setSize:myPhotoSize];
             [mySegment setPhysicsBody:[SKPhysicsBody bodyWithRectangleOfSize:myPhotoSize]];
+            
+            //            [mySegment setPhysicsBody:[SKPhysicsBody bodyWithCircleOfRadius:myPhotoSize.width/2.0]];
             [mySegment.physicsBody setMass:myRandomMass];
             if (myRandomRestitutionSet == 0) {
                 [mySegment.physicsBody setRestitution:myRandomRestitution];
             }
+            
             if ((mySegment.size.width > 3.0)  && (mySegment.size.width < 150.0))  {
-                [self addChild:mySegment];
+                [mySegment setName:@"segmentsprite"];
+                [mySegment setBlendMode:SKBlendModeReplace];
+                [self myAddChild:mySegment];
+            
+
                 if (myRandomGravity == 0) {
                     [mySegment.physicsBody setAffectedByGravity:NO];
                 }
@@ -550,6 +902,9 @@ dispatch_queue_t myColorQueue;
                 else if (myRandomGravity == 2){
                     [mySegment.physicsBody setMass:-2.0];
                 }
+                
+                
+                
                 if (myTypeOfColorize == 0) {
                     float myRandomRed = arc4random()%100;
                     float myRandomGreen = arc4random()%100;
@@ -562,14 +917,30 @@ dispatch_queue_t myColorQueue;
                     [mySegment setColor:[UIColor colorWithRed:myRandomRed green:myRandomGreen blue:myRandomBlue alpha:1.0]];
                     [mySegment setColorBlendFactor:myRandomColorBlendFactor];
                 }
+                if (myRandomGeometryAction == 0) {
+                    [mySegment runAction:[SKAction sequence:@[
+                                                              [SKAction waitForDuration:0.5],
+                                                              [SKAction runBlock:^{
+                        [mySegment setPhysicsBody:nil];
+                    }],
+                                                              ]]];
+                } else if (myRandomGeometryAction == 1) {
+                    [mySegment runAction:[SKAction sequence:@[
+                                                              [SKAction runBlock:^{
+                        [mySegment setPhysicsBody:[SKPhysicsBody bodyWithCircleOfRadius:mySegment.size.width]];
+                    }],
+                                                              [SKAction waitForDuration:0.1],
+                                                              [SKAction runBlock:^{
+                        // take some pressure off the contact tester
+                        //                        [mySegment.physicsBody setDynamic:NO];
+                    }],
+                                                              ]]];
+                }
                 [mySegment runAction:[SKAction sequence:@[
                                                           [SKAction waitForDuration:myRandomFirstWaitFor],
                                                           [SKAction scaleTo:myRandomScaleTo duration:myRandomScaleToDuration],
                                                           [SKAction waitForDuration:myRandomSecondWaitFor],
-                                                          [SKAction group:@[
-                                                                            [SKAction scaleTo:0.1 duration:myRandomScaleOutDuration],
-                                                                            [SKAction fadeAlphaTo:0.1 duration:myRandomScaleOutDuration],
-                                                                            ]],
+                                                          [SKAction scaleTo:0.1 duration:myRandomScaleOutDuration],
                                                           [SKAction removeFromParent],
                                                           ]]];
             }
@@ -579,42 +950,4 @@ dispatch_queue_t myColorQueue;
 
 @end
 
-//-(void)myKickPictures{
-//    long myTempX = 0;
-//    long myTempY = 0;
-//    myTempX = arc4random_uniform(9)-5l;
-//    myTempY = arc4random_uniform(9)-5l;
-//
-//    //    myTempY = ((arc4random()%5)-3)/10.0;
-//    //    myTempX = ((arc4random()%5)-3)/10.0;
-//    NSLog(@"in myKickPictures, X = %ld, Y = %ld",myTempX,myTempY);
-//    [self enumerateChildNodesWithName:@"photosprite" usingBlock:^(SKNode *node, BOOL *stop){
-//        [node.physicsBody applyImpulse:CGVectorMake(myTempX,myTempY)];
-//    }];
-//}
-//
-//-(void)myKickTextures{
-//    long myTempX = 0;
-//    long myTempY = 0;
-//    myTempX = arc4random_uniform(5)-3l;
-//    myTempY = arc4random_uniform(5)-3l;
-//
-//    //    myTempY = ((arc4random()%3)-2.0)/10.0;
-//    //    myTempX = ((arc4random()%3)-2.0)/10.0;
-//    NSLog(@"in myKickTextures, X = %ld, Y = %ld",myTempX,myTempY);
-//    [self enumerateChildNodesWithName:@"circlesprite" usingBlock:^(SKNode *node, BOOL *stop){
-//        [node.physicsBody applyImpulse:CGVectorMake(myTempX,myTempY)];
-//    }];
-//}
-//
-//-(void)myKickColors{
-//    long myTempX = 0;
-//    long myTempY = 0;
-//    myTempX = arc4random_uniform(3)-2l;
-//    myTempY = arc4random_uniform(3)-2l;
-//    NSLog(@"in myKickColors, X = %ld, Y = %ld",myTempX,myTempY);
-//    [self enumerateChildNodesWithName:@"colorsprite" usingBlock:^(SKNode *node, BOOL *stop){
-//        [node.physicsBody applyImpulse:CGVectorMake(myTempX,myTempY)];
-//    }];
-//}
 

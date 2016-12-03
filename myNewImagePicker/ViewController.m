@@ -32,15 +32,20 @@
 
 @synthesize myImage1, myPicker1, myImage2, myPicker2, myImage3, myPicker3, myImage4, myImage5, myPicker4, myPicker5, myCameraPicker1, myCameraPicker2, myCameraPicker3, myCameraPicker4, myCameraPicker5;
 
+@synthesize myTempURL;
+
 @synthesize myCountdownTimer;
 @synthesize myTimeRemaining;
 
 @synthesize mySceneFromTheView;
 @synthesize myViewFromTheScene;
 
+@synthesize myAudioPlayer;
 
 GameScene *myScene2;
 SKView *myView2;
+
+
 
 
 - (IBAction)unwindToThisViewController:(UIStoryboardSegue *)unwindSegue
@@ -50,14 +55,19 @@ SKView *myView2;
 
 
 -(void)myShowTimesUpController{
-    [myScene2 setPaused:YES];
+    [myScene2 removeAllChildren];
+    [[myScene2 myDropPicturesTimer] invalidate];
     [myCountdownTimer invalidate];
     myCountdownTimer=nil;
+//    [myScene2 removeFromParent];
     UIAlertController *myQuitAlertController = [UIAlertController alertControllerWithTitle:@"Time's UP!" message:@"Do you want to Quit or Continue?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [myScene2 setPaused:NO];
-
+        
         [self myStartCountdownTimer];
+//        [self playGame:self];
+        [myScene2 myStartTheGame];
+//        [myScene2 setPaused:NO];
+//        [myScene2 myStartDropPicturesTimer];
         [[self.view viewWithTag:11111] setHidden:NO];
         [myQuitAlertController removeFromParentViewController];
     }];
@@ -135,7 +145,7 @@ SKView *myView2;
     if ([myTimeRemaining integerValue] <= 0) {
         [self myTimesUpAndReportHighScore];
     }
-    [(SKLabelNode *)  [myScene2 childNodeWithName:@"TimeLabel" ] setText: [NSString stringWithFormat:@"Time = %03ld",(long)myTimeRemaining.integerValue]];
+//    [(SKLabelNode *)  [myScene2 childNodeWithName:@"TimeLabel" ] setText: [NSString stringWithFormat:@"Time = %03ld",(long)myTimeRemaining.integerValue]];
 }
 
 
@@ -150,7 +160,7 @@ SKView *myView2;
 
 
 - (IBAction)playGame:(id)sender {
-
+    
     //  code to play the game here
     SKView *skView = [[SKView alloc] init];
     //
@@ -165,10 +175,12 @@ SKView *myView2;
     //
     
     
-//    [skView setShowsFPS:YES];
-//    [skView setShowsDrawCount:YES];
-//    [skView setShowsNodeCount:YES];
-//    [skView setShowsQuadCount:YES];
+    [skView setShowsFPS:YES];
+    [skView setShowsDrawCount:YES];
+    [skView setShowsNodeCount:YES];
+    [skView setShowsQuadCount:YES];
+    [skView setShouldCullNonVisibleNodes:YES];
+//    [skView setShowsPhysics:YES];
     
     //
     // rz set the images in the scene here
@@ -178,21 +190,143 @@ SKView *myView2;
     [scene setMySpriteImage3:myImage3.image];
     [scene setMySpriteImage4:myImage4.image];
     [scene setMySpriteImage5:myImage5.image];
+    
+    //
+    //
+    //  set up the music player in the scene
+    //
+    NSLog(@"Temp URL in PlayGame %@",myTempURL);
     // Present the scene.
     [self setView:skView];
-    
     [skView presentScene:scene];
     
-    
+    //
+    //
+    // fix this!!
     myView2 = skView;
     myScene2 = scene;
-    
+    //
+    //
+    // these are useless ?
     myViewFromTheScene = skView;
-    mySceneFromTheView = (GKScene *) scene;
+//    mySceneFromTheView = (GameScene *) scene;
+
+    [scene setMyMusicURL:myTempURL];
+    [scene setMyTestNumber:[NSNumber numberWithInt:100]];
+    NSLog(@"Setting Test Number %@",myScene2.myTestNumber);
+    [self myStartCountdownTimer];
+    scene.myAudioPlayer = myAudioPlayer;
+
+}
+
+-(void)myPlayTheMusic{
+    NSURL *fileURL;
+    if (myTempURL) {
+        fileURL = myTempURL;
+    } else {
+        NSString *soundFilePath =
+        //    [[NSBundle mainBundle] pathForResource: @"Normalized 03 Respect"
+        //         [[NSBundle mainBundle] pathForResource: @"Smooth Criminal"
+        //     [[NSBundle mainBundle] pathForResource: @"01 Welcome to My Life"
+        
+        //         [[NSBundle mainBundle] pathForResource: @"Normalized 12 Desafinado"
+        //         [[NSBundle mainBundle] pathForResource: @"05 Dream On"
+        [[NSBundle mainBundle] pathForResource: @"Shoot The Planes Intro Music"
+                                        ofType: @"mp3"];
+        
+        
+        fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    }
+    
+    
+    
+    NSLog(@"Music URL %@",myTempURL);
+    AVAudioPlayer *newPlayer =
+    //    [[AVAudioPlayer alloc] initWithContentsOfURL: myMusicURL
+    [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
+                                           error: nil];
+    self.myAudioPlayer = newPlayer;
+    [myAudioPlayer prepareToPlay];
+    [myAudioPlayer setDelegate: self];
+    [myAudioPlayer setMeteringEnabled:YES];
+    [myAudioPlayer setNumberOfLoops:-1];
+    [myAudioPlayer play];
+
+}
+
+
+-(void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker{
+    myTempURL = [NSURL URLWithString:@"TEST STRING"];
+    NSLog(@"Temp URL in did cancel %@",myTempURL);
+    [mediaPicker dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
+//    [mediaItemCollection enum]
+//    NSLog(@"%@", mediaItemCollection);
+    // here we should have picked one song
+    //
+    
+//    MPMediaItem *item = [[mediaItemCollection items] objectAtIndex:0];
+    MPMediaItem *item = [mediaItemCollection.items  objectAtIndex:0];
+    myTempURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
+    NSLog(@"Media Item Title %@, Temp URL = %@",item.title ,myTempURL);
+    
+    
+    
+    
+    // let's get the song ready to play in the game
+    [mediaPicker dismissViewControllerAnimated:YES completion:^{
+    }];
 
     
-    [self myStartCountdownTimer];
+    
+    //    MPMusicPlayerController *myMusicPlayerController = [MPMusicPlayerController applicationMusicPlayer];
+//    [myMusicPlayerController setQueueWithItemCollection:mediaItemCollection];
+    
+    //
+    
+    
+//    - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) collection {
+//        
+//        
+//        MPMediaItem *item = [[collection items] objectAtIndex:0];
+//        NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
+//        
+//        // Play the item using AVPlayer
+//        self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+//        [self.avAudioPlayer play];
+//    }
 
+    
+    
+    
+    
+    //
+    //
+    //
+    //
+    //
+    //
+    
+    
+    
+    
+//    [myMusicPlayerController play];
+    
+}
+
+
+//- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
+
+- (IBAction)SelectMusic:(UIButton *)sender {
+    
+    MPMediaPickerController *myMediaPickerController = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+    [myMediaPickerController setDelegate:self];
+    [myMediaPickerController setAllowsPickingMultipleItems:NO];
+    [self presentViewController:myMediaPickerController animated:YES completion:nil];
+    
 }
 
 
