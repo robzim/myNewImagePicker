@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="retina3_5" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,23 +18,23 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" tag="10" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-ap-UVn" userLabel="Menu Stack View">
-                                <rect key="frame" x="20.5" y="15" width="279" height="450"/>
+                                <rect key="frame" x="280.5" y="158" width="463" height="1050"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-1p-nKb" userLabel="Pictures Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="450"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="1050"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r2R-OX-D0x" userLabel="Stack View 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="210"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Hv-bOm" userLabel="CamLib1 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnK-R8-FQU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -47,7 +47,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-xa-dLq">
-                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,7 +63,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="etacarinae_hubble_900.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-bR-fjb">
-                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
+                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="t5O-Hl-9tJ">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -76,13 +76,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dlz-HU-JdT" userLabel="Stack View 2">
-                                                <rect key="frame" x="0.0" y="90" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="210" width="358" height="210"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-6O-uGN" userLabel="CamLib2 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-Ck-d9t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,7 +95,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
-                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -111,7 +111,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="hs-2003-28-a-25_percent_jpg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-hW-K2C">
-                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
+                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="bBz-rV-lEC">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -124,13 +124,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-Lh-zQz" userLabel="Stack View 3">
-                                                <rect key="frame" x="0.0" y="180" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="420" width="358" height="210"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-yw-ixl" userLabel="CamLib3 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-Ly-hVS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -143,7 +143,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POI-jt-P8H">
-                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -159,7 +159,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="flame.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-lx-blb">
-                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
+                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="8SD-iT-F8f">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -172,13 +172,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Jk-pg-FXO" userLabel="Stack View 4">
-                                                <rect key="frame" x="0.0" y="270" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="630" width="358" height="210"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-5S-4sF" userLabel="CamLib4 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-V8-JsZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -191,7 +191,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfJ-nA-jwO">
-                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -207,7 +207,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="pia18014-full.png" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Iq-vMw">
-                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
+                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="0L4-cA-dDY">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -220,13 +220,13 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-S0-kEa" userLabel="Stack View 5">
-                                                <rect key="frame" x="0.0" y="360" width="174" height="90"/>
+                                                <rect key="frame" x="0.0" y="840" width="358" height="210"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-no-saf" userLabel="CamLib5 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-Hp-m1x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -239,7 +239,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FH-EyG">
-                                                                <rect key="frame" x="0.0" y="30" width="74" height="60"/>
+                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -255,7 +255,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="Forces Image copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-oL-8X5">
-                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
+                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="X9X-AA-XGs">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -270,7 +270,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-AA-l4v" userLabel="PlayQuit Stack View">
-                                        <rect key="frame" x="194" y="98.5" width="85" height="253"/>
+                                        <rect key="frame" x="378" y="398.5" width="85" height="253"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJn-9N-FmD">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="51"/>
@@ -303,13 +303,15 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-z4-gIu">
-                                <rect key="frame" x="190" y="403" width="120" height="67"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-z4-gIu" userLabel="Leaders Instructions Stack View">
+                                <rect key="frame" x="774" y="1236" width="240" height="120"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-o5-HI5">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="lcB-Xv-XT8"/>
+                                            <constraint firstAttribute="width" constant="120" id="lcB-Xv-XT8">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="240"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Leaders"/>
@@ -321,9 +323,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-Re-3Cw">
-                                        <rect key="frame" x="0.0" y="33" width="120" height="34"/>
+                                        <rect key="frame" x="0.0" y="60" width="240" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="pWT-yM-vf9"/>
+                                            <constraint firstAttribute="width" constant="120" id="pWT-yM-vf9">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="240"/>
+                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="Instructions"/>
@@ -366,11 +370,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EqS-wE-smA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kEq-oV-cNd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzw-e1-9b9">
-                                <rect key="frame" x="10" y="429" width="34" height="41"/>
+                                <rect key="frame" x="10" y="1296" width="55" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="OK"/>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -380,18 +384,11 @@
                                     <segue destination="vlc-Xw-mqG" kind="unwind" unwindAction="unwindToThisViewController:" id="hGg-cG-jrS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-wz-HIM">
-                                <rect key="frame" x="10" y="50" width="300" height="380"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Choose photos from your library or take pictures with your camera.  Press the Go button and watch the craziness as YOUR PICTURES fly around each other and create chaos!</string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="72" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-wz-HIM">
+                                <rect key="frame" x="10.5" y="281" width="1003" height="804.5"/>
+                                <string key="text">Press the Music button to choose music from your iTunes Library.  Press the Photos button to choose photos from your Photos Library or the Camera button to use a picture.  Press the Go button and watch YOUR PICTURES fly around each other and create chaos when they collide!</string>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="72"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <string key="userLabel">Choose photos from your library or take pictures with your camera.  Then Press the Play button and your photos will be in the game.  Flick a fireball at your photos and watch them break up into little pieces, or watch your photos hit each other and do crazy things!</string>
                             </label>

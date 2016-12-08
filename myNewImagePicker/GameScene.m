@@ -108,6 +108,7 @@ dispatch_queue_t myDispatchQueue;
 @synthesize myAveragePower;
 
 @synthesize myTestNumber;
+@synthesize myTestInt;
 
 @synthesize myMusicURL;
 //@synthesize myMusicPlayer;
@@ -151,14 +152,28 @@ float myPowerDifference;
 //    [self enumerateChildNodesWithName:@"photosprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
 //        [node runAction:[SKAction scaleTo:2.0-(myInstantPower/-1.0) duration:0.00]];
 //    }];
-    
 //}
 
--(void)myAddChild: (SKNode *) theNode{
+
+-(void)addChild:(SKNode *)node{
     myAllocCount++;
+    [super addChild:node];
     NSLog(@"%d Allocs",myAllocCount);
-    [self addChild:theNode];
 }
+
+-(void)copy:(id)sender{
+    myAllocCount++;
+    [super copy:(id)sender];
+    NSLog(@"%d Allocs",myAllocCount);
+}
+
+
+
+//-(void)myAddChild: (SKNode *) theNode{
+//    myAllocCount++;
+//    NSLog(@"%d Allocs",myAllocCount);
+//    [self addChild:theNode];
+//}
 
 
 -(void)update:(NSTimeInterval)currentTime{
@@ -184,18 +199,15 @@ float myPowerDifference;
     
 //    NSLog(@"instant Power  %f",myInstantPower);
 //    NSLog(@"Power Difference %f",myPowerDifference);
-    if ((myPowerDifference > 1.0) || (myPowerDifference < -1.0)  ) {
+    if ((myPowerDifference > 0.5) || (myPowerDifference < -0.5)  ) {
         [self enumerateChildNodesWithName:@"photosprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
             
             //
             //  bump the sizes up and down here
-            float myScaleTo = myInstantPower / 2.0;
+            float myScaleTo =   fabs(myInstantPower / 2.0);
             //
             [node runAction:[SKAction sequence:@[
-//                                                 [SKAction fadeOutWithDuration:0.0],
-//                                                 //                                                 [SKAction waitForDuration:0.2],
-//                                                 [SKAction fadeInWithDuration:0.0],
-                                                 [SKAction scaleTo:myScaleTo duration:0.0],
+                                                 [SKAction scaleTo:myScaleTo duration:0.1],
 //                                                 [SKAction waitForDuration:0.2],
                                                  [SKAction scaleTo:1.0 duration:0.0],
                                                  ]]];
@@ -206,7 +218,7 @@ float myPowerDifference;
             [node runAction:[SKAction sequence:@[
                                                  [SKAction fadeOutWithDuration:0.0],
 //                                                 [SKAction waitForDuration:0.2],
-                                                 [SKAction fadeInWithDuration:0.0],
+                                                 [SKAction fadeInWithDuration:0.1],
                                                  ]]];
         }];
         
@@ -268,47 +280,48 @@ float myPowerDifference;
 }
 
 -(void)didMoveToView:(SKView *)view {
-    NSLog(@"Music URL in GameScene.m %@",myMusicURL);
     [self myStartTheGame];
 }
 
 
 -(void)myStartTheGame{
-//    NSURL *fileURL;
-//    if (myMusicURL) {
-//            fileURL = myMusicURL;
-//    } else {
-//        NSString *soundFilePath =
-//        //    [[NSBundle mainBundle] pathForResource: @"Normalized 03 Respect"
-//        //         [[NSBundle mainBundle] pathForResource: @"Smooth Criminal"
-//        //     [[NSBundle mainBundle] pathForResource: @"01 Welcome to My Life"
-//        
-//        //         [[NSBundle mainBundle] pathForResource: @"Normalized 12 Desafinado"
-//        //         [[NSBundle mainBundle] pathForResource: @"05 Dream On"
-//        [[NSBundle mainBundle] pathForResource: @"Shoot The Planes Intro Music"
-//                                        ofType: @"mp3"];
-//        
-//        
-//        fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-//    }
-//    
-//
-//
-//    NSLog(@"Music URL %@, Test Number %@",myMusicURL,myTestNumber);
-//    AVAudioPlayer *newPlayer =
-////    [[AVAudioPlayer alloc] initWithContentsOfURL: myMusicURL
-//     [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
-//                                           error: nil];
-//    self.myAudioPlayer = newPlayer;
     
     
     
+    NSLog(@"My Test Int %d   My Test Number %@ in GameScene.m",myTestInt,myTestNumber);
+    NSLog(@"Music URL in GameScene.m %@",myMusicURL);
     
-//    [myAudioPlayer prepareToPlay];
-//    [myAudioPlayer setDelegate: self];
-//    [myAudioPlayer setMeteringEnabled:YES];
-//    [myAudioPlayer setNumberOfLoops:-1];
-//    [myAudioPlayer play];
+    NSURL *fileURL;
+    if (myMusicURL) {
+            fileURL = myMusicURL;
+    } else {
+        NSString *soundFilePath =
+//            [[NSBundle mainBundle] pathForResource: @"Normalized 03 Respect"
+        //         [[NSBundle mainBundle] pathForResource: @"Smooth Criminal"
+        //     [[NSBundle mainBundle] pathForResource: @"01 Welcome to My Life"
+        
+        //         [[NSBundle mainBundle] pathForResource: @"Normalized 12 Desafinado"
+        //         [[NSBundle mainBundle] pathForResource: @"05 Dream On"
+        [[NSBundle mainBundle] pathForResource: @"Shoot The Planes Intro Music"
+                                        ofType: @"mp3"];
+        
+        
+        fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    }
+    
+
+
+    NSLog(@"Music URL %@, Test Number %@",myMusicURL,myTestNumber);
+    AVAudioPlayer *newPlayer =
+//    [[AVAudioPlayer alloc] initWithContentsOfURL: myMusicURL
+     [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
+                                           error: nil];
+    self.myAudioPlayer = newPlayer;
+    [myAudioPlayer prepareToPlay];
+    [myAudioPlayer setDelegate: self];
+    [myAudioPlayer setMeteringEnabled:YES];
+    [myAudioPlayer setNumberOfLoops:-1];
+    [myAudioPlayer play];
     
     
     
@@ -326,19 +339,10 @@ float myPowerDifference;
     
     myFrameWidth = self.view.frame.size.width;
     myImageSprite1 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage1]];
-
     myImageSprite2 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage2]];
-
-
     myImageSprite3 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage3]];
-
-
     myImageSprite4 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage4]];
-
-
     myImageSprite5 = [myCustomSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:mySpriteImage5]];
-
-    
     
     
     myHeavyImpactFeedbackGenerator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
@@ -396,7 +400,7 @@ float myPowerDifference;
     NSString *mySnowParticlePath = [[NSBundle mainBundle] pathForResource:@"mySnowEmitter" ofType:@"sks"];
     mySnowParticle =  [NSKeyedUnarchiver unarchiveObjectWithFile:mySnowParticlePath];
     //
-    myDispatchQueue = dispatch_queue_create("myqueue", DISPATCH_QUEUE_CONCURRENT);
+//    myDispatchQueue = dispatch_queue_create("myqueue", DISPATCH_QUEUE_CONCURRENT);
     //    myColorQueue = dispatch_queue_create("mycolorqueue", DISPATCH_QUEUE_CONCURRENT);
     
     //        [self makeMyInstructionLabels];
@@ -425,7 +429,7 @@ float myPowerDifference;
                                          CGRectGetMidY(self.frame) + 100 );
     [myHoldOnLabel setZPosition:20.0];
     myHoldOnLabel.text = @"Hold On...";
-    [self myAddChild:myHoldOnLabel];
+    [self addChild:myHoldOnLabel];
 
     [myHoldOnLabel runAction:[SKAction sequence:@[
                                                   [SKAction waitForDuration:3.0],
@@ -446,9 +450,9 @@ float myPowerDifference;
                                                                                    [SKAction waitForDuration:60.0],
                                                                                    ]]];
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-    myLabel.text = @"Try again with Your Pictures";
+    myLabel.text = @"Try with YOUR Pictures";
     SKLabelNode *my2ndLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-    my2ndLabel.text = @"From the Camera or Library!";
+    my2ndLabel.text = @"and YOUR Music!";
     //
     // set the font size proportional to the image sprite size
     myLabel.fontSize = myImageSpriteSize/5.0;
@@ -460,10 +464,10 @@ float myPowerDifference;
                                    CGRectGetMidY(self.frame) - 100 );
     my2ndLabel.position = CGPointMake(CGRectGetMidX(self.frame),
                                       CGRectGetMidY(self.frame) - 160);
-    [self myAddChild:myLabel];
+    [self addChild:myLabel];
 
 
-    [self myAddChild:my2ndLabel];
+    [self addChild:my2ndLabel];
 
     [myLabel setAlpha:0.0];
     [my2ndLabel setAlpha:0.0];
@@ -505,7 +509,7 @@ float myPowerDifference;
     
     // dont drop more than 3 pictures in the scene at once to avoid the memory leak
     // and dont drop pictures if the frame refresh is getting too slow
-    NSLog(@"Child Count %lu",(unsigned long)self.children.count);
+//    NSLog(@"Child Count %lu",(unsigned long)self.children.count);
     if ((myTimeSinceLastFrame > 0.2) || ( self.children.count > 300 ))   {
         NSLog(@"Returning Early from DropPictureNumber: --- SLOW OR TOO MANY SPRITES");
         [myOperationQueue cancelAllOperations];
@@ -558,7 +562,7 @@ float myPowerDifference;
     [myPictureSprite setName:@"photosprite"];
     [myPictureSprite runAction:myImageSpriteAction];
     [myPictureSprite setBlendMode:SKBlendModeReplace];
-    [self myAddChild:myPictureSprite];
+    [self addChild:myPictureSprite];
 
 
     [myPictureSprite.physicsBody setLinearDamping:myImageSpriteDamping];
@@ -686,7 +690,7 @@ float myPowerDifference;
 
 
 
-- (void)didBeginContact:(SKPhysicsContact *)contact {
+- (void)didEndContact:(SKPhysicsContact *)contact {
     //    [[NSOperationQueue mainQueue] cancelAllOperations];
     if (myTimeSinceLastFrame > 0.2) {
         NSLog(@"Returning Early from DidBeginContact --- SLOW");
@@ -697,12 +701,6 @@ float myPowerDifference;
         [self myStartDropPicturesTimer];
         return;
     }
-    
-    
-    
-    //    SKNode *firstNode;
-    //    SKNode *secondNode;
-    //    NSArray *myNodes = [NSArray arrayWithObjects:firstNode, secondNode, nil];
     if (contact.bodyA.node.physicsBody.contactTestBitMask < contact.bodyB.node.physicsBody.contactTestBitMask) {
         firstNode = contact.bodyA.node;
         secondNode = contact.bodyB.node;
@@ -711,7 +709,6 @@ float myPowerDifference;
         secondNode = contact.bodyA.node;
     }
     
-    // flicked sprite = 0x01
     // photo sprite = 0x02
     //
     // wall = 0x04
@@ -782,21 +779,11 @@ float myPowerDifference;
         if ([deviceType isEqualToString:@"iPhone9"]) {
             [myLightImpactFeedbackGenerator impactOccurred];
         }
-        //        else {
-        //            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate);
-        //        }
-        
-        //        dispatch_async(myDispatchQueue, ^{
         SKNode *myS = [mySnowParticle copy];
         [myS setPosition:firstNode.position];
-        //        [myS setPosition:contact.contactPoint];
-        [self myAddChild:myS];
-    
-
+        [self addChild:myS];
         [myS runAction:[SKAction sequence:@[[SKAction waitForDuration:0.5],
                                             [SKAction removeFromParent],]]];
-        //        });
-        
     }
 }
 
@@ -806,16 +793,12 @@ float myPowerDifference;
     [myPP setParticleTexture:thePhoto.texture];
     [myPP setPosition:thePhoto.position];
     [myPP setZPosition:10.0];
-    [self myAddChild:myPP];
-
-
+    [self addChild:myPP];
     [myPP setParticleBlendMode:SKBlendModeReplace];
     [myPP runAction:[SKAction sequence:@[
                                          [SKAction waitForDuration:1.0],
                                          [SKAction removeFromParent],
                                          ]]];
-    
-    
 }
 
 
@@ -890,7 +873,7 @@ float myPowerDifference;
             if ((mySegment.size.width > 3.0)  && (mySegment.size.width < 150.0))  {
                 [mySegment setName:@"segmentsprite"];
                 [mySegment setBlendMode:SKBlendModeReplace];
-                [self myAddChild:mySegment];
+                [self addChild:mySegment];
             
 
                 if (myRandomGravity == 0) {

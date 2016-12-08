@@ -64,10 +64,7 @@ SKView *myView2;
     UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
         [self myStartCountdownTimer];
-//        [self playGame:self];
         [myScene2 myStartTheGame];
-//        [myScene2 setPaused:NO];
-//        [myScene2 myStartDropPicturesTimer];
         [[self.view viewWithTag:11111] setHidden:NO];
         [myQuitAlertController removeFromParentViewController];
     }];
@@ -145,7 +142,6 @@ SKView *myView2;
     if ([myTimeRemaining integerValue] <= 0) {
         [self myTimesUpAndReportHighScore];
     }
-//    [(SKLabelNode *)  [myScene2 childNodeWithName:@"TimeLabel" ] setText: [NSString stringWithFormat:@"Time = %03ld",(long)myTimeRemaining.integerValue]];
 }
 
 
@@ -172,17 +168,19 @@ SKView *myView2;
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     [scene setSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFit;
-    //
     
-    
-    [skView setShowsFPS:YES];
-    [skView setShowsDrawCount:YES];
-    [skView setShowsNodeCount:YES];
-    [skView setShowsQuadCount:YES];
+    [scene setMyMusicURL:myTempURL];
+    [scene setMyTestNumber:[NSNumber numberWithInt:100]];
+    NSLog(@"Setting Test Number %@",scene.myTestNumber);
+    [scene setMyTestInt:10];
+    NSLog(@"Setting Test Int %d",scene.myTestInt);
+    scene.myAudioPlayer = myAudioPlayer;
+//    [skView setShowsFPS:YES];
+//    [skView setShowsDrawCount:YES];
+//    [skView setShowsNodeCount:YES];
+//    [skView setShowsQuadCount:YES];
     [skView setShouldCullNonVisibleNodes:YES];
 //    [skView setShowsPhysics:YES];
-    
-    //
     // rz set the images in the scene here
     //
     [scene setMySpriteImage1:myImage1.image];
@@ -190,17 +188,15 @@ SKView *myView2;
     [scene setMySpriteImage3:myImage3.image];
     [scene setMySpriteImage4:myImage4.image];
     [scene setMySpriteImage5:myImage5.image];
-    
     //
     //
-    //  set up the music player in the scene
-    //
-    NSLog(@"Temp URL in PlayGame %@",myTempURL);
-    // Present the scene.
+    //  set the view to the SpriteKit View (skView)
     [self setView:skView];
-    [skView presentScene:scene];
-    
     //
+    //
+    //  let the skView (SpriteKit View) present the scene
+    //
+    [skView presentScene:scene];
     //
     // fix this!!
     myView2 = skView;
@@ -209,14 +205,7 @@ SKView *myView2;
     //
     // these are useless ?
     myViewFromTheScene = skView;
-//    mySceneFromTheView = (GameScene *) scene;
-
-    [scene setMyMusicURL:myTempURL];
-    [scene setMyTestNumber:[NSNumber numberWithInt:100]];
-    NSLog(@"Setting Test Number %@",myScene2.myTestNumber);
     [self myStartCountdownTimer];
-    scene.myAudioPlayer = myAudioPlayer;
-
 }
 
 -(void)myPlayTheMusic{
@@ -261,63 +250,23 @@ SKView *myView2;
     [mediaPicker dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
+
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
-//    [mediaItemCollection enum]
-//    NSLog(@"%@", mediaItemCollection);
-    // here we should have picked one song
-    //
-    
-//    MPMediaItem *item = [[mediaItemCollection items] objectAtIndex:0];
     MPMediaItem *item = [mediaItemCollection.items  objectAtIndex:0];
-    myTempURL = [item valueForProperty:MPMediaItemPropertyAssetURL];
-    NSLog(@"Media Item Title %@, Temp URL = %@",item.title ,myTempURL);
+//    NSLog(@"Media Item in DidPickMediaItems %@",item);
+    myTempURL = [item valueForProperty: MPMediaItemPropertyAssetURL];
+//    NSLog (@"URL from Library  %@", myTempURL);
     
-    
-    
-    
+//    NSLog(@"Media Item Title in DidPickMediaItems %@, Temp URL = %@",item.title ,myReallyTempURL);
+    NSLog(@"Media Item Title in DidPickMediaItems %@, URL = %@",item.title ,item.assetURL);
+
     // let's get the song ready to play in the game
     [mediaPicker dismissViewControllerAnimated:YES completion:^{
+        
     }];
-
-    
-    
-    //    MPMusicPlayerController *myMusicPlayerController = [MPMusicPlayerController applicationMusicPlayer];
-//    [myMusicPlayerController setQueueWithItemCollection:mediaItemCollection];
-    
-    //
-    
-    
-//    - (void) mediaPicker: (MPMediaPickerController *) mediaPicker didPickMediaItems: (MPMediaItemCollection *) collection {
-//        
-//        
-//        MPMediaItem *item = [[collection items] objectAtIndex:0];
-//        NSURL *url = [item valueForProperty:MPMediaItemPropertyAssetURL];
-//        
-//        // Play the item using AVPlayer
-//        self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-//        [self.avAudioPlayer play];
-//    }
-
-    
-    
-    
-    
-    //
-    //
-    //
-    //
-    //
-    //
-    
-    
-    
-    
-//    [myMusicPlayerController play];
-    
 }
-
-
-//- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
 
 - (IBAction)SelectMusic:(UIButton *)sender {
@@ -329,12 +278,6 @@ SKView *myView2;
     
 }
 
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 - (IBAction)SelectMyImage1FromLib:(id)sender {

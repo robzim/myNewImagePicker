@@ -49,7 +49,7 @@
 @property myCustomSpriteNode  *myImageSprite5;
 
 
-@property SKSpriteNode *myBG;
+@property myCustomSpriteNode *myBG;
 
 @property NSOperationQueue *myOperationQueue;
 
@@ -66,6 +66,7 @@
 @property AVAudioPlayer *myAudioPlayer;
 
 @property NSNumber *myTestNumber;
+@property int myTestInt;
 
 @property NSURL *myMusicURL;
 //@property AVAudioPlayer *myMusicPlayer;
