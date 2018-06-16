@@ -9,5 +9,5 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface myCustomSpriteNode : SKSpriteNode
-
+@property int myResizeValue;
 @end

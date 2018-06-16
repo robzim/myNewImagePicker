@@ -10,6 +10,7 @@
 #import "GameScene.h"
 
 
+
 @implementation SKScene (Unarchive)
 
 + (instancetype)unarchiveFromFile:(NSString *)file {
@@ -34,17 +35,343 @@
 
 @synthesize myTempURL;
 
-@synthesize myCountdownTimer;
 @synthesize myTimeRemaining;
 
-@synthesize mySceneFromTheView;
-@synthesize myViewFromTheScene;
+//@synthesize mySceneFromTheView;
+//@synthesize myViewFromTheScene;
 
-@synthesize myAudioPlayer;
+@synthesize myPhotos;
+@synthesize myImageManager;
 
 GameScene *myScene2;
 SKView *myView2;
 
+bool myTestMode = NO;
+
+bool myRandomImagesFlag = NO;
+
+float myWidth;
+float myViewImageSize;
+
+
+
+-(void)myRemoveImageObservers{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage1" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage2" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage3" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage4" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage5" object:nil];
+    
+}
+
+
+-(void)myAddImageObservers{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myAssignImage1:) name:@"assignimage1" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myAssignImage2:) name:@"assignimage2" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myAssignImage3:) name:@"assignimage3" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myAssignImage4:) name:@"assignimage4" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myAssignImage5:) name:@"assignimage5" object:nil];
+}
+
+
+-(void)viewDidLoad{
+        [super viewDidLoad];
+    
+    
+    myWidth = self.view.bounds.size.width;
+    myViewImageSize = myWidth / 4.0;
+    NSLog(@"Width = %f",myWidth);
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+    
+    myPhotos = [[PHFetchResult alloc] init];
+    //    PHFetchResult *myAlbums = [[PHFetchResult alloc] init];
+    //    PHFetchResult *myCollections = [[PHFetchResult alloc] init];
+    PHFetchOptions *myFetchOptions = [[PHFetchOptions alloc] init];
+    
+    [myFetchOptions setSortDescriptors:(NSArray<NSSortDescriptor *> * _Nullable) @[
+                                                                                   [NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES selector:NULL]]];
+    myPhotos = [PHAsset fetchAssetsWithOptions:myFetchOptions];
+    if (myPhotos.count != 0) {
+        if (myTestMode) {
+            [self myListAllPhotoAssets];
+        }
+        myImageManager = [[PHImageManager alloc] init];
+        [self myAssignImages:self.view];
+    }
+}
+
+-(IBAction) myAssignImage1: (id) sender {
+    NSLog(@"View Controller in Assign Image 1");
+    if (myPhotos.count<=4) {
+        UIAlertController *myNoPhotosAlertController = [UIAlertController alertControllerWithTitle:@"Photos Library" message:@"Grant Access to the Photos Library.  Go to Settings, then to Apps Meny then Select 'TV Photo Chaos' and make sure that 'Always' is selected. Then you will see YOUR PHOTOS in the Game." preferredStyle:UIAlertControllerStyleAlert];
+        [myNoPhotosAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self showViewController:myNoPhotosAlertController sender:self];
+    } else {
+        [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                [myImage1 setImage:result];
+                [myScene2 setMySpriteImage1:myImage1.image];
+            } else {
+                NSLog(@"error retreiving photo");
+            }
+            
+        }];
+    }
+}
+
+
+
+
+
+-(IBAction) myAssignImage2: (id) sender {
+    if (myPhotos.count<=4) {
+        UIAlertController *myNoPhotosAlertController = [UIAlertController alertControllerWithTitle:@"Photos Library" message:@"Grant Access to the Photos Library.  Go to Settings, then to Apps Meny then Select 'TV Photo Chaos' and make sure that 'Always' is selected. Then you will see YOUR PHOTOS in the Game." preferredStyle:UIAlertControllerStyleAlert];
+        [myNoPhotosAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self showViewController:myNoPhotosAlertController sender:self];
+    } else {
+        
+        [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                [myImage2 setImage:result];
+                [myScene2 setMySpriteImage2:myImage2.image];
+            } else {
+                NSLog(@"error retreiving photo");
+            }
+        }];
+    }
+}
+
+
+
+
+-(IBAction) myAssignImage3: (id) sender {
+    if (myPhotos.count<=4) {
+        UIAlertController *myNoPhotosAlertController = [UIAlertController alertControllerWithTitle:@"Photos Library" message:@"Grant Access to the Photos Library.  Go to Settings, then to Apps Meny then Select 'TV Photo Chaos' and make sure that 'Always' is selected. Then you will see YOUR PHOTOS in the Game." preferredStyle:UIAlertControllerStyleAlert];
+        [myNoPhotosAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self showViewController:myNoPhotosAlertController sender:self];
+    } else {
+        [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                [myImage3 setImage:result];
+                [myScene2 setMySpriteImage3:myImage3.image];
+            } else {
+                NSLog(@"error retreiving photo");
+            }
+        }];
+    }
+    
+}
+
+
+-(IBAction) myAssignImage4: (id) sender {
+    if (myPhotos.count<=4) {
+        UIAlertController *myNoPhotosAlertController = [UIAlertController alertControllerWithTitle:@"Photos Library" message:@"Grant Access to the Photos Library.  Go to Settings, then to Apps Meny then Select 'TV Photo Chaos' and make sure that 'Always' is selected. Then you will see YOUR PHOTOS in the Game." preferredStyle:UIAlertControllerStyleAlert];
+        [myNoPhotosAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self showViewController:myNoPhotosAlertController sender:self];
+    }
+    else {
+        [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                [myImage4 setImage:result];
+                [myScene2 setMySpriteImage4:myImage4.image];
+            } else {
+                NSLog(@"error retreiving photo");
+            }
+        }];
+    }
+}
+
+
+-(IBAction) myAssignImage5: (id) sender {
+    if (myPhotos.count<=4) {
+        UIAlertController *myNoPhotosAlertController = [UIAlertController alertControllerWithTitle:@"Photos Library" message:@"Grant Access to the Photos Library.  Go to Settings, then to Apps Meny then Select 'TV Photo Chaos' and make sure that 'Always' is selected. Then you will see YOUR PHOTOS in the Game." preferredStyle:UIAlertControllerStyleAlert];
+        [myNoPhotosAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self showViewController:myNoPhotosAlertController sender:self];
+    }
+    else {
+        [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            if (result) {
+                [myImage5 setImage:result];
+                [myScene2 setMySpriteImage5:myImage5.image];
+            } else {
+                NSLog(@"error retreiving photo");
+            }
+        }];
+    }
+}
+
+- (IBAction)myPickFiveImages:(UIButton *)sender {
+    //
+    // this is when the user presses the 'Refresh' button
+    //
+    [self myAssignImage1:self];
+    [self myAssignImage2:self];
+    [self myAssignImage3:self];
+    [self myAssignImage4:self];
+    [self myAssignImage5:self];
+
+}
+
+- (IBAction)mySetRandomImages:(id)sender {
+    //
+    // this is when the user presses the 'Random' button
+    [self myPlayGame:self withRandomImages:YES];
+}
+
+- (IBAction)mySetNoRandomImages:(UIButton *)sender {
+    //
+    //
+    // this is when the user presses the 'Go' button
+    [self myPlayGame:self withRandomImages:NO];
+}
+
+-(IBAction) myAssignImages: (id) sender {
+    if (myPhotos.count<=4) {
+        UIAlertController *myNoPhotosAlertController = [UIAlertController alertControllerWithTitle:@"Photos Library" message:@"Grant Access to the Photos Library.  Go to Settings, then to Apps Meny then Select 'TV Photo Chaos' and make sure that 'Always' is selected. Then you will see YOUR PHOTOS in the Game." preferredStyle:UIAlertControllerStyleAlert];
+        [myNoPhotosAlertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self showViewController:myNoPhotosAlertController sender:self];
+    }
+    if (myPhotos.count > 4) {
+        //    [myPhotos enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        //        NSLog(@"Object: %@",  (PHAsset *)  obj   );
+        //        NSLog(@"Description: %@, #%ld",  (PHAsset *)  [obj description], idx   );
+        //    }];
+        //    NSLog(@"Photos: %@",myPhotos.description);
+        //
+        //    NSLog(@"Photos First Object: %@",myPhotos.firstObject);
+        
+        [self myAssignImage1:self];
+        [self myAssignImage2:self];
+        [self myAssignImage3:self];
+        [self myAssignImage4:self];
+        [self myAssignImage5:self];
+        [myScene2 myAssignImage1];
+        [myScene2 myAssignImage2];
+        [myScene2 myAssignImage3];
+        [myScene2 myAssignImage4];
+        [myScene2 myAssignImage5];
+    }
+    
+}
+
+
+
+
+
+-(void)photoLibraryDidChange:(PHChange *)changeInstance{
+    NSLog(@"View Controller - Photo Library Changed");
+}
+
+
+-(void)myListAllPhotoAssets{
+    [myPhotos enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%@",obj);
+    }];
+}
+
+
+-(void)myFetchPhotosFromLibrary{
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
+    
+    myPhotos = [[PHFetchResult alloc] init];
+    //    PHFetchResult *myAlbums = [[PHFetchResult alloc] init];
+    //    PHFetchResult *myCollections = [[PHFetchResult alloc] init];
+    PHFetchOptions *myFetchOptions = [[PHFetchOptions alloc] init];
+    
+    [myFetchOptions setSortDescriptors:(NSArray<NSSortDescriptor *> * _Nullable) @[
+                                                                                   [NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES selector:NULL]]];
+    myPhotos = [PHAsset fetchAssetsWithOptions:myFetchOptions];
+    
+    if (myPhotos.count != 0) {
+        if (myTestMode) {
+            [self myListAllPhotoAssets];
+        }
+        
+        myImageManager = [[PHImageManager alloc] init];
+        
+        [self myAssignImages:self.view];
+    }
+}
+
+
+
+-(void)myShowQuitAlertController{
+    NSLog(@" in myShowQuitAlertController");
+//    UIAlertController *myQuitAlertController = [UIAlertController alertControllerWithTitle:@"How May I Help You?" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *myQuitAlertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+//    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Drop a Picture Now" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        int myRandomPictureNumber = arc4random()%5;
+//        [myScene2 myDropPictureNumber:myRandomPictureNumber];
+//    }]];
+    
+    
+    
+//    [myQuitAlertController.view setTransform:CGAffineTransformMakeScale(0.5, 0.5)];
+    
+    
+    
+    
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Resume Dropping Pictures" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[myScene2 myDropPicturesTimer] invalidate];
+        [myScene2 myStartDropPicturesTimer];
+    }]];
+
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Use 5 New Random Photos" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 myAssignImage1];
+        [myScene2 myAssignImage2];
+        [myScene2 myAssignImage3];
+        [myScene2 myAssignImage4];
+        [myScene2 myAssignImage5];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Use ALL of your Photos" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 setMyAllRandomImagesFlag:YES];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Choose A Song" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self SelectMusic:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"selectedmusic" object:nil];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Pause / Resume Music" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 myPlayPause];
+        //        [[NSNotificationCenter defaultCenter] postNotificationName:@"playpause" object:nil];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Restart Music"
+                                                              style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                                  [myScene2 myRestartTheMusic];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"restartmusic" object:nil];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Size on Music Power Change" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 setMyResizeMethod:2];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Size on Music Instant Power" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 setMyResizeMethod:1];
+    }]];
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Don't Resize to Music" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [myScene2 setMyResizeMethod:0];
+        //
+    }]];
+    if (myScene2.myOSVersion >= 10) {
+        [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Vibrate/Don't Vibrate iPhone7"
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    if (myScene2.myVibrateFlag == YES) {
+                                                                        myScene2.myVibrateFlag = NO;
+                                                                        NSLog(@"Turn Off Vibrate");
+                                                                    }
+                                                                    else {
+                                                                        myScene2.myVibrateFlag = YES;
+                                                                        NSLog(@"Turn On Vibrate");
+                                                                    }
+                                                                    return;
+                                                                }]];
+    }
+    [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Quit" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        exit(0);
+    }]];
+    [self showViewController:myQuitAlertController sender:nil];
+}
 
 
 
@@ -57,13 +384,13 @@ SKView *myView2;
 -(void)myShowTimesUpController{
     [myScene2 removeAllChildren];
     [[myScene2 myDropPicturesTimer] invalidate];
-    [myCountdownTimer invalidate];
-    myCountdownTimer=nil;
-//    [myScene2 removeFromParent];
+//    [myCountdownTimer invalidate];
+//    myCountdownTimer=nil;
+    //    [myScene2 removeFromParent];
     UIAlertController *myQuitAlertController = [UIAlertController alertControllerWithTitle:@"Time's UP!" message:@"Do you want to Quit or Continue?" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Continue" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
-        [self myStartCountdownTimer];
+//        [self myStartCountdownTimer];
         [myScene2 myStartTheGame];
         [[self.view viewWithTag:11111] setHidden:NO];
         [myQuitAlertController removeFromParentViewController];
@@ -77,10 +404,6 @@ SKView *myView2;
         [[[self view]viewWithTag:99999] setHidden:YES];
         //
         //
-        //
-        //  this is meant to re-start gameplay
-        // from Shoot The Planes (myDropSpaceShips starts the dropping of the ships)
-        //        [myScene2 myDropSpaceships];
     }];
     
     //Do something interesting here.
@@ -88,74 +411,10 @@ SKView *myView2;
     
 }
 
--(void)myReportHighScore {
-    if (myScene2.myScore > myScene2.myHighScore) {
-        UIAlertController *myReportHighScoreAlert = [UIAlertController alertControllerWithTitle:@"Report Score?" message:@"Would you like to report your Score?" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *myCancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [myReportHighScoreAlert removeFromParentViewController];
-            [self myStartCountdownTimer];
-        }];
-        UIAlertAction *myDefaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"want to repot high score %d",myScene2.myScore);
-            {
-                int64_t score = myScene2.myScore;
-                GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier: @"org.zimmelman.flick_at_photos_high_scores"];
-                scoreReporter.value = score;
-                scoreReporter.context = 0;
-                
-                NSArray *scores = @[scoreReporter];
-                [GKScore reportScores:scores withCompletionHandler:^(NSError *error) {
-                    //Do something interesting here.
-                    NSLog(@"Completed Reporting Scores");
-                }];
-            }
-            
-            //        [myReportScoreForLeaderboardID:@"org.zimmelman.flick_at_photos_high_scores"];
-        }];
-        [myReportHighScoreAlert addAction:myDefaultAction];
-        [myReportHighScoreAlert addAction:myCancelAction];
-        [self presentViewController:myReportHighScoreAlert animated:YES completion:^{
-            NSLog(@"Reported High Score");
-            
-        } ];
-        //
-        //
-        //
-    }
+
+- (IBAction)myPlayGame: (id) sender withRandomImages: (BOOL)myRandomImagesFlag{
     
-    
-    
-}
-
-
-
--(void)myTimesUpAndReportHighScore{
-    if (myScene2.myScore > myScene2.myHighScore) {
-        [self myReportHighScore];
-    }
-    [self myShowTimesUpController];
-}
-
-
--(void)myDoTimeLoop{
-    [self setMyTimeRemaining: [NSNumber numberWithInteger: [myTimeRemaining integerValue] - 1]];
-    if ([myTimeRemaining integerValue] <= 0) {
-        [self myTimesUpAndReportHighScore];
-    }
-}
-
-
--(void)myStartCountdownTimer{
-    // set time remaining low for testing
-        [self setMyTimeRemaining:[NSNumber numberWithInteger:120]];
-//    [self setMyTimeRemaining:[NSNumber numberWithInteger:15]];
-//    [self setMyTimeRemaining:[NSNumber numberWithInteger:60]];
-    myCountdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(myDoTimeLoop) userInfo:nil repeats:YES];
-}
-
-
-
-- (IBAction)playGame:(id)sender {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myShowQuitAlertController) name:@"quitnotifictaion" object:nil];
     
     //  code to play the game here
     SKView *skView = [[SKView alloc] init];
@@ -168,19 +427,12 @@ SKView *myView2;
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     [scene setSize:self.view.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFit;
-    
+    [scene setMyResizeMethod:2];
     [scene setMyMusicURL:myTempURL];
     [scene setMyTestNumber:[NSNumber numberWithInt:100]];
     NSLog(@"Setting Test Number %@",scene.myTestNumber);
     [scene setMyTestInt:10];
     NSLog(@"Setting Test Int %d",scene.myTestInt);
-    scene.myAudioPlayer = myAudioPlayer;
-//    [skView setShowsFPS:YES];
-//    [skView setShowsDrawCount:YES];
-//    [skView setShowsNodeCount:YES];
-//    [skView setShowsQuadCount:YES];
-    [skView setShouldCullNonVisibleNodes:YES];
-//    [skView setShowsPhysics:YES];
     // rz set the images in the scene here
     //
     [scene setMySpriteImage1:myImage1.image];
@@ -189,6 +441,8 @@ SKView *myView2;
     [scene setMySpriteImage4:myImage4.image];
     [scene setMySpriteImage5:myImage5.image];
     //
+    
+
     //
     //  set the view to the SpriteKit View (skView)
     [self setView:skView];
@@ -202,45 +456,62 @@ SKView *myView2;
     myView2 = skView;
     myScene2 = scene;
     //
-    //
-    // these are useless ?
-    myViewFromTheScene = skView;
-    [self myStartCountdownTimer];
-}
+    
+    myScene2.mySceneImageSize = myWidth/4.0;
+    
+    myScene2.myImage1Flag=myImage1.isHighlighted?0:1;
+    myScene2.myImage2Flag=myImage2.isHighlighted?0:1;
+    myScene2.myImage3Flag=myImage3.isHighlighted?0:1;
+    myScene2.myImage4Flag=myImage4.isHighlighted?0:1;
+    myScene2.myImage5Flag=myImage5.isHighlighted?0:1;
+ 
+//    NSLog(@"Flag 1 %d",myScene2.myImage1Flag);
+//    NSLog(@"Flag 2 %d",myScene2.myImage2Flag);
+//    NSLog(@"Flag 3 %d",myScene2.myImage3Flag);
+//    NSLog(@"Flag 4 %d",myScene2.myImage4Flag);
+//    NSLog(@"Flag 5 %d",myScene2.myImage5Flag);
 
--(void)myPlayTheMusic{
-    NSURL *fileURL;
-    if (myTempURL) {
-        fileURL = myTempURL;
-    } else {
-        NSString *soundFilePath =
-        //    [[NSBundle mainBundle] pathForResource: @"Normalized 03 Respect"
-        //         [[NSBundle mainBundle] pathForResource: @"Smooth Criminal"
-        //     [[NSBundle mainBundle] pathForResource: @"01 Welcome to My Life"
-        
-        //         [[NSBundle mainBundle] pathForResource: @"Normalized 12 Desafinado"
-        //         [[NSBundle mainBundle] pathForResource: @"05 Dream On"
-        [[NSBundle mainBundle] pathForResource: @"Shoot The Planes Intro Music"
-                                        ofType: @"mp3"];
-        
-        
-        fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    NSMutableArray *myTempArray = [[NSMutableArray alloc] init];
+    if (myScene2.myImage1Flag == 1) {
+        [myTempArray addObject:[NSNumber numberWithInt:1]];
     }
     
-    
-    
-    NSLog(@"Music URL %@",myTempURL);
-    AVAudioPlayer *newPlayer =
-    //    [[AVAudioPlayer alloc] initWithContentsOfURL: myMusicURL
-    [[AVAudioPlayer alloc] initWithContentsOfURL: fileURL
-                                           error: nil];
-    self.myAudioPlayer = newPlayer;
-    [myAudioPlayer prepareToPlay];
-    [myAudioPlayer setDelegate: self];
-    [myAudioPlayer setMeteringEnabled:YES];
-    [myAudioPlayer setNumberOfLoops:-1];
-    [myAudioPlayer play];
+    if (myScene2.myImage2Flag == 1) {
+        [myTempArray addObject:[NSNumber numberWithInt:2]];
+    }
+    if (myScene2.myImage3Flag == 1) {
+        [myTempArray addObject:[NSNumber numberWithInt:3]];
+    }
+    if (myScene2.myImage4Flag == 1) {
+        [myTempArray addObject:[NSNumber numberWithInt:4]];
+    }
+    if (myScene2.myImage5Flag == 1) {
+        [myTempArray addObject:[NSNumber numberWithInt:5]];
+    }
 
+//    NSLog(@"Pictures Array %@",myTempArray);
+    
+    myScene2.myPicturesArray = [myTempArray copy];
+    
+    
+    
+    //
+    // these are useless ?
+//    myViewFromTheScene = skView;
+    
+    if (myRandomImagesFlag) {
+        [scene setMyAllRandomImagesFlag:YES];
+    } else {
+        [scene setMyAllRandomImagesFlag:NO];
+    }
+
+    
+}
+
+
+- (IBAction)myPlayGameWithRandomPictures:(UIButton *)sender {
+    [myScene2 setMyVibrateFlag:YES];
+    [self myPlayGame:self withRandomImages:YES];
 }
 
 
@@ -255,29 +526,29 @@ SKView *myView2;
 
 -(void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
     MPMediaItem *item = [mediaItemCollection.items  objectAtIndex:0];
-//    NSLog(@"Media Item in DidPickMediaItems %@",item);
+    //    NSLog(@"Media Item in DidPickMediaItems %@",item);
     myTempURL = [item valueForProperty: MPMediaItemPropertyAssetURL];
-//    NSLog (@"URL from Library  %@", myTempURL);
-    
-//    NSLog(@"Media Item Title in DidPickMediaItems %@, Temp URL = %@",item.title ,myReallyTempURL);
+    //    NSLog (@"URL from Library  %@", myTempURL);
+    myScene2.myMusicURL = myTempURL;
+    //    NSLog(@"Media Item Title in DidPickMediaItems %@, Temp URL = %@",item.title ,myReallyTempURL);
     NSLog(@"Media Item Title in DidPickMediaItems %@, URL = %@",item.title ,item.assetURL);
-
     // let's get the song ready to play in the game
     [mediaPicker dismissViewControllerAnimated:YES completion:^{
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"musicselected" object:nil];
     }];
 }
 
 
+
 - (IBAction)SelectMusic:(UIButton *)sender {
-    
     MPMediaPickerController *myMediaPickerController = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+//    MPMediaQuery *myMediaQuery = [MPMediaQuery songsQuery];
     [myMediaPickerController setDelegate:self];
     [myMediaPickerController setAllowsPickingMultipleItems:NO];
+    [myMediaPickerController setShowsCloudItems:NO];
+    [myMediaPickerController setPrompt:@"Pick a Song!"];
     [self presentViewController:myMediaPickerController animated:YES completion:nil];
-    
 }
-
 
 
 - (IBAction)SelectMyImage1FromLib:(id)sender {
@@ -314,7 +585,7 @@ SKView *myView2;
     myPicker5.allowsEditing = YES;
     [myPicker5 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:myPicker5 animated:YES completion:nil];
-
+    
 }
 
 - (IBAction)SelectMyImage4FromLib:(id)sender {
@@ -329,15 +600,15 @@ SKView *myView2;
 - (IBAction)pickMyImage1:(id)sender {
     myImageNum = 1 ;
     ///
-//    NSLog(@"just before the test");
+    //    NSLog(@"just before the test");
     bool myTest1 = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
     myCameraPicker1 = [[ UIImagePickerController alloc] init];
-//    NSLog(@"mytest1 = %o",myTest1);
+    //    NSLog(@"mytest1 = %o",myTest1);
     myCameraPicker1.delegate = self;
     myCameraPicker1.allowsEditing = YES;
-//    NSLog(@"before camera avail check");
+    //    NSLog(@"before camera avail check");
     if (myTest1) {
-//        NSLog(@"setting to camera");
+        //        NSLog(@"setting to camera");
         [myCameraPicker1 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else {
@@ -345,7 +616,7 @@ SKView *myView2;
         UIAlertAction *myAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [myAlertController addAction:myAlertAction];
         [self presentViewController:myAlertController animated:YES completion:nil ];
-//        NSLog(@"setting to photo library");
+        //        NSLog(@"setting to photo library");
         [myCameraPicker1 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     [self presentViewController:myCameraPicker1 animated:YES completion:nil];
@@ -421,8 +692,8 @@ SKView *myView2;
     myCameraPicker5.delegate = self;
     myCameraPicker5.allowsEditing = YES;
     if (myTest1) {
-
-//        [myCameraPicker5 setMediaTypes:@[  ]];
+        
+        //        [myCameraPicker5 setMediaTypes:@[  ]];
         [myCameraPicker5 setSourceType:UIImagePickerControllerSourceTypeCamera];
     }
     else
@@ -434,14 +705,51 @@ SKView *myView2;
         [myCameraPicker5 setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }
     [self presentViewController:myCameraPicker5 animated:YES completion:nil];
+}
 
+- (IBAction)removeMyImage1:(id)sender {
+    if (myImage1.isHighlighted) {
+        [myImage1 setHighlighted:NO];
+    } else {
+        [myImage1 setHighlighted:YES];
+    }
+}
+
+- (IBAction)removeMyImage2:(id)sender {
+    if (myImage2.isHighlighted) {
+        [myImage2 setHighlighted:NO];
+    } else {
+        [myImage2 setHighlighted:YES];
+    }
+}
+
+- (IBAction)removeMyImage3:(id)sender {
+    if (myImage3.isHighlighted) {
+        [myImage3 setHighlighted:NO];
+    } else {
+        [myImage3 setHighlighted:YES];
+    }
+}
+
+- (IBAction)removeMyImage4:(id)sender {
+    if (myImage4.isHighlighted) {
+        [myImage4 setHighlighted:NO];
+    } else {
+        [myImage4 setHighlighted:YES];
+    }
+}
+
+- (IBAction)removeMyImage5:(id)sender {
+    if (myImage5.isHighlighted) {
+        [myImage5 setHighlighted:NO];
+    } else {
+        [myImage5 setHighlighted:YES];
+    }
 }
 
 
 
 - (IBAction)quitGame:(id)sender {
-    
-    
     exit(0);
 }
 

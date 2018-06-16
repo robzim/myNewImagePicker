@@ -12,8 +12,10 @@
 @import GameKit;
 @import MobileCoreServices;
 @import MediaPlayer;
+@import Photos;
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate,MPMediaPickerControllerDelegate,AVAudioPlayerDelegate>
+
+@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate,MPMediaPickerControllerDelegate,AVAudioPlayerDelegate,PHPhotoLibraryChangeObserver>
 {
 int  myImageNum;
 }
@@ -21,7 +23,7 @@ int  myImageNum;
 @property NSURL *myTempURL;
 
 @property NSNumber *myTimeRemaining;
-@property NSTimer *myCountdownTimer;
+//@property NSTimer *myCountdownTimer;
 
 @property (weak, nonatomic) IBOutlet UIImageView *myImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage2;
@@ -29,8 +31,11 @@ int  myImageNum;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage4;
 @property (weak, nonatomic) IBOutlet UIImageView *myImage5;
 
+@property PHFetchResult *myPhotos;
+@property PHImageManager *myImageManager;
+- (IBAction)myPickFiveImages:(UIButton *)sender;
 
-
+- (IBAction)mySetRandomImages:(UIButton *)sender;
 
 - (IBAction)SelectMyImage1FromLib:(id)sender;
 - (IBAction)SelectMyImage2FromLib:(id)sender;
@@ -43,7 +48,21 @@ int  myImageNum;
 - (IBAction)pickMyImage3:(id)sender;
 - (IBAction)pickMyImage4:(id)sender;
 - (IBAction)pickMyImage5:(id)sender;
-- (IBAction)playGame:(id)sender;
+
+- (IBAction)removeMyImage1:(id)sender;
+
+- (IBAction)removeMyImage2:(id)sender;
+
+- (IBAction)removeMyImage3:(id)sender;
+
+- (IBAction)removeMyImage4:(id)sender;
+
+- (IBAction)removeMyImage5:(id)sender;
+
+- (IBAction)mySetNoRandomImages:(UIButton *)sender;
+- (IBAction)myPlayGame: (id) sender withRandomImages: (BOOL)myRandomImagesFlag;
+- (IBAction)myPlayGameWithRandomPictures:(UIButton *)sender;
+
 - (IBAction)SelectMusic:(UIButton *)sender;
 
 - (IBAction)quitGame:(id)sender;
@@ -65,11 +84,14 @@ int  myImageNum;
 //
 //
 // do some tests to see the right way to do this, or else just use nsnotifications
-@property GKScene *mySceneFromTheView;
-@property SKView *myViewFromTheScene;
+//@property GKScene *mySceneFromTheView;
+//@property SKView *myViewFromTheScene;
 
-@property AVAudioPlayer *myAudioPlayer;
 
+//@property AVAudioPlayer *myAudioPlayer;
+
+//- (IBAction)myMusicOnOff:(UIButton *)sender;
+//@property (weak, nonatomic) IBOutlet UIButton *myMusicOnOffButton;
 
 @end
 

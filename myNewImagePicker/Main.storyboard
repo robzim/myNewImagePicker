@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="ipad12_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,52 +18,68 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" tag="10" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-ap-UVn" userLabel="Menu Stack View">
-                                <rect key="frame" x="280.5" y="158" width="463" height="1050"/>
+                            <stackView opaque="NO" tag="10" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-ap-UVn" userLabel="Menu Stack View">
+                                <rect key="frame" x="27" y="59" width="267" height="450"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-1p-nKb" userLabel="Pictures Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="358" height="1050"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="174" height="450"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r2R-OX-D0x" userLabel="Stack View 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="358" height="210"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Hv-bOm" userLabel="CamLib1 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Hv-bOm" userLabel="CamLib1 Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnK-R8-FQU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
                                                                 <state key="normal" title="Camera">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="pickMyImage1:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="WA0-yi-Rul"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-xa-dLq">
-                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                <state key="normal" title="Library">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-ik-N4H">
+                                                                <rect key="frame" x="0.0" y="27" width="74" height="36"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Remove">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <action selector="removeMyImage1:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="f0j-ty-DTV"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-xa-dLq">
+                                                                <rect key="frame" x="0.0" y="53" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Library">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="SelectMyImage1FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8ys-bO-PxF"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
-                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="etacarinae_hubble_900.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-bR-fjb">
-                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
+                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="etacarinae_hubble_900.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-bR-fjb">
+                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="t5O-Hl-9tJ">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -74,44 +90,61 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dlz-HU-JdT" userLabel="Stack View 2">
-                                                <rect key="frame" x="0.0" y="210" width="358" height="210"/>
+                                                <rect key="frame" x="0.0" y="90" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-6O-uGN" userLabel="CamLib2 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-6O-uGN" userLabel="CamLib2 Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-Ck-d9t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
                                                                 <state key="normal" title="Camera">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="pickMyImage2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iXd-cy-rK7"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
-                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                <state key="normal" title="Library">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-0p-WrL">
+                                                                <rect key="frame" x="0.0" y="27" width="74" height="36"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Remove">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <action selector="removeMyImage2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pJ2-OF-8Gb"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
+                                                                <rect key="frame" x="0.0" y="53" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Library">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="SelectMyImage2FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4Wz-0K-HhO"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
-                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="hs-2003-28-a-25_percent_jpg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-hW-K2C">
-                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
+                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="hs-2003-28-a-25_percent_jpg.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-hW-K2C">
+                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="bBz-rV-lEC">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -122,44 +155,61 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-Lh-zQz" userLabel="Stack View 3">
-                                                <rect key="frame" x="0.0" y="420" width="358" height="210"/>
+                                                <rect key="frame" x="0.0" y="180" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-yw-ixl" userLabel="CamLib3 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-yw-ixl" userLabel="CamLib3 Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-Ly-hVS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
                                                                 <state key="normal" title="Camera">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="pickMyImage3:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d2f-yk-sw1"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POI-jt-P8H">
-                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                <state key="normal" title="Library">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQl-zP-WOZ">
+                                                                <rect key="frame" x="0.0" y="27" width="74" height="36"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Remove">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <action selector="removeMyImage3:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1JK-MQ-IMs"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POI-jt-P8H">
+                                                                <rect key="frame" x="0.0" y="53" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Library">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="SelectMyImage3FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ghv-e7-Y0F"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
-                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="flame.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-lx-blb">
-                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
+                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="flame.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-lx-blb">
+                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="8SD-iT-F8f">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -170,44 +220,61 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Jk-pg-FXO" userLabel="Stack View 4">
-                                                <rect key="frame" x="0.0" y="630" width="358" height="210"/>
+                                                <rect key="frame" x="0.0" y="270" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-5S-4sF" userLabel="CamLib4 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-5S-4sF" userLabel="CamLib4 Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-V8-JsZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
                                                                 <state key="normal" title="Camera">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="pickMyImage4:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Nd8-D1-VIo"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfJ-nA-jwO">
-                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                <state key="normal" title="Library">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwI-to-DpU">
+                                                                <rect key="frame" x="0.0" y="27" width="74" height="36"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Remove">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <action selector="removeMyImage4:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="F7P-Me-oF4"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfJ-nA-jwO">
+                                                                <rect key="frame" x="0.0" y="53" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Library">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="SelectMyImage4FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4fP-9f-UYp"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
-                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="pia18014-full.png" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Iq-vMw">
-                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
+                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="pia18014-full.png" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Iq-vMw">
+                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="0L4-cA-dDY">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -218,44 +285,61 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-S0-kEa" userLabel="Stack View 5">
-                                                <rect key="frame" x="0.0" y="840" width="358" height="210"/>
+                                                <rect key="frame" x="0.0" y="360" width="174" height="90"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-30" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-no-saf" userLabel="CamLib5 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="210"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-no-saf" userLabel="CamLib5 Stack View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="90"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-Hp-m1x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
                                                                 <state key="normal" title="Camera">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="pickMyImage5:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d4C-SK-fdB"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FH-EyG">
-                                                                <rect key="frame" x="0.0" y="55" width="138" height="155"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                <state key="normal" title="Library">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-TE-1bF">
+                                                                <rect key="frame" x="0.0" y="27" width="74" height="36"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Remove">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <action selector="removeMyImage5:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cuo-xn-KyW"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FH-EyG">
+                                                                <rect key="frame" x="0.0" y="53" width="74" height="37"/>
+                                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="34"/>
+                                                                <state key="normal" title="Library">
+                                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular-widthClass=regular">
+                                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="64"/>
                                                                 </variation>
                                                                 <connections>
                                                                     <action selector="SelectMyImage5FromLib:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="4ZQ-dw-yyI"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-100"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
-                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="Forces Image copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-oL-8X5">
-                                                        <rect key="frame" x="148" y="0.0" width="210" height="210"/>
+                                                    <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="Forces Image copy.png" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-oL-8X5">
+                                                        <rect key="frame" x="84" y="0.0" width="90" height="90"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="90" id="X9X-AA-XGs">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -266,35 +350,65 @@
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-AA-l4v" userLabel="PlayQuit Stack View">
-                                        <rect key="frame" x="378" y="398.5" width="85" height="253"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-AA-l4v" userLabel="PlayQuit Stack View">
+                                        <rect key="frame" x="184" y="104" width="83" height="243"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJn-9N-FmD">
-                                                <rect key="frame" x="0.0" y="0.0" width="85" height="51"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJn-9N-FmD">
+                                                <rect key="frame" x="0.0" y="0.0" width="83" height="57"/>
+                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="38"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                                <state key="normal" title="Go"/>
+                                                <state key="normal" title="Go">
+                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                                </variation>
                                                 <connections>
-                                                    <action selector="playGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7V6-tn-P1q"/>
+                                                    <action selector="mySetNoRandomImages:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="75S-Vv-5e4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lS-Hb-k4S">
-                                                <rect key="frame" x="0.0" y="101" width="85" height="51"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1S-Lg-rTE">
+                                                <rect key="frame" x="0.0" y="62" width="83" height="57"/>
+                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="38"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                                <state key="normal" title="Music"/>
+                                                <state key="normal" title="Refresh">
+                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                                </variation>
                                                 <connections>
-                                                    <action selector="SelectMusic:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uFI-S3-mgF"/>
+                                                    <action selector="myPickFiveImages:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xMA-Gg-RRc"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-Cr-Obz">
-                                                <rect key="frame" x="0.0" y="202" width="85" height="51"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FE-5a-Mkr">
+                                                <rect key="frame" x="0.0" y="124" width="83" height="57"/>
+                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="38"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
-                                                <state key="normal" title="Quit"/>
+                                                <state key="normal" title="Random">
+                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="mySetRandomImages:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oOc-rG-Ihv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-Cr-Obz">
+                                                <rect key="frame" x="0.0" y="186" width="83" height="57"/>
+                                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="38"/>
+                                                <size key="titleShadowOffset" width="7" height="10"/>
+                                                <state key="normal" title="Quit">
+                                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <variation key="heightClass=regular-widthClass=regular">
+                                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                                </variation>
                                                 <connections>
                                                     <action selector="quitGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mwj-sd-qU7"/>
                                                 </connections>
@@ -302,37 +416,33 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <variation key="heightClass=regular-widthClass=regular" spacing="100"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-z4-gIu" userLabel="Leaders Instructions Stack View">
-                                <rect key="frame" x="774" y="1236" width="240" height="120"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-z4-gIu" userLabel="Music Instructions Stack View">
+                                <rect key="frame" x="217" y="434" width="73" height="124"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-o5-HI5">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="lcB-Xv-XT8">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="240"/>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Leaders"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lS-Hb-k4S">
+                                        <rect key="frame" x="0.0" y="0.0" width="73" height="57"/>
+                                        <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                        <size key="titleShadowOffset" width="7" height="10"/>
+                                        <state key="normal" title="Music">
+                                            <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="38"/>
                                         </variation>
                                         <connections>
-                                            <action selector="ShowLeaderboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="asA-b5-FA2"/>
+                                            <action selector="SelectMusic:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uFI-S3-mgF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-Re-3Cw">
-                                        <rect key="frame" x="0.0" y="60" width="240" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="pWT-yM-vf9">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="240"/>
-                                            </constraint>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="Instructions"/>
+                                        <rect key="frame" x="15" y="67" width="58" height="57"/>
+                                        <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                        <state key="normal" title="Help">
+                                            <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <variation key="heightClass=regular-widthClass=compact">
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="38"/>
                                         </variation>
                                         <connections>
                                             <segue destination="b0V-ZQ-lRF" kind="presentation" id="Ot0-cd-9sw"/>
@@ -343,9 +453,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Q3f-z4-gIu" secondAttribute="trailing" constant="10" id="cy9-VL-Ra2"/>
-                            <constraint firstItem="FJX-ap-UVn" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="f37-zw-ORU"/>
-                            <constraint firstItem="FJX-ap-UVn" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="k7R-pM-9EO"/>
+                            <constraint firstItem="FJX-ap-UVn" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fTS-3N-trO"/>
+                            <constraint firstAttribute="trailing" secondItem="Q3f-z4-gIu" secondAttribute="trailing" constant="30" id="gev-0e-KT5"/>
+                            <constraint firstItem="FJX-ap-UVn" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="nkj-9m-eqr"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Q3f-z4-gIu" secondAttribute="bottom" constant="10" id="z3O-iG-vmh"/>
                         </constraints>
                     </view>
@@ -370,36 +480,41 @@
                         <viewControllerLayoutGuide type="bottom" id="EqS-wE-smA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kEq-oV-cNd">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzw-e1-9b9">
-                                <rect key="frame" x="10" y="1296" width="55" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="OK"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-wz-HIM">
+                                <rect key="frame" x="10" y="137" width="300" height="294"/>
+                                <string key="text">Photo Dance Party!  Press the iTunes Music button to choose music from your iTunes Library.  Press the Photos button to choose photos from your Photos Library or the Camera button to take a photo.  Press the Go button and watch YOUR PICTURES fly around each other and create chaos!  Let the Photo Dance Party Begin!</string>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="72"/>
+                                <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <string key="userLabel">Choose photos from your library or take pictures with your camera.  Then Press the Play button and your photos will be in the game.  Flick a fireball at your photos and watch them break up into little pieces, or watch your photos hit each other and do crazy things!</string>
                                 <variation key="heightClass=regular-widthClass=compact">
-                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="28"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzw-e1-9b9">
+                                <rect key="frame" x="234" y="513" width="40" height="45"/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="48"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="28"/>
                                 </variation>
                                 <connections>
                                     <segue destination="vlc-Xw-mqG" kind="unwind" unwindAction="unwindToThisViewController:" id="hGg-cG-jrS"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-wz-HIM">
-                                <rect key="frame" x="10.5" y="281" width="1003" height="804.5"/>
-                                <string key="text">Press the Music button to choose music from your iTunes Library.  Press the Photos button to choose photos from your Photos Library or the Camera button to use a picture.  Press the Go button and watch YOUR PICTURES fly around each other and create chaos when they collide!</string>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="72"/>
-                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <string key="userLabel">Choose photos from your library or take pictures with your camera.  Then Press the Play button and your photos will be in the game.  Flick a fireball at your photos and watch them break up into little pieces, or watch your photos hit each other and do crazy things!</string>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="zzw-e1-9b9" secondAttribute="bottom" constant="10" id="6NQ-0m-7Hd"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Ra8-wz-HIM" secondAttribute="bottom" constant="50" id="7u9-dV-RQ5"/>
+                            <constraint firstItem="EqS-wE-smA" firstAttribute="top" secondItem="zzw-e1-9b9" secondAttribute="bottom" constant="10" id="EBm-iS-ogo"/>
                             <constraint firstItem="Ra8-wz-HIM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kEq-oV-cNd" secondAttribute="top" constant="50" id="cE7-zD-p4l"/>
                             <constraint firstItem="Ra8-wz-HIM" firstAttribute="centerY" secondItem="kEq-oV-cNd" secondAttribute="centerY" id="ezK-FX-stC"/>
-                            <constraint firstItem="zzw-e1-9b9" firstAttribute="leading" secondItem="kEq-oV-cNd" secondAttribute="leading" constant="10" id="grp-OO-AUx"/>
+                            <constraint firstItem="zzw-e1-9b9" firstAttribute="trailing" secondItem="kEq-oV-cNd" secondAttribute="trailingMargin" constant="-30" id="fEJ-fj-Okq"/>
                             <constraint firstItem="Ra8-wz-HIM" firstAttribute="centerX" secondItem="kEq-oV-cNd" secondAttribute="centerX" id="jfn-UL-mS1"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ra8-wz-HIM" secondAttribute="trailing" constant="10" id="rYl-Fs-dQ5"/>
                             <constraint firstItem="Ra8-wz-HIM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kEq-oV-cNd" secondAttribute="leading" constant="10" id="wZY-qf-P8L"/>
@@ -414,6 +529,7 @@
     </scenes>
     <resources>
         <image name="Forces Image copy.png" width="360" height="307"/>
+        <image name="Red No Sign.png" width="119" height="119"/>
         <image name="etacarinae_hubble_900.jpg" width="270" height="270"/>
         <image name="flame.jpg" width="360" height="360"/>
         <image name="hs-2003-28-a-25_percent_jpg.jpg" width="574" height="321"/>

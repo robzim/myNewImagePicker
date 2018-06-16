@@ -11,10 +11,11 @@
 int myDeallocCount = 0;
 
 @implementation myCustomSpriteNode
+@synthesize myResizeValue;
 
 -(void)dealloc{
     myDeallocCount++;
-    NSLog(@"%d Deallocs",myDeallocCount);
+//    NSLog(@"%d Deallocs",myDeallocCount);
 }
 
 

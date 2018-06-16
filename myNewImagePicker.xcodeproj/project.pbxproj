@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7C0A1DCC1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A1DCB1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 */; };
-		7C0A1DCE1DE9E967003CF243 /* 12 Desafinado.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A1DCD1DE9E967003CF243 /* 12 Desafinado.mp3 */; };
-		7C0A1DD01DE9E97F003CF243 /* 05 Dream On.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A1DCF1DE9E97F003CF243 /* 05 Dream On.mp3 */; };
-		7C0A1DD21DEA149A003CF243 /* Smooth Criminal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A1DD11DEA149A003CF243 /* Smooth Criminal.mp3 */; };
-		7C0A1DD41DEA161D003CF243 /* 01 Welcome to My Life.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A1DD31DEA161D003CF243 /* 01 Welcome to My Life.mp3 */; };
+		7C0E4AB41DFDD1430055CAAB /* myCloudEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C0E4AB31DFDD1430055CAAB /* myCloudEmitter.sks */; };
+		7C13F8BB1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8BA1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png */; };
+		7C13F8BD1E4D1828005F7A22 /* Barack-Obama.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8BC1E4D1828005F7A22 /* Barack-Obama.png */; };
+		7C13F8BF1E4D18C7005F7A22 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8BE1E4D18C7005F7A22 /* Clock.png */; };
+		7C13F8C11E4D1BDE005F7A22 /* LargePowerup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8C01E4D1BDE005F7A22 /* LargePowerup.png */; };
+		7C13F8C31E4D1C3E005F7A22 /* YellowCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8C21E4D1C3E005F7A22 /* YellowCloud.png */; };
 		7C21DCA21DF22FBB009D777A /* myCustomSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */; };
 		7C2F778A1D0D92340091E43C /* myTextureSpriteEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C2F77881D0D92340091E43C /* myTextureSpriteEmitter.sks */; };
 		7C2F778D1D0D97B60091E43C /* mySnowEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C2F778C1D0D97B60091E43C /* mySnowEmitter.sks */; };
@@ -20,41 +22,33 @@
 		7C3154741CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154711CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg */; };
 		7C3154761CF715AF00EA137B /* etacarinae_hubble_900.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154751CF715AF00EA137B /* etacarinae_hubble_900.jpg */; };
 		7C3154781CF7162600EA137B /* flame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154771CF7162600EA137B /* flame.jpg */; };
-		7C5FB1D01D08CCF3009F83D9 /* quietding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C5FB1CF1D08CCF3009F83D9 /* quietding.m4a */; };
-		7C5FB1D21D08CD2B009F83D9 /* ding.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C5FB1D11D08CD2B009F83D9 /* ding.m4a */; };
 		7C686C331A4F02B900374018 /* BG Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C686C321A4F02B900374018 /* BG Music.m4a */; };
-		7C6FC96C1DEB696C000E0C54 /* Normalized 12 Desafinado.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C6FC96B1DEB696C000E0C54 /* Normalized 12 Desafinado.mp3 */; };
-		7C866B591DEB27150079234D /* 03 Respect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C866B581DEB27150079234D /* 03 Respect.mp3 */; };
-		7C866B5B1DEB27F20079234D /* Normalized 03 Respect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C866B5A1DEB27F20079234D /* Normalized 03 Respect.mp3 */; };
+		7C69588E1E15577800A585B6 /* Red No Sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C69588D1E15577800A585B6 /* Red No Sign.png */; };
+		7CB59CE61E229C8200FA1B41 /* myCustomShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB59CE51E229C8200FA1B41 /* myCustomShapeNode.m */; };
 		7CB837311A52F07000A3685E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB837301A52F07000A3685E /* Images.xcassets */; };
 		7CBF84FE1DC940A200C25068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF84FD1DC940A200C25068 /* Main.storyboard */; };
-		7CC010A21D0D9F1200DCCC4B /* tick.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CC010A11D0D9F1200DCCC4B /* tick.m4a */; };
-		7CC4F69D1D098C66003B9DCA /* marimba.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CC4F69C1D098C66003B9DCA /* marimba.m4a */; };
-		7CD312AE1A4C7A1F00D5E541 /* ow.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312A81A4C7A1F00D5E541 /* ow.m4a */; };
-		7CD312AF1A4C7A1F00D5E541 /* cymbalhit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312A91A4C7A1F00D5E541 /* cymbalhit.m4a */; };
-		7CD312B01A4C7A1F00D5E541 /* snare.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AA1A4C7A1F00D5E541 /* snare.m4a */; };
-		7CD312B11A4C7A1F00D5E541 /* imagehit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AB1A4C7A1F00D5E541 /* imagehit.m4a */; };
-		7CD312B21A4C7A1F00D5E541 /* hit.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AC1A4C7A1F00D5E541 /* hit.m4a */; };
-		7CD312B31A4C7A1F00D5E541 /* crash.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7CD312AD1A4C7A1F00D5E541 /* crash.m4a */; };
-		7CDD873A1DCAC204009EFFED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD87391DCAC204009EFFED /* AppDelegate.m */; };
+		7CDB764E1E13EF470088B3BD /* myCustomEmitterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB764D1E13EF470088B3BD /* myCustomEmitterNode.m */; };
+		7CDB76511E13F3530088B3BD /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CDB764F1E13F3530088B3BD /* MyParticle.sks */; };
+		7CDB76521E13F3530088B3BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CDB76501E13F3530088B3BD /* Assets.xcassets */; };
 		7CE2DA651A2A5175005729D5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2DA641A2A5175005729D5 /* GameScene.m */; };
 		7CE2DA671A2A51DE005729D5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE2DA661A2A51DE005729D5 /* GameScene.sks */; };
-		7CE4D6091ADD6D9F00CB198B /* myParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE4D6071ADD6D9F00CB198B /* myParticle.sks */; };
+		7CE4D6091ADD6D9F00CB198B /* myImpactParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */; };
 		7CE4D60A1ADD6D9F00CB198B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE4D6081ADD6D9F00CB198B /* spark.png */; };
 		7CE53F651A2A1A2E00F2F802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F641A2A1A2E00F2F802 /* main.m */; };
 		7CE53F681A2A1A2E00F2F802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */; };
 		7CE53F6B1A2A1A2E00F2F802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */; };
 		7CE53F731A2A1A2F00F2F802 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */; };
 		7CFD94CF1D0ADE72005EB4D0 /* pia18014-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */; };
-		7CFD94D11D0ADF28005EB4D0 /* myColorSpriteEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD94D01D0ADF28005EB4D0 /* myColorSpriteEmitter.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C0A1DCB1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shoot The Planes Intro Music.mp3"; sourceTree = "<group>"; };
-		7C0A1DCD1DE9E967003CF243 /* 12 Desafinado.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "12 Desafinado.mp3"; sourceTree = "<group>"; };
-		7C0A1DCF1DE9E97F003CF243 /* 05 Dream On.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "05 Dream On.mp3"; sourceTree = "<group>"; };
-		7C0A1DD11DEA149A003CF243 /* Smooth Criminal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Smooth Criminal.mp3"; sourceTree = "<group>"; };
-		7C0A1DD31DEA161D003CF243 /* 01 Welcome to My Life.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01 Welcome to My Life.mp3"; sourceTree = "<group>"; };
+		7C0E4AB31DFDD1430055CAAB /* myCloudEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myCloudEmitter.sks; sourceTree = "<group>"; };
+		7C13F8BA1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "large-psychedelic-spiral-background.png"; sourceTree = "<group>"; };
+		7C13F8BC1E4D1828005F7A22 /* Barack-Obama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barack-Obama.png"; sourceTree = "<group>"; };
+		7C13F8BE1E4D18C7005F7A22 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
+		7C13F8C01E4D1BDE005F7A22 /* LargePowerup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargePowerup.png; sourceTree = "<group>"; };
+		7C13F8C21E4D1C3E005F7A22 /* YellowCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowCloud.png; sourceTree = "<group>"; };
 		7C21DCA01DF22FBB009D777A /* myCustomSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomSpriteNode.h; sourceTree = "<group>"; };
 		7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomSpriteNode.m; sourceTree = "<group>"; };
 		7C2F77881D0D92340091E43C /* myTextureSpriteEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = myTextureSpriteEmitter.sks; path = ../myTextureSpriteEmitter.sks; sourceTree = "<group>"; };
@@ -64,29 +58,22 @@
 		7C3154711CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hs-2009-02-a-hires_jpg.jpg"; sourceTree = "<group>"; };
 		7C3154751CF715AF00EA137B /* etacarinae_hubble_900.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = etacarinae_hubble_900.jpg; sourceTree = "<group>"; };
 		7C3154771CF7162600EA137B /* flame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flame.jpg; sourceTree = "<group>"; };
-		7C5FB1CF1D08CCF3009F83D9 /* quietding.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = quietding.m4a; sourceTree = "<group>"; };
-		7C5FB1D11D08CD2B009F83D9 /* ding.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ding.m4a; sourceTree = "<group>"; };
 		7C686C321A4F02B900374018 /* BG Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BG Music.m4a"; sourceTree = "<group>"; };
-		7C6FC96B1DEB696C000E0C54 /* Normalized 12 Desafinado.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Normalized 12 Desafinado.mp3"; sourceTree = "<group>"; };
-		7C866B581DEB27150079234D /* 03 Respect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03 Respect.mp3"; sourceTree = "<group>"; };
-		7C866B5A1DEB27F20079234D /* Normalized 03 Respect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Normalized 03 Respect.mp3"; sourceTree = "<group>"; };
+		7C69588D1E15577800A585B6 /* Red No Sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red No Sign.png"; sourceTree = "<group>"; };
+		7CB59CE41E229C8200FA1B41 /* myCustomShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomShapeNode.h; sourceTree = "<group>"; };
+		7CB59CE51E229C8200FA1B41 /* myCustomShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomShapeNode.m; sourceTree = "<group>"; };
 		7CB837301A52F07000A3685E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7CBF84FD1DC940A200C25068 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		7CC010A11D0D9F1200DCCC4B /* tick.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = tick.m4a; sourceTree = "<group>"; };
-		7CC4F69C1D098C66003B9DCA /* marimba.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = marimba.m4a; sourceTree = "<group>"; };
-		7CD312A81A4C7A1F00D5E541 /* ow.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ow.m4a; sourceTree = "<group>"; };
-		7CD312A91A4C7A1F00D5E541 /* cymbalhit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = cymbalhit.m4a; sourceTree = "<group>"; };
-		7CD312AA1A4C7A1F00D5E541 /* snare.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = snare.m4a; sourceTree = "<group>"; };
-		7CD312AB1A4C7A1F00D5E541 /* imagehit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = imagehit.m4a; sourceTree = "<group>"; };
-		7CD312AC1A4C7A1F00D5E541 /* hit.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit.m4a; sourceTree = "<group>"; };
-		7CD312AD1A4C7A1F00D5E541 /* crash.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = crash.m4a; sourceTree = "<group>"; };
-		7CDD87331DCAC203009EFFED /* TV Photo Chaos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TV Photo Chaos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CDB764C1E13EF470088B3BD /* myCustomEmitterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomEmitterNode.h; sourceTree = "<group>"; };
+		7CDB764D1E13EF470088B3BD /* myCustomEmitterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomEmitterNode.m; sourceTree = "<group>"; };
+		7CDB764F1E13F3530088B3BD /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		7CDB76501E13F3530088B3BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CDD87381DCAC204009EFFED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../TV Photo Chaos/AppDelegate.h"; sourceTree = "<group>"; };
 		7CDD87391DCAC204009EFFED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../TV Photo Chaos/AppDelegate.m"; sourceTree = "<group>"; };
 		7CE2DA631A2A5175005729D5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		7CE2DA641A2A5175005729D5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		7CE2DA661A2A51DE005729D5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		7CE4D6071ADD6D9F00CB198B /* myParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myParticle.sks; sourceTree = "<group>"; };
+		7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myImpactParticle.sks; sourceTree = "<group>"; };
 		7CE4D6081ADD6D9F00CB198B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myNewImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE53F631A2A1A2E00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,17 +86,9 @@
 		7CE53F7D1A2A1A2F00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE53F7E1A2A1A2F00F2F802 /* myNewImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myNewImagePickerTests.m; sourceTree = "<group>"; };
 		7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pia18014-full.png"; sourceTree = "<group>"; };
-		7CFD94D01D0ADF28005EB4D0 /* myColorSpriteEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myColorSpriteEmitter.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7CDD87301DCAC203009EFFED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7CE53F5C1A2A1A2E00F2F802 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */,
-				7CDD87331DCAC203009EFFED /* TV Photo Chaos.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,8 +123,10 @@
 				7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */,
 				7CE2DA631A2A5175005729D5 /* GameScene.h */,
 				7CE2DA641A2A5175005729D5 /* GameScene.m */,
-				7C21DCA01DF22FBB009D777A /* myCustomSpriteNode.h */,
-				7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */,
+				7CB59CE41E229C8200FA1B41 /* myCustomShapeNode.h */,
+				7CB59CE51E229C8200FA1B41 /* myCustomShapeNode.m */,
+				7CDB764C1E13EF470088B3BD /* myCustomEmitterNode.h */,
+				7CDB764D1E13EF470088B3BD /* myCustomEmitterNode.m */,
 				7CE2DA661A2A51DE005729D5 /* GameScene.sks */,
 				7CE53F661A2A1A2E00F2F802 /* AppDelegate.h */,
 				7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */,
@@ -166,13 +146,14 @@
 		7CE53F621A2A1A2E00F2F802 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7C6FC96B1DEB696C000E0C54 /* Normalized 12 Desafinado.mp3 */,
-				7C866B5A1DEB27F20079234D /* Normalized 03 Respect.mp3 */,
-				7C866B581DEB27150079234D /* 03 Respect.mp3 */,
-				7C0A1DD31DEA161D003CF243 /* 01 Welcome to My Life.mp3 */,
-				7C0A1DD11DEA149A003CF243 /* Smooth Criminal.mp3 */,
-				7C0A1DCF1DE9E97F003CF243 /* 05 Dream On.mp3 */,
-				7C0A1DCD1DE9E967003CF243 /* 12 Desafinado.mp3 */,
+				7C13F8C21E4D1C3E005F7A22 /* YellowCloud.png */,
+				7C13F8BC1E4D1828005F7A22 /* Barack-Obama.png */,
+				7C13F8BE1E4D18C7005F7A22 /* Clock.png */,
+				7C13F8C01E4D1BDE005F7A22 /* LargePowerup.png */,
+				7C13F8BA1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png */,
+				7C69588D1E15577800A585B6 /* Red No Sign.png */,
+				7C21DCA01DF22FBB009D777A /* myCustomSpriteNode.h */,
+				7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */,
 				7C0A1DCB1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 */,
 				7CF47BBE1DE86F4D00270BE0 /* Particle Systems */,
 				7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */,
@@ -208,8 +189,10 @@
 			isa = PBXGroup;
 			children = (
 				7C2F77881D0D92340091E43C /* myTextureSpriteEmitter.sks */,
-				7CE4D6071ADD6D9F00CB198B /* myParticle.sks */,
-				7CFD94D01D0ADF28005EB4D0 /* myColorSpriteEmitter.sks */,
+				7C0E4AB31DFDD1430055CAAB /* myCloudEmitter.sks */,
+				7CDB764F1E13F3530088B3BD /* MyParticle.sks */,
+				7CDB76501E13F3530088B3BD /* Assets.xcassets */,
+				7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */,
 				7C2F778C1D0D97B60091E43C /* mySnowEmitter.sks */,
 			);
 			name = "Particle Systems";
@@ -218,17 +201,7 @@
 		7CF47BBF1DE86F6900270BE0 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				7CC010A11D0D9F1200DCCC4B /* tick.m4a */,
-				7CD312A81A4C7A1F00D5E541 /* ow.m4a */,
-				7CD312A91A4C7A1F00D5E541 /* cymbalhit.m4a */,
-				7CD312AA1A4C7A1F00D5E541 /* snare.m4a */,
 				7C686C321A4F02B900374018 /* BG Music.m4a */,
-				7CD312AB1A4C7A1F00D5E541 /* imagehit.m4a */,
-				7C5FB1CF1D08CCF3009F83D9 /* quietding.m4a */,
-				7CD312AC1A4C7A1F00D5E541 /* hit.m4a */,
-				7C5FB1D11D08CD2B009F83D9 /* ding.m4a */,
-				7CD312AD1A4C7A1F00D5E541 /* crash.m4a */,
-				7CC4F69C1D098C66003B9DCA /* marimba.m4a */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -236,26 +209,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7CDD87321DCAC203009EFFED /* TV Photo Chaos */ = {
+		7CE53F5E1A2A1A2E00F2F802 /* Photo Dance Party! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7CDD874F1DCAC204009EFFED /* Build configuration list for PBXNativeTarget "TV Photo Chaos" */;
-			buildPhases = (
-				7CDD872F1DCAC203009EFFED /* Sources */,
-				7CDD87301DCAC203009EFFED /* Frameworks */,
-				7CDD87311DCAC203009EFFED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "TV Photo Chaos";
-			productName = "TV Photo Chaos";
-			productReference = 7CDD87331DCAC203009EFFED /* TV Photo Chaos.app */;
-			productType = "com.apple.product-type.application";
-		};
-		7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePicker" */;
+			buildConfigurationList = 7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "Photo Dance Party!" */;
 			buildPhases = (
 				7CE53F5B1A2A1A2E00F2F802 /* Sources */,
 				7CE53F5C1A2A1A2E00F2F802 /* Frameworks */,
@@ -265,7 +221,7 @@
 			);
 			dependencies = (
 			);
-			name = myNewImagePicker;
+			name = "Photo Dance Party!";
 			productName = myNewImagePicker;
 			productReference = 7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */;
 			productType = "com.apple.product-type.application";
@@ -276,14 +232,9 @@
 		7CE53F571A2A1A2E00F2F802 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Robert Zimmelman";
 				TargetAttributes = {
-					7CDD87321DCAC203009EFFED = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8RV36K5JJ4;
-						ProvisioningStyle = Automatic;
-					};
 					7CE53F5E1A2A1A2E00F2F802 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 8RV36K5JJ4;
@@ -304,79 +255,56 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7CE53F5E1A2A1A2E00F2F802 /* myNewImagePicker */,
-				7CDD87321DCAC203009EFFED /* TV Photo Chaos */,
+				7CE53F5E1A2A1A2E00F2F802 /* Photo Dance Party! */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7CDD87311DCAC203009EFFED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7CE53F5D1A2A1A2E00F2F802 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C13F8C11E4D1BDE005F7A22 /* LargePowerup.png in Resources */,
 				7C3154761CF715AF00EA137B /* etacarinae_hubble_900.jpg in Resources */,
 				7C31546E1CF7153100EA137B /* Forces Image copy.png in Resources */,
-				7CD312B31A4C7A1F00D5E541 /* crash.m4a in Resources */,
-				7CC4F69D1D098C66003B9DCA /* marimba.m4a in Resources */,
+				7CDB76511E13F3530088B3BD /* MyParticle.sks in Resources */,
 				7CE4D60A1ADD6D9F00CB198B /* spark.png in Resources */,
-				7C866B591DEB27150079234D /* 03 Respect.mp3 in Resources */,
-				7C5FB1D21D08CD2B009F83D9 /* ding.m4a in Resources */,
 				7C3154731CF7154900EA137B /* hs-2003-28-a-25_percent_jpg.jpg in Resources */,
-				7CFD94D11D0ADF28005EB4D0 /* myColorSpriteEmitter.sks in Resources */,
-				7C0A1DCE1DE9E967003CF243 /* 12 Desafinado.mp3 in Resources */,
-				7C866B5B1DEB27F20079234D /* Normalized 03 Respect.mp3 in Resources */,
-				7CD312AE1A4C7A1F00D5E541 /* ow.m4a in Resources */,
 				7C2F778A1D0D92340091E43C /* myTextureSpriteEmitter.sks in Resources */,
 				7CBF84FE1DC940A200C25068 /* Main.storyboard in Resources */,
-				7CD312B11A4C7A1F00D5E541 /* imagehit.m4a in Resources */,
 				7C3154741CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg in Resources */,
 				7CB837311A52F07000A3685E /* Images.xcassets in Resources */,
-				7CE4D6091ADD6D9F00CB198B /* myParticle.sks in Resources */,
+				7CE4D6091ADD6D9F00CB198B /* myImpactParticle.sks in Resources */,
+				7C69588E1E15577800A585B6 /* Red No Sign.png in Resources */,
 				7C2F778D1D0D97B60091E43C /* mySnowEmitter.sks in Resources */,
 				7C0A1DCC1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 in Resources */,
+				7C13F8BF1E4D18C7005F7A22 /* Clock.png in Resources */,
 				7C3154781CF7162600EA137B /* flame.jpg in Resources */,
 				7CE2DA671A2A51DE005729D5 /* GameScene.sks in Resources */,
-				7C0A1DD41DEA161D003CF243 /* 01 Welcome to My Life.mp3 in Resources */,
-				7C0A1DD01DE9E97F003CF243 /* 05 Dream On.mp3 in Resources */,
-				7CC010A21D0D9F1200DCCC4B /* tick.m4a in Resources */,
-				7C0A1DD21DEA149A003CF243 /* Smooth Criminal.mp3 in Resources */,
-				7C6FC96C1DEB696C000E0C54 /* Normalized 12 Desafinado.mp3 in Resources */,
 				7C686C331A4F02B900374018 /* BG Music.m4a in Resources */,
-				7CD312AF1A4C7A1F00D5E541 /* cymbalhit.m4a in Resources */,
+				7C0E4AB41DFDD1430055CAAB /* myCloudEmitter.sks in Resources */,
+				7C13F8BB1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png in Resources */,
 				7CFD94CF1D0ADE72005EB4D0 /* pia18014-full.png in Resources */,
-				7CD312B21A4C7A1F00D5E541 /* hit.m4a in Resources */,
 				7CE53F731A2A1A2F00F2F802 /* LaunchScreen.xib in Resources */,
-				7C5FB1D01D08CCF3009F83D9 /* quietding.m4a in Resources */,
-				7CD312B01A4C7A1F00D5E541 /* snare.m4a in Resources */,
+				7C13F8C31E4D1C3E005F7A22 /* YellowCloud.png in Resources */,
+				7C13F8BD1E4D1828005F7A22 /* Barack-Obama.png in Resources */,
+				7CDB76521E13F3530088B3BD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7CDD872F1DCAC203009EFFED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7CDD873A1DCAC204009EFFED /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7CE53F5B1A2A1A2E00F2F802 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7CE53F6B1A2A1A2E00F2F802 /* ViewController.m in Sources */,
+				7CB59CE61E229C8200FA1B41 /* myCustomShapeNode.m in Sources */,
 				7CE53F681A2A1A2E00F2F802 /* AppDelegate.m in Sources */,
 				7CE2DA651A2A5175005729D5 /* GameScene.m in Sources */,
+				7CDB764E1E13EF470088B3BD /* myCustomEmitterNode.m in Sources */,
 				7C21DCA21DF22FBB009D777A /* myCustomSpriteNode.m in Sources */,
 				7CE53F651A2A1A2E00F2F802 /* main.m in Sources */,
 			);
@@ -396,47 +324,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7CDD874D1DCAC204009EFFED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 8RV36K5JJ4;
-				INFOPLIST_FILE = "TV Photo Chaos/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-			};
-			name = Debug;
-		};
-		7CDD874E1DCAC204009EFFED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8RV36K5JJ4;
-				INFOPLIST_FILE = "TV Photo Chaos/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.0;
-			};
-			name = Release;
-		};
 		7CE53F801A2A1A2F00F2F802 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -445,14 +332,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -475,7 +368,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -491,14 +384,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -514,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -529,7 +428,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8RV36K5JJ4;
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.zimmelman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = myNewImagePicker;
@@ -547,7 +446,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8RV36K5JJ4;
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.zimmelman.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = myNewImagePicker;
@@ -559,15 +458,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CDD874F1DCAC204009EFFED /* Build configuration list for PBXNativeTarget "TV Photo Chaos" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7CDD874D1DCAC204009EFFED /* Debug */,
-				7CDD874E1DCAC204009EFFED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7CE53F5A1A2A1A2E00F2F802 /* Build configuration list for PBXProject "myNewImagePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -577,7 +467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "myNewImagePicker" */ = {
+		7CE53F821A2A1A2F00F2F802 /* Build configuration list for PBXNativeTarget "Photo Dance Party!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CE53F831A2A1A2F00F2F802 /* Debug */,

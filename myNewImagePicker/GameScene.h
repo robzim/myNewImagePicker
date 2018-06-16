@@ -6,17 +6,42 @@
 //  Copyright (c) 2014 Robert Zimmelman. All rights reserved.
 //
 #import <sys/utsname.h>
+#import "myCustomEmitterNode.h"
+#import "myCustomShapeNode.h"
 #import "myCustomSpriteNode.h"
+
 @import SpriteKit;
 @import UIKit;
 @import AVFoundation;
+@import Photos;
+@import GameplayKit;
 
 //@import CoreMotion;
 
-@interface GameScene : SKScene<SKPhysicsContactDelegate,AVAudioPlayerDelegate>
+@interface GameScene : SKScene<SKPhysicsContactDelegate,AVAudioPlayerDelegate,UIGestureRecognizerDelegate,PHPhotoLibraryChangeObserver>
 -(void)myStartDropPicturesTimer;
 -(void)myStartTheGame;
+-(void)myPlayPause;
+-(void)myRestartTheMusic;
+-(double)myDbToAmp: (double)inDb;
+-(void)myDropPictureNumber: (int) thePictureNumber;
 
+-(void)myAssignImage1;
+-(void)myAssignImage2;
+-(void)myAssignImage3;
+-(void)myAssignImage4;
+-(void)myAssignImage5;
+
+@property float mySceneImageSize;
+@property BOOL myVibrateFlag;
+@property int myImage1Flag;
+@property int myImage2Flag;
+@property int myImage3Flag;
+@property int myImage4Flag;
+@property int myImage5Flag;
+
+@property int myResizeMethod;
+@property NSProcessInfo *myProcessInfo;
 @property NSTimer *myDropPicturesTimer;
 @property SKLabelNode *myAudioLevelLabel;
 @property float myInstantPower;
@@ -42,22 +67,29 @@
 //@property SKSpriteNode  *myImageSprite3;
 //@property SKSpriteNode  *myImageSprite4;
 //@property SKSpriteNode  *myImageSprite5;
-@property myCustomSpriteNode  *myImageSprite1;
-@property myCustomSpriteNode  *myImageSprite2;
-@property myCustomSpriteNode  *myImageSprite3;
-@property myCustomSpriteNode  *myImageSprite4;
-@property myCustomSpriteNode  *myImageSprite5;
+@property SKSpriteNode  *myImageSprite1;
+@property SKSpriteNode  *myImageSprite2;
+@property SKSpriteNode  *myImageSprite3;
+@property SKSpriteNode  *myImageSprite4;
+@property SKSpriteNode  *myImageSprite5;
 
 
-@property myCustomSpriteNode *myBG;
+@property PHFetchResult *myPhotos;
+@property PHImageManager *myImageManager;
 
-@property NSOperationQueue *myOperationQueue;
+
+@property BOOL myAllRandomImagesFlag;
+@property long myOSVersion;
+
+@property SKSpriteNode *myBG;
+
 
 @property SKAction *myImageSpriteAction;
-@property int myScore;
-@property uint64_t myHighScore;
+//@property int myScore;
+//@property uint64_t myHighScore;
 
-@property SKEmitterNode *mySnowParticle;
+//@property myCustomEmitterNode *mySnowParticle;
+//@property myCustomEmitterNode *myCloudParticle;
 
 @property float myTimeSinceLastFrame;
 @property float myLastTimeSample;
@@ -69,5 +101,8 @@
 @property int myTestInt;
 
 @property NSURL *myMusicURL;
+
+@property NSMutableArray *myPicturesArray;
+
 //@property AVAudioPlayer *myMusicPlayer;
 @end
