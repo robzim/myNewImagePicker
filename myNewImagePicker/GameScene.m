@@ -197,7 +197,7 @@ float myPowerDifference;
                 float myNodeXScale = node.xScale;
                 float myNodeYScale = node.yScale;
                 
-                if (myOSVersion >= 10.0) {
+                if (self->myOSVersion >= 10.0) {
                     [node runAction:[SKAction sequence:@[
                                                          [SKAction scaleTo:myScaleTo*myParticleSystemScaleMultiplier duration:0.0],
                                                          [SKAction scaleTo:myNodeXScale duration:0.0],
@@ -249,7 +249,7 @@ float myPowerDifference;
     //    NSArray *mySpriteNamesToResize = [NSArray arrayWithObjects:@"photosprite",  nil];
     
     [self enumerateChildNodesWithName:@"sprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
-        if (myOSVersion >= 10.0) {
+        if (self->myOSVersion >= 10.0) {
             [node runAction:[SKAction sequence:@[
                                                  
                                                  [SKAction scaleTo:myScaleTo*myPhotoScaleMultiplier duration:0.0],
@@ -435,7 +435,7 @@ float myPowerDifference;
     if ((myTimeSinceLastFrame > myScreenRefreshTimeToDump) && (myTimeSinceLastFrame < 10.0)  ) {
         [self runAction:[SKAction runBlock:^{
             NSLog(@"IN update -- REMOVING - Slow");
-            [myDropPicturesTimer invalidate];
+            [self->myDropPicturesTimer invalidate];
             NSLog(@"BEFORE  CLEANUP  IN UPDATE - %d NODES",(int) self.children.count);
             NSLog(@"%@",self.children);
             NSLog(@"______________________________________________________________________");
@@ -627,28 +627,28 @@ float myPowerDifference;
     if (theImageNumber > 5) {
         return;
     }
-    [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myTargetImageSizeFromLibrary, myTargetImageSizeFromLibrary) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self->myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myTargetImageSizeFromLibrary, myTargetImageSizeFromLibrary) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
             switch (theImageNumber) {
                 case 1:
-                    mySpriteImage1 = result;
-                    [[self myImageSprite1] setTexture:[SKTexture textureWithImage:mySpriteImage1]];
+                    self->mySpriteImage1 = result;
+                    [[self myImageSprite1] setTexture:[SKTexture textureWithImage:self->mySpriteImage1]];
                     break;
                 case 2:
-                    mySpriteImage2 = result;
-                    [[self myImageSprite2] setTexture:[SKTexture textureWithImage:mySpriteImage2]];
+                    self->mySpriteImage2 = result;
+                    [[self myImageSprite2] setTexture:[SKTexture textureWithImage:self->mySpriteImage2]];
                     break;
                 case 3:
-                    mySpriteImage3 = result;
-                    [[self myImageSprite3] setTexture:[SKTexture textureWithImage:mySpriteImage3]];
+                    self->mySpriteImage3 = result;
+                    [[self myImageSprite3] setTexture:[SKTexture textureWithImage:self->mySpriteImage3]];
                     break;
                 case 4:
-                    mySpriteImage4 = result;
-                    [[self myImageSprite4] setTexture:[SKTexture textureWithImage:mySpriteImage4]];
+                    self->mySpriteImage4 = result;
+                    [[self myImageSprite4] setTexture:[SKTexture textureWithImage:self->mySpriteImage4]];
                     break;
                 case 5:
-                    mySpriteImage5 = result;
-                    [[self myImageSprite5] setTexture:[SKTexture textureWithImage:mySpriteImage5]];
+                    self->mySpriteImage5 = result;
+                    [[self myImageSprite5] setTexture:[SKTexture textureWithImage:self->mySpriteImage5]];
                     break;
                 default:
                     break;
@@ -663,50 +663,50 @@ float myPowerDifference;
 
 -(void)myAssignImage1{
     NSLog(@"GameScene in Assign Image 1");
-    [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self->myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
-            mySpriteImage1 = result;
-            [[self myImageSprite1] setTexture:[SKTexture textureWithImage:mySpriteImage1]];
+            self->mySpriteImage1 = result;
+            [[self myImageSprite1] setTexture:[SKTexture textureWithImage:self->mySpriteImage1]];
         } else {
             NSLog(@"error retreiving photo");
         }
     }];
 }
 -(void)myAssignImage2{
-    [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self->myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
-            mySpriteImage2 = result;
-            [[self myImageSprite2] setTexture:[SKTexture textureWithImage:mySpriteImage2]];
+            self->mySpriteImage2 = result;
+            [[self myImageSprite2] setTexture:[SKTexture textureWithImage:self->mySpriteImage2]];
         } else {
             NSLog(@"error retreiving photo");
         }
     }];
 }
 -(void)myAssignImage3{
-    [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self->myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
-            mySpriteImage3 = result;
-            [[self myImageSprite3] setTexture:[SKTexture textureWithImage:mySpriteImage3]];
+            self->mySpriteImage3 = result;
+            [[self myImageSprite3] setTexture:[SKTexture textureWithImage:self->mySpriteImage3]];
         } else {
             NSLog(@"error retreiving photo");
         }
     }];
 }
 -(void)myAssignImage4{
-    [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self->myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
-            mySpriteImage4 = result;
-            [[self myImageSprite4] setTexture:[SKTexture textureWithImage:mySpriteImage4]];
+            self->mySpriteImage4 = result;
+            [[self myImageSprite4] setTexture:[SKTexture textureWithImage:self->mySpriteImage4]];
         } else {
             NSLog(@"error retreiving photo");
         }
     }];
 }
 -(void)myAssignImage5{
-    [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [self->myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(160, 160) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (result) {
-            mySpriteImage5 = result;
-            [[self myImageSprite5] setTexture:[SKTexture textureWithImage:mySpriteImage5]];
+            self->mySpriteImage5 = result;
+            [[self myImageSprite5] setTexture:[SKTexture textureWithImage:self->mySpriteImage5]];
         } else {
             NSLog(@"error retreiving photo");
         }
@@ -856,7 +856,7 @@ float myPowerDifference;
     NSLog(@"Device is %@",deviceType);
     [self runAction: [SKAction sequence:@[
                                           [SKAction runBlock:^{
-        [myNotificationFeedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
+        [self->myNotificationFeedbackGenerator notificationOccurred:UINotificationFeedbackTypeSuccess];
     }],
                                           [SKAction waitForDuration:0.75],
                                           [SKAction customActionWithDuration:0.1 actionBlock:^(SKNode * _Nonnull node, CGFloat elapsedTime) {

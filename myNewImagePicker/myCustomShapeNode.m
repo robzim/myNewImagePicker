@@ -10,4 +10,5 @@
 
 @implementation myCustomShapeNode
 @synthesize myResizeValue;
+@synthesize myZValue;
 @end

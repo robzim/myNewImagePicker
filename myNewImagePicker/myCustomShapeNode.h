@@ -10,4 +10,5 @@
 
 @interface myCustomShapeNode : SKShapeNode
 @property int myResizeValue;
+@property float myZValue;
 @end

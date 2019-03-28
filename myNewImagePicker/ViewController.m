@@ -110,8 +110,8 @@ float myViewImageSize;
     } else {
         [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                [myImage1 setImage:result];
-                [myScene2 setMySpriteImage1:myImage1.image];
+                [self->myImage1 setImage:result];
+                [myScene2 setMySpriteImage1:self->myImage1.image];
             } else {
                 NSLog(@"error retreiving photo");
             }
@@ -133,8 +133,8 @@ float myViewImageSize;
         
         [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                [myImage2 setImage:result];
-                [myScene2 setMySpriteImage2:myImage2.image];
+                [self->myImage2 setImage:result];
+                [myScene2 setMySpriteImage2:self->myImage2.image];
             } else {
                 NSLog(@"error retreiving photo");
             }
@@ -153,8 +153,8 @@ float myViewImageSize;
     } else {
         [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                [myImage3 setImage:result];
-                [myScene2 setMySpriteImage3:myImage3.image];
+                [self->myImage3 setImage:result];
+                [myScene2 setMySpriteImage3:self->myImage3.image];
             } else {
                 NSLog(@"error retreiving photo");
             }
@@ -173,8 +173,8 @@ float myViewImageSize;
     else {
         [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                [myImage4 setImage:result];
-                [myScene2 setMySpriteImage4:myImage4.image];
+                [self->myImage4 setImage:result];
+                [myScene2 setMySpriteImage4:self->myImage4.image];
             } else {
                 NSLog(@"error retreiving photo");
             }
@@ -192,8 +192,8 @@ float myViewImageSize;
     else {
         [myImageManager requestImageForAsset:myPhotos[arc4random()%myPhotos.count] targetSize:CGSizeMake(myViewImageSize, myViewImageSize) contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
             if (result) {
-                [myImage5 setImage:result];
-                [myScene2 setMySpriteImage5:myImage5.image];
+                [self->myImage5 setImage:result];
+                [myScene2 setMySpriteImage5:self->myImage5.image];
             } else {
                 NSLog(@"error retreiving photo");
             }
