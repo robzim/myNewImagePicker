@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
-    <device id="ipad12_9rounded" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,23 +18,23 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" tag="10" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FJX-ap-UVn" userLabel="Menu Stack View">
-                                <rect key="frame" x="30" y="44" width="964" height="1312"/>
+                                <rect key="frame" x="30" y="64" width="354" height="822"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LaO-1p-nKb" userLabel="Pictures Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="514.5" height="1312"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250.33333333333334" height="822"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r2R-OX-D0x" userLabel="Stack View 1">
-                                                <rect key="frame" x="0.0" y="0.0" width="514.5" height="262.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="250.33333333333334" height="164.33333333333334"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="E9K-Hv-bOm" userLabel="CamLib1 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="262.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="164.33333333333334"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnK-R8-FQU">
-                                                                <rect key="frame" x="0.0" y="0.0" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="61.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,7 +48,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xux-ik-N4H">
-                                                                <rect key="frame" x="0.0" y="84" width="202" height="94.5"/>
+                                                                <rect key="frame" x="0.0" y="51.333333333333329" width="76" height="61.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Remove">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,7 +62,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kni-xa-dLq">
-                                                                <rect key="frame" x="0.0" y="168.5" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="102.99999999999999" width="76" height="61.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,7 +79,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="etacarinae_hubble_900.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-bR-fjb">
-                                                        <rect key="frame" x="252" y="0.0" width="262.5" height="262.5"/>
+                                                        <rect key="frame" x="86.000000000000014" y="0.0" width="164.33333333333337" height="164.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="bKu-bR-fjb" secondAttribute="height" multiplier="1:1" id="Ueg-Iw-RGR"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="t5O-Hl-9tJ">
@@ -91,13 +91,13 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dlz-HU-JdT" userLabel="Stack View 2">
-                                                <rect key="frame" x="0.0" y="262.5" width="514.5" height="262.5"/>
+                                                <rect key="frame" x="0.0" y="164.33333333333331" width="250.33333333333334" height="164.33333333333331"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-6O-uGN" userLabel="CamLib2 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="254" height="262.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="164.33333333333334"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-Ck-d9t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="254" height="94"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUa-Ck-d9t">
+                                                                <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="61.666666666666664"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,8 +110,8 @@
                                                                     <action selector="pickMyImage2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="iXd-cy-rK7"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-0p-WrL">
-                                                                <rect key="frame" x="0.0" y="84" width="254" height="94"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xvw-0p-WrL">
+                                                                <rect key="frame" x="0.0" y="51.666666666666657" width="108.33333333333333" height="61.333333333333343"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Remove">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -124,8 +124,8 @@
                                                                     <action selector="removeMyImage2:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pJ2-OF-8Gb"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
-                                                                <rect key="frame" x="0.0" y="168" width="254" height="94.5"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exL-nj-5LZ">
+                                                                <rect key="frame" x="0.0" y="102.99999999999996" width="108.33333333333333" height="61.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,7 +142,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="hs-2003-28-a-25_percent_jpg.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="U4t-hW-K2C">
-                                                        <rect key="frame" x="304" y="0.0" width="210.5" height="262.5"/>
+                                                        <rect key="frame" x="118.33333333333334" y="0.0" width="132" height="164.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="bBz-rV-lEC">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -153,13 +153,13 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-Lh-zQz" userLabel="Stack View 3">
-                                                <rect key="frame" x="0.0" y="525" width="514.5" height="262"/>
+                                                <rect key="frame" x="0.0" y="328.66666666666669" width="250.33333333333334" height="164.66666666666669"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-yw-ixl" userLabel="CamLib3 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="262"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="164.66666666666666"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-Ly-hVS">
-                                                                <rect key="frame" x="0.0" y="0.0" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="61.666666666666664"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,7 +173,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQl-zP-WOZ">
-                                                                <rect key="frame" x="0.0" y="84" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="51.666666666666629" width="76" height="61.333333333333343"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Remove">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,7 +187,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POI-jt-P8H">
-                                                                <rect key="frame" x="0.0" y="168" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="103.00000000000001" width="76" height="61.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,7 +204,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="flame.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="IoR-lx-blb">
-                                                        <rect key="frame" x="252" y="0.0" width="262.5" height="262"/>
+                                                        <rect key="frame" x="86.000000000000014" y="0.0" width="164.33333333333337" height="164.66666666666666"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="Q1n-WM-GTu">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -215,13 +215,13 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Jk-pg-FXO" userLabel="Stack View 4">
-                                                <rect key="frame" x="0.0" y="787" width="514.5" height="262.5"/>
+                                                <rect key="frame" x="0.0" y="493.33333333333331" width="250.33333333333334" height="164.33333333333331"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="QNU-5S-4sF" userLabel="CamLib4 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="262.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="164.33333333333334"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-V8-JsZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="202" height="94.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="61.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -235,7 +235,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwI-to-DpU">
-                                                                <rect key="frame" x="0.0" y="84.5" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="51.333333333333258" width="76" height="61.333333333333343"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Remove">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -249,7 +249,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfJ-nA-jwO">
-                                                                <rect key="frame" x="0.0" y="168.5" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="102.66666666666664" width="76" height="61.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -266,7 +266,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="pia18014-full.png" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Iq-vMw">
-                                                        <rect key="frame" x="252" y="0.0" width="262.5" height="262.5"/>
+                                                        <rect key="frame" x="86.000000000000014" y="0.0" width="164.33333333333337" height="164.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="yX1-sV-xat">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -277,13 +277,13 @@
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="50"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-S0-kEa" userLabel="Stack View 5">
-                                                <rect key="frame" x="0.0" y="1049.5" width="514.5" height="262.5"/>
+                                                <rect key="frame" x="0.0" y="657.66666666666663" width="250.33333333333334" height="164.33333333333337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="5Fo-no-saf" userLabel="CamLib5 Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="262.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="76" height="164.33333333333334"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pg5-Hp-m1x">
-                                                                <rect key="frame" x="0.0" y="0.0" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="61.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Camera">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -297,7 +297,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTE-TE-1bF">
-                                                                <rect key="frame" x="0.0" y="84" width="202" height="94.5"/>
+                                                                <rect key="frame" x="0.0" y="51.333333333333371" width="76" height="61.666666666666657"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Remove">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -311,7 +311,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVl-FH-EyG">
-                                                                <rect key="frame" x="0.0" y="168.5" width="202" height="94"/>
+                                                                <rect key="frame" x="0.0" y="102.99999999999999" width="76" height="61.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                                 <state key="normal" title="Library">
                                                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -328,7 +328,7 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="-10"/>
                                                     </stackView>
                                                     <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="80" verticalCompressionResistancePriority="1000" image="hs-2009-02-a-hires_jpg.jpg" highlightedImage="Red No Sign.png" translatesAutoresizingMaskIntoConstraints="NO" id="iyJ-oL-8X5">
-                                                        <rect key="frame" x="252" y="0.0" width="262.5" height="262.5"/>
+                                                        <rect key="frame" x="86.000000000000014" y="0.0" width="164.33333333333337" height="164.33333333333334"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="yJ3-OE-yeL">
                                                                 <variation key="heightClass=regular-widthClass=regular" constant="210"/>
@@ -350,10 +350,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aHD-AA-l4v" userLabel="PlayQuit Stack View">
-                                        <rect key="frame" x="614.5" y="476.5" width="349.5" height="359"/>
+                                        <rect key="frame" x="260.33333333333331" y="325.66666666666669" width="93.666666666666686" height="171"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJn-9N-FmD">
-                                                <rect key="frame" x="0.0" y="0.0" width="349.5" height="86"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93.666666666666671" height="39"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
                                                 <state key="normal" title="Go">
@@ -367,7 +367,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1S-Lg-rTE">
-                                                <rect key="frame" x="0.0" y="91" width="349.5" height="86"/>
+                                                <rect key="frame" x="0.0" y="44" width="93.666666666666671" height="39"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
                                                 <state key="normal" title="Refresh">
@@ -381,7 +381,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0FE-5a-Mkr">
-                                                <rect key="frame" x="0.0" y="182" width="349.5" height="86"/>
+                                                <rect key="frame" x="0.0" y="88" width="93.666666666666671" height="39"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
                                                 <state key="normal" title="Random">
@@ -395,7 +395,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-Cr-Obz">
-                                                <rect key="frame" x="0.0" y="273" width="349.5" height="86"/>
+                                                <rect key="frame" x="0.0" y="131.99999999999994" width="93.666666666666671" height="39"/>
                                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                                 <size key="titleShadowOffset" width="7" height="10"/>
                                                 <state key="normal" title="Quit">
@@ -414,10 +414,10 @@
                                 <variation key="heightClass=regular-widthClass=regular" spacing="100"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q3f-z4-gIu" userLabel="Music Instructions Stack View">
-                                <rect key="frame" x="820" y="1144" width="174" height="192"/>
+                                <rect key="frame" x="309" y="750" width="75" height="102"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3lS-Hb-k4S">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="46"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="72"/>
                                         <size key="titleShadowOffset" width="7" height="10"/>
                                         <state key="normal" title="Music">
@@ -431,7 +431,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-Re-3Cw">
-                                        <rect key="frame" x="53" y="101" width="121" height="91"/>
+                                        <rect key="frame" x="22" y="56" width="53" height="46"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="72"/>
                                         <state key="normal" title="Help">
                                             <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -477,11 +477,11 @@
                         <viewControllerLayoutGuide type="bottom" id="EqS-wE-smA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kEq-oV-cNd">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Ra8-wz-HIM">
-                                <rect key="frame" x="10" y="292" width="1004" height="782"/>
+                                <rect key="frame" x="10" y="296" width="394" height="304.33333333333326"/>
                                 <string key="text">Photo Dance Party!  Press the iTunes Music button to choose music from your iTunes Library.  Press the Photos button to choose photos from your Photos Library or the Camera button to take a photo.  Press the Go button and watch YOUR PICTURES fly around each other and create chaos!  Let the Photo Dance Party Begin!</string>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="72"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -492,7 +492,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzw-e1-9b9">
-                                <rect key="frame" x="903" y="1254" width="71" height="82"/>
+                                <rect key="frame" x="333" y="809" width="31" height="43"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="64"/>
                                 <state key="normal" title="OK">
                                     <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

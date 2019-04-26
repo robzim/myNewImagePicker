@@ -73,7 +73,7 @@
 		7CE2DA661A2A51DE005729D5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myImpactParticle.sks; sourceTree = "<group>"; };
 		7CE4D6081ADD6D9F00CB198B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
-		7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myNewImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CE53F5F1A2A1A2E00F2F802 /* PhotoDanceParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDanceParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CE53F631A2A1A2E00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE53F641A2A1A2E00F2F802 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CE53F661A2A1A2E00F2F802 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		7CE53F601A2A1A2E00F2F802 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */,
+				7CE53F5F1A2A1A2E00F2F802 /* PhotoDanceParty.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			);
 			name = "Photo Dance Party!";
 			productName = myNewImagePicker;
-			productReference = 7CE53F5F1A2A1A2E00F2F802 /* myNewImagePicker.app */;
+			productReference = 7CE53F5F1A2A1A2E00F2F802 /* PhotoDanceParty.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -239,7 +239,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7CE53F5A1A2A1A2E00F2F802 /* Build configuration list for PBXProject "myNewImagePicker" */;
+			buildConfigurationList = 7CE53F5A1A2A1A2E00F2F802 /* Build configuration list for PBXProject "PhotoDanceParty" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -432,8 +432,8 @@
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.zimmelman.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = myNewImagePicker;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
+				PRODUCT_NAME = PhotoDanceParty;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,8 +450,8 @@
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.zimmelman.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = myNewImagePicker;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
+				PRODUCT_NAME = PhotoDanceParty;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -460,7 +460,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7CE53F5A1A2A1A2E00F2F802 /* Build configuration list for PBXProject "myNewImagePicker" */ = {
+		7CE53F5A1A2A1A2E00F2F802 /* Build configuration list for PBXProject "PhotoDanceParty" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7CE53F801A2A1A2F00F2F802 /* Debug */,

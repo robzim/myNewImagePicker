@@ -395,7 +395,7 @@ float myPowerDifference;
 
 
 -(void)myResizeSpritesToMusic{
-    double myInstantAmplitude;
+//    double myInstantAmplitude;
     myInstantPower=0;
     myAveragePower=0;
     [myAudioPlayer updateMeters];
@@ -408,7 +408,7 @@ float myPowerDifference;
     myPowerDifference = fabs(myInstantPower - myLastInstantPower);
     myLastInstantPower = myInstantPower;
     //    }
-    myInstantAmplitude = [self myDbToAmp:myInstantPower];
+//    myInstantAmplitude = [self myDbToAmp:myInstantPower] ;
     //        NSLog(@"AP %f IP %f Dif %f Amp %f",myAveragePower,myInstantPower,myPowerDifference,myInstantAmplitude   );
     //    NSLog(@"Power Difference %f",myPowerDifference);
     float myScaleTo = 1.0;
@@ -417,6 +417,7 @@ float myPowerDifference;
     } else if (myResizeMethod == 1) {
         myScaleTo = [self myDbToAmp:myInstantPower];
     }
+//    NSLog(@"%f",myScaleTo);
     if (myVibrateFlag == YES) {
         [self myBumpNewPhoneWithMusic];
     }
