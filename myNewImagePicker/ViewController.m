@@ -353,7 +353,7 @@ float myViewImageSize;
         //
     }]];
     if (myScene2.myOSVersion >= 10) {
-        [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Vibrate/Don't Vibrate iPhone7"
+        [myQuitAlertController addAction:[UIAlertAction actionWithTitle:@"Vibrate/Don't Vibrate iPhone"
                                                                   style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
                                                                     if (myScene2.myVibrateFlag == YES) {
