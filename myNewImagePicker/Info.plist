@@ -17,21 +17,21 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.5</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>Media library is used to allow user to select songs to play in the game.</string>
+	<string>Media library is used to allow user to select songs to play in the app.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera is used to take pictures that will be used in the game.</string>
+	<string>Camera is used to take pictures that will be used in this app.  No pictures are saved by this application ever.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) uses photos</string>
+	<string>$(PRODUCT_NAME) uses photos only as image sources for the app.  No photos are saved by this app ever.</string>
 	<key>PrefersOpenGL</key>
 	<string>NO</string>
 	<key>UILaunchStoryboardName</key>
