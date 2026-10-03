@@ -3,87 +3,241 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7C0A1DCC1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A1DCB1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 */; };
-		7C0E4AB41DFDD1430055CAAB /* myCloudEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C0E4AB31DFDD1430055CAAB /* myCloudEmitter.sks */; };
-		7C13F8BB1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8BA1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png */; };
-		7C13F8BD1E4D1828005F7A22 /* Barack-Obama.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8BC1E4D1828005F7A22 /* Barack-Obama.png */; };
-		7C13F8BF1E4D18C7005F7A22 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8BE1E4D18C7005F7A22 /* Clock.png */; };
-		7C13F8C11E4D1BDE005F7A22 /* LargePowerup.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8C01E4D1BDE005F7A22 /* LargePowerup.png */; };
-		7C13F8C31E4D1C3E005F7A22 /* YellowCloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C13F8C21E4D1C3E005F7A22 /* YellowCloud.png */; };
-		7C21DCA21DF22FBB009D777A /* myCustomSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */; };
-		7C2F778A1D0D92340091E43C /* myTextureSpriteEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C2F77881D0D92340091E43C /* myTextureSpriteEmitter.sks */; };
-		7C2F778D1D0D97B60091E43C /* mySnowEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7C2F778C1D0D97B60091E43C /* mySnowEmitter.sks */; };
-		7C3154731CF7154900EA137B /* hs-2003-28-a-25_percent_jpg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154701CF7154900EA137B /* hs-2003-28-a-25_percent_jpg.jpg */; };
-		7C3154741CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154711CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg */; };
-		7C3154761CF715AF00EA137B /* etacarinae_hubble_900.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154751CF715AF00EA137B /* etacarinae_hubble_900.jpg */; };
-		7C3154781CF7162600EA137B /* flame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C3154771CF7162600EA137B /* flame.jpg */; };
-		7C686C331A4F02B900374018 /* BG Music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7C686C321A4F02B900374018 /* BG Music.m4a */; };
-		7C69588E1E15577800A585B6 /* Red No Sign.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C69588D1E15577800A585B6 /* Red No Sign.png */; };
-		7CB59CE61E229C8200FA1B41 /* myCustomShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB59CE51E229C8200FA1B41 /* myCustomShapeNode.m */; };
-		7CB837311A52F07000A3685E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB837301A52F07000A3685E /* Images.xcassets */; };
-		7CBF84FE1DC940A200C25068 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBF84FD1DC940A200C25068 /* Main.storyboard */; };
-		7CDB764E1E13EF470088B3BD /* myCustomEmitterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDB764D1E13EF470088B3BD /* myCustomEmitterNode.m */; };
-		7CDB76511E13F3530088B3BD /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CDB764F1E13F3530088B3BD /* MyParticle.sks */; };
-		7CDB76521E13F3530088B3BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CDB76501E13F3530088B3BD /* Assets.xcassets */; };
-		7CE2DA651A2A5175005729D5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE2DA641A2A5175005729D5 /* GameScene.m */; };
-		7CE2DA671A2A51DE005729D5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE2DA661A2A51DE005729D5 /* GameScene.sks */; };
-		7CE4D6091ADD6D9F00CB198B /* myImpactParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */; };
-		7CE4D60A1ADD6D9F00CB198B /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CE4D6081ADD6D9F00CB198B /* spark.png */; };
-		7CE53F651A2A1A2E00F2F802 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F641A2A1A2E00F2F802 /* main.m */; };
-		7CE53F681A2A1A2E00F2F802 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */; };
-		7CE53F6B1A2A1A2E00F2F802 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */; };
-		7CE53F731A2A1A2F00F2F802 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */; };
-		7CFD94CF1D0ADE72005EB4D0 /* pia18014-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */; };
+		CC0100012F0B000100000001 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B00010000000E /* AppDelegate.m */; };
+		CC0100012F0B000100000002 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000002 /* ViewController.m */; };
+		CC0100012F0B000100000003 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000004 /* GameScene.m */; };
+		CC0100012F0B000100000004 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000006 /* SceneDelegate.m */; };
+		CC0100012F0B000100000005 /* myCustomSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000010 /* myCustomSpriteNode.m */; };
+		CC0100012F0B000100000006 /* myCustomEmitterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000012 /* myCustomEmitterNode.m */; };
+		CC0100012F0B000100000007 /* myCustomShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000014 /* myCustomShapeNode.m */; };
+		CC0100012F0B000100000008 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000008 /* HelpViewController.m */; };
+		CC0100012F0B000100000009 /* MoreHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B00010000000A /* MoreHelpViewController.m */; };
+		CC0100012F0B00010000000A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBD82F0ACEB300686843 /* main.m */; };
+		CC0100012F0B00010000000B /* AudioFFTAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = EFEA410B2F426F40003610DA /* AudioFFTAnalyzer.m */; };
+		CC0200012F0B000100000001 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B00010000000B /* Images.xcassets */; };
+		CC0200012F0B000100000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B00010000000C /* Assets.xcassets */; };
+		CC0200012F0B000100000003 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000015 /* Main.storyboard */; };
+		CC0200012F0B000100000004 /* DefaultPhoto1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA72F0ACD5000686843 /* DefaultPhoto1.jpg */; };
+		CC0200012F0B000100000005 /* DefaultPhoto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA82F0ACD5000686843 /* DefaultPhoto2.jpg */; };
+		CC0200012F0B000100000006 /* DefaultPhoto3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA92F0ACD5000686843 /* DefaultPhoto3.jpg */; };
+		CC0200012F0B000100000007 /* DefaultPhoto4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAA2F0ACD5000686843 /* DefaultPhoto4.jpg */; };
+		CC0200012F0B000100000008 /* DefaultPhoto5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAB2F0ACD5000686843 /* DefaultPhoto5.jpg */; };
+		CC0200012F0B000100000009 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAC2F0ACD5000686843 /* GameScene.sks */; };
+		CC0200012F0B00010000000A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB92F0ACD5000686843 /* spark.png */; };
+		CC0200012F0B00010000000B /* myCloudEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAE2F0ACD5000686843 /* myCloudEmitter.sks */; };
+		CC0200012F0B00010000000C /* mySnowEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB72F0ACD5000686843 /* mySnowEmitter.sks */; };
+		CC0200012F0B00010000000D /* myImpactParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB52F0ACD5000686843 /* myImpactParticle.sks */; };
+		CC0200012F0B00010000000E /* myParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB62F0ACD5000686843 /* myParticle.sks */; };
+		CC0200012F0B00010000000F /* Skrxlla - Caution.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB82F0ACD5000686843 /* Skrxlla - Caution.mp3 */; };
+		CC0200012F0B000100000010 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0000012F0B000100000016 /* LaunchScreen.xib */; };
+		DD0101012F0B100100000001 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000001 /* main.m */; };
+		DD0101012F0B100100000002 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000003 /* AppDelegate.m */; };
+		DD0101012F0B100100000003 /* TVSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000005 /* TVSetupViewController.m */; };
+		DD0101012F0B100100000004 /* TVGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000007 /* TVGameScene.m */; };
+		DD0101012F0B100100000005 /* TVPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000009 /* TVPhotoPickerViewController.m */; };
+		DD0101012F0B100100000006 /* TVMusicPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000000B /* TVMusicPickerViewController.m */; };
+		DD0101012F0B100100000007 /* myCustomSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000000D /* myCustomSpriteNode.m */; };
+		DD0101012F0B100100000008 /* myCustomEmitterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000000F /* myCustomEmitterNode.m */; };
+		DD0101012F0B100100000009 /* myCustomShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000011 /* myCustomShapeNode.m */; };
+		DD0101012F0B10010000000A /* MusicLibraryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000022 /* MusicLibraryHelper.swift */; };
+		DD0102012F0B100100000001 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD010A002F0B100100000001 /* Main.storyboard */; };
+		DD0102012F0B100100000002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000013 /* Assets.xcassets */; };
+		DD0102012F0B100100000003 /* DefaultPhoto1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000015 /* DefaultPhoto1.jpg */; };
+		DD0102012F0B100100000004 /* DefaultPhoto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000016 /* DefaultPhoto2.jpg */; };
+		DD0102012F0B100100000005 /* DefaultPhoto3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000017 /* DefaultPhoto3.jpg */; };
+		DD0102012F0B100100000006 /* DefaultPhoto4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000018 /* DefaultPhoto4.jpg */; };
+		DD0102012F0B100100000007 /* DefaultPhoto5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000019 /* DefaultPhoto5.jpg */; };
+		DD0102012F0B100100000008 /* Skrxlla - Caution.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000001A /* Skrxlla - Caution.mp3 */; };
+		DD0102012F0B100100000009 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000001B /* spark.png */; };
+		DD0102012F0B10010000000A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000001C /* GameScene.sks */; };
+		DD0102012F0B10010000000B /* myParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000001D /* myParticle.sks */; };
+		DD0102012F0B10010000000C /* myCloudEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000001E /* myCloudEmitter.sks */; };
+		DD0102012F0B10010000000D /* mySnowEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B10010000001F /* mySnowEmitter.sks */; };
+		DD0102012F0B10010000000E /* myImpactParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000020 /* myImpactParticle.sks */; };
+		DD0102012F0B10010000000F /* myTextureSpriteEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = DD0100012F0B100100000021 /* myTextureSpriteEmitter.sks */; };
+		DD0109012F0B100100000001 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000001 /* SpriteKit.framework */; };
+		DD0109012F0B100100000002 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000002 /* AVFoundation.framework */; };
+		DD0109012F0B100100000003 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000003 /* Photos.framework */; };
+		DD0109012F0B100100000004 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000004 /* StoreKit.framework */; };
+		DD0109012F0B100100000005 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000005 /* UIKit.framework */; };
+		DD0109012F0B100100000006 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000006 /* CoreImage.framework */; };
+		DD0109012F0B100100000007 /* GameplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000007 /* GameplayKit.framework */; };
+		DD0109012F0B100100000008 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0108012F0B100100000008 /* MediaPlayer.framework */; };
+		EFA6DBC22F0ACD5000686843 /* DefaultPhoto5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAB2F0ACD5000686843 /* DefaultPhoto5.jpg */; };
+		EFA6DBC32F0ACD5000686843 /* Skrxlla - Caution.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB82F0ACD5000686843 /* Skrxlla - Caution.mp3 */; };
+		EFA6DBC42F0ACD5000686843 /* DefaultPhoto2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA82F0ACD5000686843 /* DefaultPhoto2.jpg */; };
+		EFA6DBC52F0ACD5000686843 /* DefaultPhoto3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA92F0ACD5000686843 /* DefaultPhoto3.jpg */; };
+		EFA6DBC62F0ACD5000686843 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA52F0ACD5000686843 /* Main.storyboard */; };
+		EFA6DBC72F0ACD5000686843 /* DefaultPhoto4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAA2F0ACD5000686843 /* DefaultPhoto4.jpg */; };
+		EFA6DBC82F0ACD5000686843 /* myParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB62F0ACD5000686843 /* myParticle.sks */; };
+		EFA6DBC92F0ACD5000686843 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAC2F0ACD5000686843 /* GameScene.sks */; };
+		EFA6DBCA2F0ACD5000686843 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB92F0ACD5000686843 /* spark.png */; };
+		EFA6DBCC2F0ACD5000686843 /* mySnowEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB72F0ACD5000686843 /* mySnowEmitter.sks */; };
+		EFA6DBCD2F0ACD5000686843 /* DefaultPhoto1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBA72F0ACD5000686843 /* DefaultPhoto1.jpg */; };
+		EFA6DBCE2F0ACD5000686843 /* myImpactParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBB52F0ACD5000686843 /* myImpactParticle.sks */; };
+		EFA6DBCF2F0ACD5000686843 /* myCloudEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = EFA6DBAE2F0ACD5000686843 /* myCloudEmitter.sks */; };
+		EFA6DBD02F0ACD5000686843 /* myCustomShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBB22F0ACD5000686843 /* myCustomShapeNode.m */; };
+		EFA6DBD12F0ACD5000686843 /* TVPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBBF2F0ACD5000686843 /* TVPhotoPickerViewController.m */; };
+		EFA6DBD22F0ACD5000686843 /* TVMusicPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBBD2F0ACD5000686843 /* TVMusicPickerViewController.m */; };
+		EFA6DBD32F0ACD5000686843 /* myCustomSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBB42F0ACD5000686843 /* myCustomSpriteNode.m */; };
+		EFA6DBD42F0ACD5000686843 /* TVGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBBB2F0ACD5000686843 /* TVGameScene.m */; };
+		EFA6DBD52F0ACD5000686843 /* myCustomEmitterNode.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBB02F0ACD5000686843 /* myCustomEmitterNode.m */; };
+		EFA6DBD62F0ACD5000686843 /* TVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBC12F0ACD5000686843 /* TVViewController.m */; };
+		EFA6DBD72F0ACD5000686843 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBA32F0ACD5000686843 /* AppDelegate.m */; };
+		EFA6DBD92F0ACEB300686843 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA6DBD82F0ACEB300686843 /* main.m */; };
+		EFA6DBDC2F0AD04300686843 /* MusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFA6DBDB2F0AD04300686843 /* MusicKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7C0A1DCB1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shoot The Planes Intro Music.mp3"; sourceTree = "<group>"; };
-		7C0E4AB31DFDD1430055CAAB /* myCloudEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myCloudEmitter.sks; sourceTree = "<group>"; };
-		7C13F8BA1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "large-psychedelic-spiral-background.png"; sourceTree = "<group>"; };
-		7C13F8BC1E4D1828005F7A22 /* Barack-Obama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barack-Obama.png"; sourceTree = "<group>"; };
-		7C13F8BE1E4D18C7005F7A22 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
-		7C13F8C01E4D1BDE005F7A22 /* LargePowerup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargePowerup.png; sourceTree = "<group>"; };
-		7C13F8C21E4D1C3E005F7A22 /* YellowCloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YellowCloud.png; sourceTree = "<group>"; };
-		7C21DCA01DF22FBB009D777A /* myCustomSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomSpriteNode.h; sourceTree = "<group>"; };
-		7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomSpriteNode.m; sourceTree = "<group>"; };
-		7C2F77881D0D92340091E43C /* myTextureSpriteEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = myTextureSpriteEmitter.sks; path = ../myTextureSpriteEmitter.sks; sourceTree = "<group>"; };
-		7C2F778C1D0D97B60091E43C /* mySnowEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = mySnowEmitter.sks; sourceTree = "<group>"; };
-		7C3154701CF7154900EA137B /* hs-2003-28-a-25_percent_jpg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hs-2003-28-a-25_percent_jpg.jpg"; sourceTree = "<group>"; };
-		7C3154711CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hs-2009-02-a-hires_jpg.jpg"; sourceTree = "<group>"; };
-		7C3154751CF715AF00EA137B /* etacarinae_hubble_900.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = etacarinae_hubble_900.jpg; sourceTree = "<group>"; };
-		7C3154771CF7162600EA137B /* flame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flame.jpg; sourceTree = "<group>"; };
-		7C686C321A4F02B900374018 /* BG Music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BG Music.m4a"; sourceTree = "<group>"; };
-		7C69588D1E15577800A585B6 /* Red No Sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red No Sign.png"; sourceTree = "<group>"; };
-		7CB59CE41E229C8200FA1B41 /* myCustomShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomShapeNode.h; sourceTree = "<group>"; };
-		7CB59CE51E229C8200FA1B41 /* myCustomShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomShapeNode.m; sourceTree = "<group>"; };
-		7CB837301A52F07000A3685E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7CBF84FD1DC940A200C25068 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		7CDB764C1E13EF470088B3BD /* myCustomEmitterNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myCustomEmitterNode.h; sourceTree = "<group>"; };
-		7CDB764D1E13EF470088B3BD /* myCustomEmitterNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myCustomEmitterNode.m; sourceTree = "<group>"; };
-		7CDB764F1E13F3530088B3BD /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
-		7CDB76501E13F3530088B3BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7CDD87381DCAC204009EFFED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../TV Photo Chaos/AppDelegate.h"; sourceTree = "<group>"; };
-		7CDD87391DCAC204009EFFED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../TV Photo Chaos/AppDelegate.m"; sourceTree = "<group>"; };
-		7CE2DA631A2A5175005729D5 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		7CE2DA641A2A5175005729D5 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		7CE2DA661A2A51DE005729D5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myImpactParticle.sks; sourceTree = "<group>"; };
-		7CE4D6081ADD6D9F00CB198B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		7CE53F5F1A2A1A2E00F2F802 /* PhotoDanceParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDanceParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7CE53F631A2A1A2E00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CE53F641A2A1A2E00F2F802 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7CE53F661A2A1A2E00F2F802 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CE53F691A2A1A2E00F2F802 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7CE53F721A2A1A2F00F2F802 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7CE53F7D1A2A1A2F00F2F802 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE53F7E1A2A1A2F00F2F802 /* myNewImagePickerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myNewImagePickerTests.m; sourceTree = "<group>"; };
-		7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pia18014-full.png"; sourceTree = "<group>"; };
+		CC0000012F0B000100000001 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000002 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000003 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000004 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000005 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000006 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000007 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000008 /* HelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000009 /* MoreHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreHelpViewController.h; sourceTree = "<group>"; };
+		CC0000012F0B00010000000A /* MoreHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreHelpViewController.m; sourceTree = "<group>"; };
+		CC0000012F0B00010000000B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CC0000012F0B00010000000C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC0000012F0B00010000000D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CC0000012F0B00010000000E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CC0000012F0B00010000000F /* myCustomSpriteNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomSpriteNode.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000010 /* myCustomSpriteNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomSpriteNode.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000011 /* myCustomEmitterNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomEmitterNode.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000012 /* myCustomEmitterNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomEmitterNode.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000013 /* myCustomShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomShapeNode.h; sourceTree = "<group>"; };
+		CC0000012F0B000100000014 /* myCustomShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomShapeNode.m; sourceTree = "<group>"; };
+		CC0000012F0B000100000015 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		CC0000012F0B000100000016 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DD0100012F0B100100000001 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD0100012F0B100100000002 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD0100012F0B100100000003 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD0100012F0B100100000004 /* TVSetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVSetupViewController.h; sourceTree = "<group>"; };
+		DD0100012F0B100100000005 /* TVSetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVSetupViewController.m; sourceTree = "<group>"; };
+		DD0100012F0B100100000006 /* TVGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGameScene.h; sourceTree = "<group>"; };
+		DD0100012F0B100100000007 /* TVGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGameScene.m; sourceTree = "<group>"; };
+		DD0100012F0B100100000008 /* TVPhotoPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVPhotoPickerViewController.h; sourceTree = "<group>"; };
+		DD0100012F0B100100000009 /* TVPhotoPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVPhotoPickerViewController.m; sourceTree = "<group>"; };
+		DD0100012F0B10010000000A /* TVMusicPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVMusicPickerViewController.h; sourceTree = "<group>"; };
+		DD0100012F0B10010000000B /* TVMusicPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVMusicPickerViewController.m; sourceTree = "<group>"; };
+		DD0100012F0B10010000000C /* myCustomSpriteNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomSpriteNode.h; sourceTree = "<group>"; };
+		DD0100012F0B10010000000D /* myCustomSpriteNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomSpriteNode.m; sourceTree = "<group>"; };
+		DD0100012F0B10010000000E /* myCustomEmitterNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomEmitterNode.h; sourceTree = "<group>"; };
+		DD0100012F0B10010000000F /* myCustomEmitterNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomEmitterNode.m; sourceTree = "<group>"; };
+		DD0100012F0B100100000010 /* myCustomShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomShapeNode.h; sourceTree = "<group>"; };
+		DD0100012F0B100100000011 /* myCustomShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomShapeNode.m; sourceTree = "<group>"; };
+		DD0100012F0B100100000012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD0100012F0B100100000013 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD0100012F0B100100000014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = PhotoDancePartyTV/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		DD0100012F0B100100000015 /* DefaultPhoto1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto1.jpg; sourceTree = "<group>"; };
+		DD0100012F0B100100000016 /* DefaultPhoto2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto2.jpg; sourceTree = "<group>"; };
+		DD0100012F0B100100000017 /* DefaultPhoto3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto3.jpg; sourceTree = "<group>"; };
+		DD0100012F0B100100000018 /* DefaultPhoto4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto4.jpg; sourceTree = "<group>"; };
+		DD0100012F0B100100000019 /* DefaultPhoto5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto5.jpg; sourceTree = "<group>"; };
+		DD0100012F0B10010000001A /* Skrxlla - Caution.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Skrxlla - Caution.mp3"; sourceTree = "<group>"; };
+		DD0100012F0B10010000001B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		DD0100012F0B10010000001C /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		DD0100012F0B10010000001D /* myParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myParticle.sks; sourceTree = "<group>"; };
+		DD0100012F0B10010000001E /* myCloudEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myCloudEmitter.sks; sourceTree = "<group>"; };
+		DD0100012F0B10010000001F /* mySnowEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = mySnowEmitter.sks; sourceTree = "<group>"; };
+		DD0100012F0B100100000020 /* myImpactParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myImpactParticle.sks; sourceTree = "<group>"; };
+		DD0100012F0B100100000021 /* myTextureSpriteEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myTextureSpriteEmitter.sks; sourceTree = "<group>"; };
+		DD0100012F0B100100000022 /* MusicLibraryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibraryHelper.swift; sourceTree = "<group>"; };
+		DD0100012F0B100100000023 /* PhotoDancePartyTV-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoDancePartyTV-Bridging-Header.h"; sourceTree = "<group>"; };
+		DD0107002F0B100100000001 /* PhotoDancePartyTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoDancePartyTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0108012F0B100100000001 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000002 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000003 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000004 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000005 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000006 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000007 /* GameplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameplayKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/GameplayKit.framework; sourceTree = DEVELOPER_DIR; };
+		DD0108012F0B100100000008 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		EFA6DBA22F0ACD5000686843 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EFA6DBA32F0ACD5000686843 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EFA6DBA42F0ACD5000686843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		EFA6DBA72F0ACD5000686843 /* DefaultPhoto1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto1.jpg; sourceTree = "<group>"; };
+		EFA6DBA82F0ACD5000686843 /* DefaultPhoto2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto2.jpg; sourceTree = "<group>"; };
+		EFA6DBA92F0ACD5000686843 /* DefaultPhoto3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto3.jpg; sourceTree = "<group>"; };
+		EFA6DBAA2F0ACD5000686843 /* DefaultPhoto4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto4.jpg; sourceTree = "<group>"; };
+		EFA6DBAB2F0ACD5000686843 /* DefaultPhoto5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DefaultPhoto5.jpg; sourceTree = "<group>"; };
+		EFA6DBAC2F0ACD5000686843 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		EFA6DBAD2F0ACD5000686843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFA6DBAE2F0ACD5000686843 /* myCloudEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myCloudEmitter.sks; sourceTree = "<group>"; };
+		EFA6DBAF2F0ACD5000686843 /* myCustomEmitterNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomEmitterNode.h; sourceTree = "<group>"; };
+		EFA6DBB02F0ACD5000686843 /* myCustomEmitterNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomEmitterNode.m; sourceTree = "<group>"; };
+		EFA6DBB12F0ACD5000686843 /* myCustomShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomShapeNode.h; sourceTree = "<group>"; };
+		EFA6DBB22F0ACD5000686843 /* myCustomShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomShapeNode.m; sourceTree = "<group>"; };
+		EFA6DBB32F0ACD5000686843 /* myCustomSpriteNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCustomSpriteNode.h; sourceTree = "<group>"; };
+		EFA6DBB42F0ACD5000686843 /* myCustomSpriteNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCustomSpriteNode.m; sourceTree = "<group>"; };
+		EFA6DBB52F0ACD5000686843 /* myImpactParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myImpactParticle.sks; sourceTree = "<group>"; };
+		EFA6DBB62F0ACD5000686843 /* myParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myParticle.sks; sourceTree = "<group>"; };
+		EFA6DBB72F0ACD5000686843 /* mySnowEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = mySnowEmitter.sks; sourceTree = "<group>"; };
+		EFA6DBB82F0ACD5000686843 /* Skrxlla - Caution.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Skrxlla - Caution.mp3"; sourceTree = "<group>"; };
+		EFA6DBB92F0ACD5000686843 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		EFA6DBBA2F0ACD5000686843 /* TVGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVGameScene.h; sourceTree = "<group>"; };
+		EFA6DBBB2F0ACD5000686843 /* TVGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVGameScene.m; sourceTree = "<group>"; };
+		EFA6DBBC2F0ACD5000686843 /* TVMusicPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVMusicPickerViewController.h; sourceTree = "<group>"; };
+		EFA6DBBD2F0ACD5000686843 /* TVMusicPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVMusicPickerViewController.m; sourceTree = "<group>"; };
+		EFA6DBBE2F0ACD5000686843 /* TVPhotoPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVPhotoPickerViewController.h; sourceTree = "<group>"; };
+		EFA6DBBF2F0ACD5000686843 /* TVPhotoPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVPhotoPickerViewController.m; sourceTree = "<group>"; };
+		EFA6DBC02F0ACD5000686843 /* TVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVViewController.h; sourceTree = "<group>"; };
+		EFA6DBC12F0ACD5000686843 /* TVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVViewController.m; sourceTree = "<group>"; };
+		EFA6DBD82F0ACEB300686843 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EFA6DBDB2F0AD04300686843 /* MusicKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MusicKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS26.2.sdk/System/Library/Frameworks/MusicKit.framework; sourceTree = DEVELOPER_DIR; };
+		EFEA410B2F426F40003610DA /* AudioFFTAnalyzer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioFFTAnalyzer.m; sourceTree = "<group>"; };
+		EFFFAAE82F0AC9C900902ED0 /* tvphotochaos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tvphotochaos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFFFAAFD2F0ACA4400902ED0 /* ViewController 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ViewController 2.h"; sourceTree = "<group>"; };
+		EFFFAAFE2F0ACA4400902ED0 /* ViewController 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ViewController 2.m"; sourceTree = "<group>"; };
+		EFFFAAFF2F0ACA4400902ED0 /* GameScene 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameScene 2.h"; sourceTree = "<group>"; };
+		EFFFAB002F0ACA4400902ED0 /* GameScene 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GameScene 2.m"; sourceTree = "<group>"; };
+		EFFFAB012F0ACA4400902ED0 /* myCustomShapeNode 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "myCustomShapeNode 2.h"; sourceTree = "<group>"; };
+		EFFFAB022F0ACA4400902ED0 /* myCustomShapeNode 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "myCustomShapeNode 2.m"; sourceTree = "<group>"; };
+		EFFFAB032F0ACA4400902ED0 /* myCustomEmitterNode 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "myCustomEmitterNode 2.h"; sourceTree = "<group>"; };
+		EFFFAB042F0ACA4400902ED0 /* myCustomEmitterNode 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "myCustomEmitterNode 2.m"; sourceTree = "<group>"; };
+		EFFFAB052F0ACA4400902ED0 /* GameScene 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "GameScene 2.sks"; sourceTree = "<group>"; };
+		EFFFAB062F0ACA4400902ED0 /* AppDelegate 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate 2.h"; sourceTree = "<group>"; };
+		EFFFAB072F0ACA4400902ED0 /* AppDelegate 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate 2.m"; sourceTree = "<group>"; };
+		EFFFAB082F0ACA4400902ED0 /* AppDelegate 3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate 3.h"; sourceTree = "<group>"; };
+		EFFFAB092F0ACA4400902ED0 /* AppDelegate 3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate 3.m"; sourceTree = "<group>"; };
+		EFFFAB0A2F0ACA4400902ED0 /* Images 2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images 2.xcassets"; sourceTree = "<group>"; };
+		EFFFAB0B2F0ACA4400902ED0 /* Main 2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Main 2.storyboard"; sourceTree = "<group>"; };
+		EFFFAB0C2F0ACA4400902ED0 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = "Base.lproj/LaunchScreen 2.xib"; sourceTree = "<group>"; };
+		EFFFAB0E2F0ACA4400902ED0 /* Info 2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info 2.plist"; sourceTree = "<group>"; };
+		EFFFAB0F2F0ACA4400902ED0 /* main 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "main 2.m"; sourceTree = "<group>"; };
+		EFFFAB102F0ACA4400902ED0 /* large-psychedelic-spiral-background 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "large-psychedelic-spiral-background 2.png"; sourceTree = "<group>"; };
+		EFFFAB112F0ACA4400902ED0 /* Red No Sign 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red No Sign 2.png"; sourceTree = "<group>"; };
+		EFFFAB122F0ACA4400902ED0 /* myCustomSpriteNode 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "myCustomSpriteNode 2.h"; sourceTree = "<group>"; };
+		EFFFAB132F0ACA4400902ED0 /* myCustomSpriteNode 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "myCustomSpriteNode 2.m"; sourceTree = "<group>"; };
+		EFFFAB142F0ACA4400902ED0 /* Skrxlla - Caution 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Skrxlla - Caution 2.mp3"; sourceTree = "<group>"; };
+		EFFFAB152F0ACA4400902ED0 /* Help Screenshot 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Help Screenshot 2.png"; sourceTree = "<group>"; };
+		EFFFAB162F0ACA4400902ED0 /* Shoot The Planes Intro Music 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shoot The Planes Intro Music 2.mp3"; sourceTree = "<group>"; };
+		EFFFAB172F0ACA4400902ED0 /* myTextureSpriteEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = myTextureSpriteEmitter.sks; sourceTree = "<group>"; };
+		EFFFAB182F0ACA4400902ED0 /* myCloudEmitter 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "myCloudEmitter 2.sks"; sourceTree = "<group>"; };
+		EFFFAB192F0ACA4400902ED0 /* MyParticle 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "MyParticle 2.sks"; sourceTree = "<group>"; };
+		EFFFAB1A2F0ACA4400902ED0 /* Assets 2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Assets 2.xcassets"; sourceTree = "<group>"; };
+		EFFFAB1B2F0ACA4400902ED0 /* myImpactParticle 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "myImpactParticle 2.sks"; sourceTree = "<group>"; };
+		EFFFAB1C2F0ACA4400902ED0 /* mySnowEmitter 2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "mySnowEmitter 2.sks"; sourceTree = "<group>"; };
+		EFFFAB1E2F0ACA4400902ED0 /* pia18014-full 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pia18014-full 2.png"; sourceTree = "<group>"; };
+		EFFFAB1F2F0ACA4400902ED0 /* flame 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "flame 2.jpg"; sourceTree = "<group>"; };
+		EFFFAB202F0ACA4400902ED0 /* etacarinae_hubble_900 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "etacarinae_hubble_900 2.jpg"; sourceTree = "<group>"; };
+		EFFFAB212F0ACA4400902ED0 /* hs-2003-28-a-25_percent_jpg 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hs-2003-28-a-25_percent_jpg 2.jpg"; sourceTree = "<group>"; };
+		EFFFAB222F0ACA4400902ED0 /* hs-2009-02-a-hires_jpg 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hs-2009-02-a-hires_jpg 2.jpg"; sourceTree = "<group>"; };
+		EFFFAB232F0ACA4400902ED0 /* spark 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spark 2.png"; sourceTree = "<group>"; };
+		EFFFAB242F0ACA4400902ED0 /* BG Music 2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BG Music 2.m4a"; sourceTree = "<group>"; };
+		EFFFAB292F0ACA4400902ED0 /* HelpViewController 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelpViewController 2.h"; sourceTree = "<group>"; };
+		EFFFAB2A2F0ACA4400902ED0 /* HelpViewController 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HelpViewController 2.m"; sourceTree = "<group>"; };
+		EFFFAB2B2F0ACA4400902ED0 /* MoreHelpViewController 2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoreHelpViewController 2.h"; sourceTree = "<group>"; };
+		EFFFAB2C2F0ACA4400902ED0 /* MoreHelpViewController 2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MoreHelpViewController 2.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,14 +248,70 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD0103022F0B100100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0109012F0B100100000001 /* SpriteKit.framework in Frameworks */,
+				DD0109012F0B100100000002 /* AVFoundation.framework in Frameworks */,
+				DD0109012F0B100100000003 /* Photos.framework in Frameworks */,
+				DD0109012F0B100100000004 /* StoreKit.framework in Frameworks */,
+				DD0109012F0B100100000005 /* UIKit.framework in Frameworks */,
+				DD0109012F0B100100000006 /* CoreImage.framework in Frameworks */,
+				DD0109012F0B100100000007 /* GameplayKit.framework in Frameworks */,
+				DD0109012F0B100100000008 /* MediaPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFFAAE52F0AC9C900902ED0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFA6DBDC2F0AD04300686843 /* MusicKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		7CE53F561A2A1A2E00F2F802 = {
 			isa = PBXGroup;
 			children = (
+				EFEA410B2F426F40003610DA /* AudioFFTAnalyzer.m */,
+				EFA6DBA22F0ACD5000686843 /* AppDelegate.h */,
+				EFA6DBA32F0ACD5000686843 /* AppDelegate.m */,
+				EFA6DBA62F0ACD5000686843 /* Base.lproj */,
+				EFA6DBA72F0ACD5000686843 /* DefaultPhoto1.jpg */,
+				EFA6DBA82F0ACD5000686843 /* DefaultPhoto2.jpg */,
+				EFA6DBA92F0ACD5000686843 /* DefaultPhoto3.jpg */,
+				EFA6DBAA2F0ACD5000686843 /* DefaultPhoto4.jpg */,
+				EFA6DBAB2F0ACD5000686843 /* DefaultPhoto5.jpg */,
+				EFA6DBAC2F0ACD5000686843 /* GameScene.sks */,
+				EFA6DBAD2F0ACD5000686843 /* Info.plist */,
+				EFA6DBAE2F0ACD5000686843 /* myCloudEmitter.sks */,
+				EFA6DBAF2F0ACD5000686843 /* myCustomEmitterNode.h */,
+				EFA6DBB02F0ACD5000686843 /* myCustomEmitterNode.m */,
+				EFA6DBB12F0ACD5000686843 /* myCustomShapeNode.h */,
+				EFA6DBB22F0ACD5000686843 /* myCustomShapeNode.m */,
+				EFA6DBB32F0ACD5000686843 /* myCustomSpriteNode.h */,
+				EFA6DBB42F0ACD5000686843 /* myCustomSpriteNode.m */,
+				EFA6DBB52F0ACD5000686843 /* myImpactParticle.sks */,
+				EFA6DBB62F0ACD5000686843 /* myParticle.sks */,
+				EFA6DBB72F0ACD5000686843 /* mySnowEmitter.sks */,
+				EFA6DBB82F0ACD5000686843 /* Skrxlla - Caution.mp3 */,
+				EFA6DBB92F0ACD5000686843 /* spark.png */,
+				EFA6DBBA2F0ACD5000686843 /* TVGameScene.h */,
+				EFA6DBBB2F0ACD5000686843 /* TVGameScene.m */,
+				EFA6DBBC2F0ACD5000686843 /* TVMusicPickerViewController.h */,
+				EFA6DBBD2F0ACD5000686843 /* TVMusicPickerViewController.m */,
+				EFA6DBBE2F0ACD5000686843 /* TVPhotoPickerViewController.h */,
+				EFA6DBBF2F0ACD5000686843 /* TVPhotoPickerViewController.m */,
+				EFA6DBC02F0ACD5000686843 /* TVViewController.h */,
+				EFA6DBC12F0ACD5000686843 /* TVViewController.m */,
 				7CE53F611A2A1A2E00F2F802 /* Bouncy Bouncy Photo Chaos */,
+				DD0102002F0B100100000001 /* PhotoDancePartyTV */,
 				7CE53F7B1A2A1A2F00F2F802 /* myNewImagePickerTests */,
+				EFA6DBDA2F0AD04300686843 /* Frameworks */,
 				7CE53F601A2A1A2E00F2F802 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				7CE53F5F1A2A1A2E00F2F802 /* PhotoDanceParty.app */,
+				EFFFAAE82F0AC9C900902ED0 /* tvphotochaos.app */,
+				DD0107002F0B100100000001 /* PhotoDancePartyTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,52 +329,55 @@
 		7CE53F611A2A1A2E00F2F802 /* Bouncy Bouncy Photo Chaos */ = {
 			isa = PBXGroup;
 			children = (
-				7CE53F691A2A1A2E00F2F802 /* ViewController.h */,
-				7CE53F6A1A2A1A2E00F2F802 /* ViewController.m */,
-				7CE2DA631A2A5175005729D5 /* GameScene.h */,
-				7CE2DA641A2A5175005729D5 /* GameScene.m */,
-				7CB59CE41E229C8200FA1B41 /* myCustomShapeNode.h */,
-				7CB59CE51E229C8200FA1B41 /* myCustomShapeNode.m */,
-				7CDB764C1E13EF470088B3BD /* myCustomEmitterNode.h */,
-				7CDB764D1E13EF470088B3BD /* myCustomEmitterNode.m */,
-				7CE2DA661A2A51DE005729D5 /* GameScene.sks */,
-				7CE53F661A2A1A2E00F2F802 /* AppDelegate.h */,
-				7CE53F671A2A1A2E00F2F802 /* AppDelegate.m */,
-				7CDD87381DCAC204009EFFED /* AppDelegate.h */,
-				7CDD87391DCAC204009EFFED /* AppDelegate.m */,
-				7CB837301A52F07000A3685E /* Images.xcassets */,
-				7CBF84FD1DC940A200C25068 /* Main.storyboard */,
-				7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */,
-				7CE53F631A2A1A2E00F2F802 /* Info.plist */,
-				7CE53F641A2A1A2E00F2F802 /* main.m */,
-				7CE53F621A2A1A2E00F2F802 /* Supporting Files */,
+				CC0000012F0B00010000000D /* AppDelegate.h */,
+				CC0000012F0B00010000000E /* AppDelegate.m */,
+				CC0000012F0B000100000001 /* ViewController.h */,
+				CC0000012F0B000100000002 /* ViewController.m */,
+				CC0000012F0B000100000003 /* GameScene.h */,
+				CC0000012F0B000100000004 /* GameScene.m */,
+				CC0000012F0B000100000005 /* SceneDelegate.h */,
+				CC0000012F0B000100000006 /* SceneDelegate.m */,
+				CC0000012F0B00010000000F /* myCustomSpriteNode.h */,
+				CC0000012F0B000100000010 /* myCustomSpriteNode.m */,
+				CC0000012F0B000100000011 /* myCustomEmitterNode.h */,
+				CC0000012F0B000100000012 /* myCustomEmitterNode.m */,
+				CC0000012F0B000100000013 /* myCustomShapeNode.h */,
+				CC0000012F0B000100000014 /* myCustomShapeNode.m */,
+				CC0000012F0B000100000007 /* HelpViewController.h */,
+				CC0000012F0B000100000008 /* HelpViewController.m */,
+				CC0000012F0B000100000009 /* MoreHelpViewController.h */,
+				CC0000012F0B00010000000A /* MoreHelpViewController.m */,
+				CC0000012F0B00010000000B /* Images.xcassets */,
+				CC0000012F0B00010000000C /* Assets.xcassets */,
+				CC0000012F0B000100000015 /* Main.storyboard */,
+				CC0000012F0B000100000016 /* LaunchScreen.xib */,
+				EFA6DBD82F0ACEB300686843 /* main.m */,
+				EFFFAAFD2F0ACA4400902ED0 /* ViewController 2.h */,
+				EFFFAAFE2F0ACA4400902ED0 /* ViewController 2.m */,
+				EFFFAAFF2F0ACA4400902ED0 /* GameScene 2.h */,
+				EFFFAB002F0ACA4400902ED0 /* GameScene 2.m */,
+				EFFFAB012F0ACA4400902ED0 /* myCustomShapeNode 2.h */,
+				EFFFAB022F0ACA4400902ED0 /* myCustomShapeNode 2.m */,
+				EFFFAB032F0ACA4400902ED0 /* myCustomEmitterNode 2.h */,
+				EFFFAB042F0ACA4400902ED0 /* myCustomEmitterNode 2.m */,
+				EFFFAB052F0ACA4400902ED0 /* GameScene 2.sks */,
+				EFFFAB062F0ACA4400902ED0 /* AppDelegate 2.h */,
+				EFFFAB072F0ACA4400902ED0 /* AppDelegate 2.m */,
+				EFFFAB082F0ACA4400902ED0 /* AppDelegate 3.h */,
+				EFFFAB092F0ACA4400902ED0 /* AppDelegate 3.m */,
+				EFFFAB0A2F0ACA4400902ED0 /* Images 2.xcassets */,
+				EFFFAB0B2F0ACA4400902ED0 /* Main 2.storyboard */,
+				EFFFAB0D2F0ACA4400902ED0 /* LaunchScreen.xib */,
+				EFFFAB0E2F0ACA4400902ED0 /* Info 2.plist */,
+				EFFFAB0F2F0ACA4400902ED0 /* main 2.m */,
+				EFFFAB262F0ACA4400902ED0 /* Supporting Files */,
+				EFFFAB292F0ACA4400902ED0 /* HelpViewController 2.h */,
+				EFFFAB2A2F0ACA4400902ED0 /* HelpViewController 2.m */,
+				EFFFAB2B2F0ACA4400902ED0 /* MoreHelpViewController 2.h */,
+				EFFFAB2C2F0ACA4400902ED0 /* MoreHelpViewController 2.m */,
 			);
 			name = "Bouncy Bouncy Photo Chaos";
 			path = myNewImagePicker;
-			sourceTree = "<group>";
-		};
-		7CE53F621A2A1A2E00F2F802 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				7C13F8C21E4D1C3E005F7A22 /* YellowCloud.png */,
-				7C13F8BC1E4D1828005F7A22 /* Barack-Obama.png */,
-				7C13F8BE1E4D18C7005F7A22 /* Clock.png */,
-				7C13F8C01E4D1BDE005F7A22 /* LargePowerup.png */,
-				7C13F8BA1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png */,
-				7C69588D1E15577800A585B6 /* Red No Sign.png */,
-				7C21DCA01DF22FBB009D777A /* myCustomSpriteNode.h */,
-				7C21DCA11DF22FBB009D777A /* myCustomSpriteNode.m */,
-				7C0A1DCB1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 */,
-				7CF47BBE1DE86F4D00270BE0 /* Particle Systems */,
-				7CFD94CE1D0ADE72005EB4D0 /* pia18014-full.png */,
-				7C3154771CF7162600EA137B /* flame.jpg */,
-				7C3154751CF715AF00EA137B /* etacarinae_hubble_900.jpg */,
-				7C3154701CF7154900EA137B /* hs-2003-28-a-25_percent_jpg.jpg */,
-				7C3154711CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg */,
-				7CE4D6081ADD6D9F00CB198B /* spark.png */,
-				7CF47BBF1DE86F6900270BE0 /* Audio */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7CE53F7B1A2A1A2F00F2F802 /* myNewImagePickerTests */ = {
@@ -182,25 +397,121 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7CF47BBE1DE86F4D00270BE0 /* Particle Systems */ = {
+		DD0102002F0B100100000001 /* PhotoDancePartyTV */ = {
 			isa = PBXGroup;
 			children = (
-				7C2F77881D0D92340091E43C /* myTextureSpriteEmitter.sks */,
-				7C0E4AB31DFDD1430055CAAB /* myCloudEmitter.sks */,
-				7CDB764F1E13F3530088B3BD /* MyParticle.sks */,
-				7CDB76501E13F3530088B3BD /* Assets.xcassets */,
-				7CE4D6071ADD6D9F00CB198B /* myImpactParticle.sks */,
-				7C2F778C1D0D97B60091E43C /* mySnowEmitter.sks */,
+				DD0100012F0B100100000001 /* main.m */,
+				DD0100012F0B100100000002 /* AppDelegate.h */,
+				DD0100012F0B100100000003 /* AppDelegate.m */,
+				DD0100012F0B100100000004 /* TVSetupViewController.h */,
+				DD0100012F0B100100000005 /* TVSetupViewController.m */,
+				DD0100012F0B100100000006 /* TVGameScene.h */,
+				DD0100012F0B100100000007 /* TVGameScene.m */,
+				DD0100012F0B100100000008 /* TVPhotoPickerViewController.h */,
+				DD0100012F0B100100000009 /* TVPhotoPickerViewController.m */,
+				DD0100012F0B10010000000A /* TVMusicPickerViewController.h */,
+				DD0100012F0B10010000000B /* TVMusicPickerViewController.m */,
+				DD0100012F0B10010000000C /* myCustomSpriteNode.h */,
+				DD0100012F0B10010000000D /* myCustomSpriteNode.m */,
+				DD0100012F0B10010000000E /* myCustomEmitterNode.h */,
+				DD0100012F0B10010000000F /* myCustomEmitterNode.m */,
+				DD0100012F0B100100000010 /* myCustomShapeNode.h */,
+				DD0100012F0B100100000011 /* myCustomShapeNode.m */,
+				DD0100012F0B100100000012 /* Info.plist */,
+				DD0100012F0B100100000013 /* Assets.xcassets */,
+				DD010A032F0B100100000001 /* Base.lproj */,
+				DD0100012F0B100100000015 /* DefaultPhoto1.jpg */,
+				DD0100012F0B100100000016 /* DefaultPhoto2.jpg */,
+				DD0100012F0B100100000017 /* DefaultPhoto3.jpg */,
+				DD0100012F0B100100000018 /* DefaultPhoto4.jpg */,
+				DD0100012F0B100100000019 /* DefaultPhoto5.jpg */,
+				DD0100012F0B10010000001A /* Skrxlla - Caution.mp3 */,
+				DD0100012F0B10010000001B /* spark.png */,
+				DD0100012F0B10010000001C /* GameScene.sks */,
+				DD0100012F0B10010000001D /* myParticle.sks */,
+				DD0100012F0B10010000001E /* myCloudEmitter.sks */,
+				DD0100012F0B10010000001F /* mySnowEmitter.sks */,
+				DD0100012F0B100100000020 /* myImpactParticle.sks */,
+				DD0100012F0B100100000021 /* myTextureSpriteEmitter.sks */,
+				DD0100012F0B100100000022 /* MusicLibraryHelper.swift */,
+				DD0100012F0B100100000023 /* PhotoDancePartyTV-Bridging-Header.h */,
+			);
+			path = PhotoDancePartyTV;
+			sourceTree = "<group>";
+		};
+		DD010A032F0B100100000001 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				DD010A002F0B100100000001 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		EFA6DBA62F0ACD5000686843 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				EFA6DBA52F0ACD5000686843 /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		EFA6DBDA2F0AD04300686843 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFA6DBDB2F0AD04300686843 /* MusicKit.framework */,
+				DD0108012F0B100100000001 /* SpriteKit.framework */,
+				DD0108012F0B100100000002 /* AVFoundation.framework */,
+				DD0108012F0B100100000003 /* Photos.framework */,
+				DD0108012F0B100100000004 /* StoreKit.framework */,
+				DD0108012F0B100100000005 /* UIKit.framework */,
+				DD0108012F0B100100000006 /* CoreImage.framework */,
+				DD0108012F0B100100000007 /* GameplayKit.framework */,
+				DD0108012F0B100100000008 /* MediaPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFFFAB1D2F0ACA4400902ED0 /* Particle Systems */ = {
+			isa = PBXGroup;
+			children = (
+				EFFFAB172F0ACA4400902ED0 /* myTextureSpriteEmitter.sks */,
+				EFFFAB182F0ACA4400902ED0 /* myCloudEmitter 2.sks */,
+				EFFFAB192F0ACA4400902ED0 /* MyParticle 2.sks */,
+				EFFFAB1A2F0ACA4400902ED0 /* Assets 2.xcassets */,
+				EFFFAB1B2F0ACA4400902ED0 /* myImpactParticle 2.sks */,
+				EFFFAB1C2F0ACA4400902ED0 /* mySnowEmitter 2.sks */,
 			);
 			name = "Particle Systems";
 			sourceTree = "<group>";
 		};
-		7CF47BBF1DE86F6900270BE0 /* Audio */ = {
+		EFFFAB252F0ACA4400902ED0 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				7C686C321A4F02B900374018 /* BG Music.m4a */,
+				EFFFAB242F0ACA4400902ED0 /* BG Music 2.m4a */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		EFFFAB262F0ACA4400902ED0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFFFAB102F0ACA4400902ED0 /* large-psychedelic-spiral-background 2.png */,
+				EFFFAB112F0ACA4400902ED0 /* Red No Sign 2.png */,
+				EFFFAB122F0ACA4400902ED0 /* myCustomSpriteNode 2.h */,
+				EFFFAB132F0ACA4400902ED0 /* myCustomSpriteNode 2.m */,
+				EFFFAB142F0ACA4400902ED0 /* Skrxlla - Caution 2.mp3 */,
+				EFFFAB152F0ACA4400902ED0 /* Help Screenshot 2.png */,
+				EFFFAB162F0ACA4400902ED0 /* Shoot The Planes Intro Music 2.mp3 */,
+				EFFFAB1D2F0ACA4400902ED0 /* Particle Systems */,
+				EFFFAB1E2F0ACA4400902ED0 /* pia18014-full 2.png */,
+				EFFFAB1F2F0ACA4400902ED0 /* flame 2.jpg */,
+				EFFFAB202F0ACA4400902ED0 /* etacarinae_hubble_900 2.jpg */,
+				EFFFAB212F0ACA4400902ED0 /* hs-2003-28-a-25_percent_jpg 2.jpg */,
+				EFFFAB222F0ACA4400902ED0 /* hs-2009-02-a-hires_jpg 2.jpg */,
+				EFFFAB232F0ACA4400902ED0 /* spark 2.png */,
+				EFFFAB252F0ACA4400902ED0 /* Audio */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,19 +534,64 @@
 			productReference = 7CE53F5F1A2A1A2E00F2F802 /* PhotoDanceParty.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DD0104002F0B100100000001 /* Photo Dance Party TV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0106002F0B100100000001 /* Build configuration list for PBXNativeTarget "Photo Dance Party TV" */;
+			buildPhases = (
+				DD0103002F0B100100000001 /* Sources */,
+				DD0103022F0B100100000001 /* Frameworks */,
+				DD0103012F0B100100000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Photo Dance Party TV";
+			productName = PhotoDancePartyTV;
+			productReference = DD0107002F0B100100000001 /* PhotoDancePartyTV.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFFFAAE72F0AC9C900902ED0 /* tvphotochaos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFFFAAFC2F0AC9CA00902ED0 /* Build configuration list for PBXNativeTarget "tvphotochaos" */;
+			buildPhases = (
+				EFFFAAE42F0AC9C900902ED0 /* Sources */,
+				EFFFAAE52F0AC9C900902ED0 /* Frameworks */,
+				EFFFAAE62F0AC9C900902ED0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = tvphotochaos;
+			packageProductDependencies = (
+			);
+			productName = tvphotochaos;
+			productReference = EFFFAAE82F0AC9C900902ED0 /* tvphotochaos.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7CE53F571A2A1A2E00F2F802 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1220;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2700;
 				ORGANIZATIONNAME = "Robert Zimmelman";
 				TargetAttributes = {
 					7CE53F5E1A2A1A2E00F2F802 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 8RV36K5JJ4;
 						ProvisioningStyle = Automatic;
+					};
+					DD0104002F0B100100000001 = {
+						CreatedOnToolsVersion = 26.2;
+						DevelopmentTeam = 8RV36K5JJ4;
+						ProvisioningStyle = Automatic;
+					};
+					EFFFAAE72F0AC9C900902ED0 = {
+						CreatedOnToolsVersion = 26.2;
 					};
 				};
 			};
@@ -253,6 +609,8 @@
 			projectRoot = "";
 			targets = (
 				7CE53F5E1A2A1A2E00F2F802 /* Photo Dance Party! */,
+				EFFFAAE72F0AC9C900902ED0 /* tvphotochaos */,
+				DD0104002F0B100100000001 /* Photo Dance Party TV */,
 			);
 		};
 /* End PBXProject section */
@@ -262,30 +620,64 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C13F8C11E4D1BDE005F7A22 /* LargePowerup.png in Resources */,
-				7C3154761CF715AF00EA137B /* etacarinae_hubble_900.jpg in Resources */,
-				7CDB76511E13F3530088B3BD /* MyParticle.sks in Resources */,
-				7CE4D60A1ADD6D9F00CB198B /* spark.png in Resources */,
-				7C3154731CF7154900EA137B /* hs-2003-28-a-25_percent_jpg.jpg in Resources */,
-				7C2F778A1D0D92340091E43C /* myTextureSpriteEmitter.sks in Resources */,
-				7CBF84FE1DC940A200C25068 /* Main.storyboard in Resources */,
-				7C3154741CF7154900EA137B /* hs-2009-02-a-hires_jpg.jpg in Resources */,
-				7CB837311A52F07000A3685E /* Images.xcassets in Resources */,
-				7CE4D6091ADD6D9F00CB198B /* myImpactParticle.sks in Resources */,
-				7C69588E1E15577800A585B6 /* Red No Sign.png in Resources */,
-				7C2F778D1D0D97B60091E43C /* mySnowEmitter.sks in Resources */,
-				7C0A1DCC1DE9DFD7003CF243 /* Shoot The Planes Intro Music.mp3 in Resources */,
-				7C13F8BF1E4D18C7005F7A22 /* Clock.png in Resources */,
-				7C3154781CF7162600EA137B /* flame.jpg in Resources */,
-				7CE2DA671A2A51DE005729D5 /* GameScene.sks in Resources */,
-				7C686C331A4F02B900374018 /* BG Music.m4a in Resources */,
-				7C0E4AB41DFDD1430055CAAB /* myCloudEmitter.sks in Resources */,
-				7C13F8BB1E4D17AA005F7A22 /* large-psychedelic-spiral-background.png in Resources */,
-				7CFD94CF1D0ADE72005EB4D0 /* pia18014-full.png in Resources */,
-				7CE53F731A2A1A2F00F2F802 /* LaunchScreen.xib in Resources */,
-				7C13F8C31E4D1C3E005F7A22 /* YellowCloud.png in Resources */,
-				7C13F8BD1E4D1828005F7A22 /* Barack-Obama.png in Resources */,
-				7CDB76521E13F3530088B3BD /* Assets.xcassets in Resources */,
+				CC0200012F0B000100000003 /* Main.storyboard in Resources */,
+				CC0200012F0B000100000010 /* LaunchScreen.xib in Resources */,
+				CC0200012F0B000100000001 /* Images.xcassets in Resources */,
+				CC0200012F0B000100000002 /* Assets.xcassets in Resources */,
+				CC0200012F0B000100000004 /* DefaultPhoto1.jpg in Resources */,
+				CC0200012F0B000100000005 /* DefaultPhoto2.jpg in Resources */,
+				CC0200012F0B000100000006 /* DefaultPhoto3.jpg in Resources */,
+				CC0200012F0B000100000007 /* DefaultPhoto4.jpg in Resources */,
+				CC0200012F0B000100000008 /* DefaultPhoto5.jpg in Resources */,
+				CC0200012F0B000100000009 /* GameScene.sks in Resources */,
+				CC0200012F0B00010000000A /* spark.png in Resources */,
+				CC0200012F0B00010000000B /* myCloudEmitter.sks in Resources */,
+				CC0200012F0B00010000000C /* mySnowEmitter.sks in Resources */,
+				CC0200012F0B00010000000D /* myImpactParticle.sks in Resources */,
+				CC0200012F0B00010000000E /* myParticle.sks in Resources */,
+				CC0200012F0B00010000000F /* Skrxlla - Caution.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0103012F0B100100000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0102012F0B100100000001 /* Main.storyboard in Resources */,
+				DD0102012F0B100100000002 /* Assets.xcassets in Resources */,
+				DD0102012F0B100100000003 /* DefaultPhoto1.jpg in Resources */,
+				DD0102012F0B100100000004 /* DefaultPhoto2.jpg in Resources */,
+				DD0102012F0B100100000005 /* DefaultPhoto3.jpg in Resources */,
+				DD0102012F0B100100000006 /* DefaultPhoto4.jpg in Resources */,
+				DD0102012F0B100100000007 /* DefaultPhoto5.jpg in Resources */,
+				DD0102012F0B100100000008 /* Skrxlla - Caution.mp3 in Resources */,
+				DD0102012F0B100100000009 /* spark.png in Resources */,
+				DD0102012F0B10010000000A /* GameScene.sks in Resources */,
+				DD0102012F0B10010000000B /* myParticle.sks in Resources */,
+				DD0102012F0B10010000000C /* myCloudEmitter.sks in Resources */,
+				DD0102012F0B10010000000D /* mySnowEmitter.sks in Resources */,
+				DD0102012F0B10010000000E /* myImpactParticle.sks in Resources */,
+				DD0102012F0B10010000000F /* myTextureSpriteEmitter.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFFAAE62F0AC9C900902ED0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFA6DBC22F0ACD5000686843 /* DefaultPhoto5.jpg in Resources */,
+				EFA6DBC32F0ACD5000686843 /* Skrxlla - Caution.mp3 in Resources */,
+				EFA6DBC42F0ACD5000686843 /* DefaultPhoto2.jpg in Resources */,
+				EFA6DBC52F0ACD5000686843 /* DefaultPhoto3.jpg in Resources */,
+				EFA6DBC62F0ACD5000686843 /* Main.storyboard in Resources */,
+				EFA6DBC72F0ACD5000686843 /* DefaultPhoto4.jpg in Resources */,
+				EFA6DBC82F0ACD5000686843 /* myParticle.sks in Resources */,
+				EFA6DBC92F0ACD5000686843 /* GameScene.sks in Resources */,
+				EFA6DBCA2F0ACD5000686843 /* spark.png in Resources */,
+				EFA6DBCC2F0ACD5000686843 /* mySnowEmitter.sks in Resources */,
+				EFA6DBCD2F0ACD5000686843 /* DefaultPhoto1.jpg in Resources */,
+				EFA6DBCE2F0ACD5000686843 /* myImpactParticle.sks in Resources */,
+				EFA6DBCF2F0ACD5000686843 /* myCloudEmitter.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,23 +688,76 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE53F6B1A2A1A2E00F2F802 /* ViewController.m in Sources */,
-				7CB59CE61E229C8200FA1B41 /* myCustomShapeNode.m in Sources */,
-				7CE53F681A2A1A2E00F2F802 /* AppDelegate.m in Sources */,
-				7CE2DA651A2A5175005729D5 /* GameScene.m in Sources */,
-				7CDB764E1E13EF470088B3BD /* myCustomEmitterNode.m in Sources */,
-				7C21DCA21DF22FBB009D777A /* myCustomSpriteNode.m in Sources */,
-				7CE53F651A2A1A2E00F2F802 /* main.m in Sources */,
+				CC0100012F0B00010000000A /* main.m in Sources */,
+				CC0100012F0B000100000001 /* AppDelegate.m in Sources */,
+				CC0100012F0B000100000004 /* SceneDelegate.m in Sources */,
+				CC0100012F0B000100000002 /* ViewController.m in Sources */,
+				CC0100012F0B000100000003 /* GameScene.m in Sources */,
+				CC0100012F0B000100000005 /* myCustomSpriteNode.m in Sources */,
+				CC0100012F0B000100000006 /* myCustomEmitterNode.m in Sources */,
+				CC0100012F0B000100000007 /* myCustomShapeNode.m in Sources */,
+				CC0100012F0B000100000008 /* HelpViewController.m in Sources */,
+				CC0100012F0B000100000009 /* MoreHelpViewController.m in Sources */,
+				CC0100012F0B00010000000B /* AudioFFTAnalyzer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0103002F0B100100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0101012F0B100100000001 /* main.m in Sources */,
+				DD0101012F0B100100000002 /* AppDelegate.m in Sources */,
+				DD0101012F0B100100000003 /* TVSetupViewController.m in Sources */,
+				DD0101012F0B100100000004 /* TVGameScene.m in Sources */,
+				DD0101012F0B100100000005 /* TVPhotoPickerViewController.m in Sources */,
+				DD0101012F0B100100000006 /* TVMusicPickerViewController.m in Sources */,
+				DD0101012F0B100100000007 /* myCustomSpriteNode.m in Sources */,
+				DD0101012F0B100100000008 /* myCustomEmitterNode.m in Sources */,
+				DD0101012F0B100100000009 /* myCustomShapeNode.m in Sources */,
+				DD0101012F0B10010000000A /* MusicLibraryHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFFFAAE42F0AC9C900902ED0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFA6DBD02F0ACD5000686843 /* myCustomShapeNode.m in Sources */,
+				EFA6DBD12F0ACD5000686843 /* TVPhotoPickerViewController.m in Sources */,
+				EFA6DBD22F0ACD5000686843 /* TVMusicPickerViewController.m in Sources */,
+				EFA6DBD32F0ACD5000686843 /* myCustomSpriteNode.m in Sources */,
+				EFA6DBD42F0ACD5000686843 /* TVGameScene.m in Sources */,
+				EFA6DBD52F0ACD5000686843 /* myCustomEmitterNode.m in Sources */,
+				EFA6DBD62F0ACD5000686843 /* TVViewController.m in Sources */,
+				EFA6DBD92F0ACEB300686843 /* main.m in Sources */,
+				EFA6DBD72F0ACD5000686843 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7CE53F711A2A1A2F00F2F802 /* LaunchScreen.xib */ = {
+		DD010A002F0B100100000001 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7CE53F721A2A1A2F00F2F802 /* Base */,
+				DD0100012F0B100100000014 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFA6DBA52F0ACD5000686843 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFA6DBA42F0ACD5000686843 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFFFAB0D2F0ACA4400902ED0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFFFAB0C2F0ACA4400902ED0 /* LaunchScreen.xib */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -324,6 +769,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -351,8 +797,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -372,6 +820,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
@@ -380,6 +829,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -407,8 +857,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -420,6 +872,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -430,12 +884,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 24;
-				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				CURRENT_PROJECT_VERSION = 25;
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
 				PRODUCT_NAME = PhotoDanceParty;
 				PROVISIONING_PROFILE = "";
@@ -450,16 +906,180 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 24;
-				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				CURRENT_PROJECT_VERSION = 25;
 				INFOPLIST_FILE = myNewImagePicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 4.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.myNewImagePicker;
 				PRODUCT_NAME = PhotoDanceParty;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD0105012F0B100100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				INFOPLIST_FILE = PhotoDancePartyTV/Info.plist;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.PhotoDancePartyTV;
+				PRODUCT_NAME = PhotoDancePartyTV;
+				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoDancePartyTV/PhotoDancePartyTV-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_TVOS_DEPLOYMENT_TARGET)";
+			};
+			name = Debug;
+		};
+		DD0105022F0B100100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				ENABLE_MODULE_VERIFIER = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				INFOPLIST_FILE = PhotoDancePartyTV/Info.plist;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.PhotoDancePartyTV;
+				PRODUCT_NAME = PhotoDancePartyTV;
+				SDKROOT = appletvos;
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoDancePartyTV/PhotoDancePartyTV-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_TVOS_DEPLOYMENT_TARGET)";
+			};
+			name = Release;
+		};
+		EFFFAAFA2F0AC9CA00902ED0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.tvphotochaos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		EFFFAAFB2F0AC9CA00902ED0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8RV36K5JJ4;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.zimmelman.tvphotochaos;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 26.2;
 			};
 			name = Release;
 		};
@@ -480,6 +1100,24 @@
 			buildConfigurations = (
 				7CE53F831A2A1A2F00F2F802 /* Debug */,
 				7CE53F841A2A1A2F00F2F802 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0106002F0B100100000001 /* Build configuration list for PBXNativeTarget "Photo Dance Party TV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0105012F0B100100000001 /* Debug */,
+				DD0105022F0B100100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFFFAAFC2F0AC9CA00902ED0 /* Build configuration list for PBXNativeTarget "tvphotochaos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFFFAAFA2F0AC9CA00902ED0 /* Debug */,
+				EFFFAAFB2F0AC9CA00902ED0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

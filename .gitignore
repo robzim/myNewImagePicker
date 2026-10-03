@@ -1,4 +1,6 @@
 ld/
+# Generated Xcode build output can contain local environment secrets.
+/build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -22,4 +24,3 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
-

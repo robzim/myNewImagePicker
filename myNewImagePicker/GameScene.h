@@ -15,6 +15,7 @@
 @import AVFoundation;
 @import Photos;
 @import GameplayKit;
+@import CoreImage;
 
 //@import CoreMotion;
 
@@ -31,6 +32,15 @@
 -(void)myAssignImage3;
 -(void)myAssignImage4;
 -(void)myAssignImage5;
+
+// Magical visual effects
+-(void)createSparkleEffectAtPosition:(CGPoint)position withColor:(SKColor *)color;
+-(void)createMagicBurstAtPosition:(CGPoint)position;
+-(void)createConfettiBurstAtPosition:(CGPoint)position;
+-(void)celebrationEffect;
+-(void)addGlowToSprite:(SKSpriteNode *)sprite withColor:(SKColor *)color;
+-(void)createRainbowTrailForSprite:(SKSpriteNode *)sprite;
+-(SKColor *)randomMagicColor;
 
 @property float mySceneImageSize;
 @property BOOL myVibrateFlag;
@@ -101,8 +111,31 @@
 @property int myTestInt;
 
 @property NSURL *myMusicURL;
+@property NSString *mySongTitle;
+@property NSString *mySongArtist;
 
 @property NSMutableArray *myPicturesArray;
+
+// Audio display UI
+@property SKNode *myAudioDisplayNode;
+-(void)myUpdateAudioDisplay;
+-(void)mySetupAudioDisplay;
+
+// Debug display for resize values
+@property SKNode *myDebugDisplayNode;
+@property BOOL myDebugDisplayVisible;
+@property float myCurrentScaleTo;
+-(void)mySetupDebugDisplay;
+-(void)myUpdateDebugDisplay;
+-(void)myToggleDebugDisplay;
+
+// Microphone input for sound-reactive mode
+@property AVAudioRecorder *myMicRecorder;
+@property BOOL myMicInputEnabled;
+@property BOOL myStartedInMicMode;  // Sticky flag - true if started in mic mode
+-(void)myStartMicInput;
+-(void)myStopMicInput;
+-(void)myToggleMicInput;
 
 //@property AVAudioPlayer *myMusicPlayer;
 @end

@@ -30,6 +30,8 @@
 	<string>Media library is used to allow user to select songs to play in the app.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is used to take pictures that will be used in this app.  No pictures are saved by this application ever.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone is used to make photos react to ambient sounds and your voice. No audio is recorded or saved.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses photos only as image sources for the app.  No photos are saved by this app ever.</string>
 	<key>PrefersOpenGL</key>
@@ -50,5 +52,24 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>

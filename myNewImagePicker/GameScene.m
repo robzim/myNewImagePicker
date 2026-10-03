@@ -32,6 +32,13 @@ float myRestitution = 0.5;
 
 int mySpriteCount = 0;
 
+// Magical colors for effects
+#define MAGIC_PINK [SKColor colorWithRed:1.0 green:0.4 blue:0.6 alpha:1.0]
+#define MAGIC_CYAN [SKColor colorWithRed:0.2 green:0.9 blue:1.0 alpha:1.0]
+#define MAGIC_PURPLE [SKColor colorWithRed:0.6 green:0.3 blue:1.0 alpha:1.0]
+#define MAGIC_GOLD [SKColor colorWithRed:1.0 green:0.85 blue:0.3 alpha:1.0]
+#define MAGIC_GREEN [SKColor colorWithRed:0.3 green:1.0 blue:0.5 alpha:1.0]
+
 
 
 
@@ -103,6 +110,9 @@ dispatch_queue_t myDispatchQueue;
 
 
 @synthesize myResizeMethod;
+@synthesize myMicRecorder;
+@synthesize myMicInputEnabled;
+@synthesize myStartedInMicMode;
 @synthesize myTexture;
 
 @synthesize myTexture1;
@@ -134,8 +144,11 @@ dispatch_queue_t myDispatchQueue;
 @synthesize myTestInt;
 
 @synthesize myMusicURL;
+@synthesize mySongTitle;
+@synthesize mySongArtist;
 
 @synthesize myPicturesArray;
+@synthesize myAudioDisplayNode;
 
 @synthesize mySceneImageSize;
 //@synthesize myMusicPlayer;
@@ -398,33 +411,162 @@ float myPowerDifference;
 //    double myInstantAmplitude;
     myInstantPower=0;
     myAveragePower=0;
-    [myAudioPlayer updateMeters];
-    for (int i = 0 ; i < myAudioPlayer.numberOfChannels;  i++) {
-        myInstantPower+= [myAudioPlayer peakPowerForChannel:i];
-        myAveragePower+= [myAudioPlayer averagePowerForChannel:i];
+
+    // Use the sticky flag to determine input source
+    if (myStartedInMicMode) {
+        // Mic mode - only use mic input, never fall back to audio
+        if (myMicInputEnabled && myMicRecorder.isRecording) {
+            [myMicRecorder updateMeters];
+            myInstantPower = [myMicRecorder peakPowerForChannel:0];
+            myAveragePower = [myMicRecorder averagePowerForChannel:0];
+
+            // Log mic power values (every ~60 frames to avoid spam)
+            static int logCounter = 0;
+            if (logCounter++ % 60 == 0) {
+                NSLog(@">>> MIC POWER: instant=%f, avg=%f, diff=%f, audioPlaying=%d",
+                      myInstantPower, myAveragePower, fabs(myInstantPower - myLastInstantPower),
+                      myAudioPlayer.isPlaying);
+            }
+        } else {
+            // Mic not ready yet - don't resize at all
+            return;
+        }
+    } else {
+        // NOT in mic mode - check if we should use music
+        if (myResizeMethod == 0) {
+            return;  // No resize mode
+        }
+        // Music mode - only resize if audio player exists and is playing
+        if (!myAudioPlayer) {
+            return;
+        }
+        if (!myAudioPlayer.isPlaying) {
+            return;
+        }
+        [myAudioPlayer updateMeters];
+        for (int i = 0 ; i < myAudioPlayer.numberOfChannels;  i++) {
+            myInstantPower+= [myAudioPlayer peakPowerForChannel:i];
+            myAveragePower+= [myAudioPlayer averagePowerForChannel:i];
+        }
+        myInstantPower = myInstantPower / myAudioPlayer.numberOfChannels;
     }
-    myInstantPower = myInstantPower / myAudioPlayer.numberOfChannels;
-    //    myAveragePower = myAveragePower / myAudioPlayer.numberOfChannels;
+
     myPowerDifference = fabs(myInstantPower - myLastInstantPower);
     myLastInstantPower = myInstantPower;
-    //    }
-//    myInstantAmplitude = [self myDbToAmp:myInstantPower] ;
-    //        NSLog(@"AP %f IP %f Dif %f Amp %f",myAveragePower,myInstantPower,myPowerDifference,myInstantAmplitude   );
-    //    NSLog(@"Power Difference %f",myPowerDifference);
+
     float myScaleTo = 1.0;
     if (myResizeMethod == 2) {
-        myScaleTo =   fabs(myPowerDifference / 2.0);
+        // Music pulse mode - FIXED: divide by 20, add baseline, clamp max
+        myScaleTo = fmin(1.0 + (myPowerDifference / 20.0), 2.5);
     } else if (myResizeMethod == 1) {
+        // Music instant mode
         myScaleTo = [self myDbToAmp:myInstantPower];
+    } else if (myResizeMethod == 4) {
+        // Mic pulse mode - FIXED: divide by 15, add baseline, clamp max
+        myScaleTo = fmin(1.0 + (myPowerDifference / 15.0), 3.0);
+    } else if (myResizeMethod == 3) {
+        // Mic instant mode
+        myScaleTo = [self myDbToAmp:myInstantPower] * 1.5;
     }
-//    NSLog(@"%f",myScaleTo);
+
+    // Store for debug display
+    self.myCurrentScaleTo = myScaleTo;
+
     if (myVibrateFlag == YES) {
         [self myBumpNewPhoneWithMusic];
     }
-    //        NSLog(@"Power Difference %f",myPowerDifference);
-    if (myPowerDifference > 0.0) {
+
+    // Use higher threshold for mic mode to filter ambient noise
+    float minThreshold = myStartedInMicMode ? 1.0 : 0.0;
+
+    if (myPowerDifference > minThreshold) {
         [self myResizeTheParticlesToSize:myScaleTo];
         [self myResizePhotosAndSegmentsToSize:myScaleTo];
+    }
+}
+
+#pragma mark - Microphone Input
+
+-(void)myStartMicInput {
+    NSLog(@"Starting microphone input");
+
+    // Request microphone permission
+    [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
+        if (granted) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setupMicRecorder];
+            });
+        } else {
+            NSLog(@"Microphone permission denied");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showMicError:@"Microphone access denied. Please enable microphone access in Settings to use Mic Mode."];
+            });
+        }
+    }];
+}
+
+-(void)showMicError:(NSString *)message {
+    // Post notification to show alert from ViewController
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"micError" object:message];
+}
+
+-(void)setupMicRecorder {
+    NSError *error = nil;
+
+    // Configure audio session for recording
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayAndRecord
+             withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker | AVAudioSessionCategoryOptionMixWithOthers
+                   error:&error];
+    if (error) {
+        NSLog(@"Audio session error: %@", error);
+        [self showMicError:[NSString stringWithFormat:@"Audio session error: %@", error.localizedDescription]];
+        return;
+    }
+    [session setActive:YES error:&error];
+
+    // Create temporary file URL for recorder (required but we won't use the file)
+    NSString *tempDir = NSTemporaryDirectory();
+    NSString *tempFile = [tempDir stringByAppendingPathComponent:@"mic_input.caf"];
+    NSURL *fileURL = [NSURL fileURLWithPath:tempFile];
+
+    // Recording settings
+    NSDictionary *settings = @{
+        AVFormatIDKey: @(kAudioFormatAppleLossless),
+        AVSampleRateKey: @44100.0,
+        AVNumberOfChannelsKey: @1,
+        AVEncoderAudioQualityKey: @(AVAudioQualityMedium)
+    };
+
+    myMicRecorder = [[AVAudioRecorder alloc] initWithURL:fileURL settings:settings error:&error];
+    if (error) {
+        NSLog(@"Recorder init error: %@", error);
+        [self showMicError:[NSString stringWithFormat:@"Microphone setup error: %@", error.localizedDescription]];
+        return;
+    }
+
+    myMicRecorder.meteringEnabled = YES;
+    [myMicRecorder prepareToRecord];
+    [myMicRecorder record];
+    myMicInputEnabled = YES;
+
+    NSLog(@"Microphone input started successfully");
+}
+
+-(void)myStopMicInput {
+    NSLog(@"Stopping microphone input");
+
+    if (myMicRecorder && myMicRecorder.isRecording) {
+        [myMicRecorder stop];
+    }
+    myMicInputEnabled = NO;
+}
+
+-(void)myToggleMicInput {
+    if (myMicInputEnabled) {
+        [self myStopMicInput];
+    } else {
+        [self myStartMicInput];
     }
 }
 
@@ -460,6 +602,14 @@ float myPowerDifference;
     // if myResizeMethod == 0 then we're not resizing, so dont do the routine
     if (myResizeMethod > 0) {
         [self myResizeSpritesToMusic];
+    }
+
+    // Always update audio display (handles pause state, decay animations)
+    [self myUpdateAudioDisplay];
+
+    // Update debug display if visible
+    if (self.myDebugDisplayVisible) {
+        [self myUpdateDebugDisplay];
     }
 }
 
@@ -517,7 +667,7 @@ float myPowerDifference;
     if (self.children.count > myAcceptableNodeCount) {
         NSLog(@"______________________________________________________________________");
         NSLog(@"IN DROP PICTURES - RETURNING - %d NODES",(int) self.children.count);
-        NSLog(@"%@",self.children);
+//        NSLog(@"%@",self.children);
         [self enumerateChildNodesWithName:@"sprite" usingBlock:^(SKNode * _Nonnull node, BOOL * _Nonnull stop) {
             [node removeFromParent];
         }];
@@ -525,7 +675,7 @@ float myPowerDifference;
             [node removeFromParent];
         }];
         NSLog(@"AFTER CLEANUP - %d NODES",(int) self.children.count);
-        NSLog(@"%@",self.children);
+//        NSLog(@"%@",self.children);
         NSLog(@"______________________________________________________________________");
 
         [self myStartDropPicturesTimer];
@@ -590,21 +740,27 @@ float myPowerDifference;
 
 -(void)myMusicSelected{
     NSLog(@"in myMusicSelected.  URL is %@",myMusicURL);
+    // Don't start music if we started in mic mode
+    if (myStartedInMicMode) {
+        NSLog(@">>> Skipping myMusicSelected - in mic mode");
+        return;
+    }
     myAudioPlayer = nil;
     [self myStartTheMusic];
+
+    // Refresh the audio display with new song info
+    [self mySetupAudioDisplay];
 }
 
 
 -(void)willMoveFromView:(SKView *)view{
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"playpause" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"selectedmusic" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"restartmusic" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"musicselected" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage1" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage2" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage3" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage4" object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"assignimage5" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
 }
 
 -(void)mySendQuitNotification{
@@ -718,6 +874,7 @@ float myPowerDifference;
 
 
 -(void)didMoveToView:(SKView *)view {
+    NSLog(@">>> didMoveToView CALLED: myStartedInMicMode=%d, myResizeMethod=%d", myStartedInMicMode, myResizeMethod);
     [self.view setShouldCullNonVisibleNodes:YES];
     //    [self.view setShowsFPS:YES];
     //    [self.view setShowsDrawCount:YES];
@@ -726,9 +883,9 @@ float myPowerDifference;
     
     my100OffsetRandomSource = [GKRandomDistribution distributionWithLowestValue:-100 highestValue:100];
     myShuffledRandomSource = [GKShuffledDistribution distributionWithLowestValue:1 highestValue:18];
-    
-    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-    
+
+    // PHPhotoLibrary observer is registered once in didMoveToView; do not re-register here.
+
     myPhotos = [[PHFetchResult alloc] init];
     //    PHFetchResult *myAlbums = [[PHFetchResult alloc] init];
     //    PHFetchResult *myCollections = [[PHFetchResult alloc] init];
@@ -741,13 +898,31 @@ float myPowerDifference;
     
     
     myImageManager = [[PHImageManager alloc] init];
-    
-    
-    
-    [self myStartTheMusic];
+
+
+
+    // Delay music/mic decision to ensure properties are set
+    // (presentScene may trigger didMoveToView before property setters complete)
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@">>> DELAYED CHECK: myStartedInMicMode=%d, myResizeMethod=%d", self->myStartedInMicMode, self->myResizeMethod);
+        if (self->myStartedInMicMode) {
+            // Mic mode - start mic input, no music
+            NSLog(@">>> Starting MIC mode");
+            [self myStartMicInput];
+        } else {
+            // Music mode - start music
+            NSLog(@">>> Starting MUSIC mode");
+            [self myStartTheMusic];
+        }
+    });
     [self myStartTheGame];
     [self myMakeMenuReminderLabel];
-    
+
+    // Setup audio display after a short delay to ensure mode is determined
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self mySetupAudioDisplay];
+    });
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myMusicSelected) name:@"musicselected" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myPlayPause) name:@"playpause" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(myStartTheMusic) name:@"selectedmusic" object:nil];
@@ -760,6 +935,12 @@ float myPowerDifference;
     
     UITapGestureRecognizer *myTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mySendQuitNotification)];
     [self.view addGestureRecognizer:myTapGestureRecognizer];
+
+    // Add double-tap gesture recognizer for debug display toggle
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myToggleDebugDisplay)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:doubleTap];
+
     //
     NSLog(@"in Game Scene myPicturesArray %@",myPicturesArray);
     
@@ -767,6 +948,10 @@ float myPowerDifference;
 
 
 -(void)myRestartTheMusic{
+    // Don't restart music if we started in mic mode
+    if (myStartedInMicMode) {
+        return;
+    }
     [myAudioPlayer stop];
     [myAudioPlayer setCurrentTime:0.0];
     [myAudioPlayer prepareToPlay];
@@ -780,6 +965,18 @@ float myPowerDifference;
 
 
 -(void)myStartTheMusic{
+    NSLog(@">>> myStartTheMusic CALLED: myStartedInMicMode=%d", myStartedInMicMode);
+    // Don't start music if we started in mic mode
+    if (myStartedInMicMode) {
+        NSLog(@">>> Skipping music start - in mic mode");
+        return;
+    }
+
+    // Turn off mic when music starts
+    [self myStopMicInput];
+
+    NSLog(@">>> Starting music...");
+
     NSLog(@"My Test Int %d   My Test Number %@ in GameScene.m",myTestInt,myTestNumber);
     NSLog(@"Music URL in GameScene.m %@",myMusicURL);
     NSURL *fileURL;
@@ -794,7 +991,7 @@ float myPowerDifference;
         //                         [[NSBundle mainBundle] pathForResource: @"12 Desafinado"
         //                 [[NSBundle mainBundle] pathForResource: @"Normalized 12 Desafinado"
         //                 [[NSBundle mainBundle] pathForResource: @"05 Dream On"
-        [[NSBundle mainBundle] pathForResource: @"Shoot The Planes Intro Music"
+        [[NSBundle mainBundle] pathForResource: @"Skrxlla - Caution"
                                         ofType: @"mp3"];
         fileURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
     }
@@ -815,10 +1012,14 @@ float myPowerDifference;
 
 
 -(void)myPlayPause{
+    // Don't control music if we started in mic mode
+    if (myStartedInMicMode) {
+        return;
+    }
     if (myAudioPlayer.isPlaying) {
         [myAudioPlayer stop];
     } else {
-        [ myAudioPlayer play];
+        [myAudioPlayer play];
     }
 }
 
@@ -877,44 +1078,94 @@ float myPowerDifference;
     //    [self.physicsWorld setGravity:CGVectorMake(0.0, -0.5)];
     
     [self.physicsWorld setGravity:CGVectorMake(0.0, -9.5)];
-    
-    
-    [self setBackgroundColor:[UIColor blackColor]];
+
+    // Set beautiful dark background
+    [self setBackgroundColor:[SKColor colorWithRed:0.02 green:0.0 blue:0.08 alpha:1.0]];
+
+    // Add animated gradient background
+    [self createAnimatedBackgroundGradient];
+
     [self.view setIgnoresSiblingOrder:YES];
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
     //
     //  contact 0x09 is the edge of the scene
     self.physicsBody.contactTestBitMask = 0x09;
     self.physicsWorld.contactDelegate = self;
-    //
-    
-    
-    
+
+    // Celebrate game start!
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self celebrationEffect];
+    });
 }
 
 
 
+-(SKLabelNode *)createMagicalLabelWithText:(NSString *)text fontSize:(CGFloat)fontSize color:(SKColor *)color {
+    SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-Bold"];
+    label.text = text;
+    label.fontSize = fontSize;
+    label.fontColor = color;
+    label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+
+    // Add glow effect
+    SKLabelNode *glowLabel = [label copy];
+    glowLabel.fontColor = color;
+    glowLabel.alpha = 0.6;
+    glowLabel.zPosition = -1;
+
+    SKEffectNode *glowEffect = [SKEffectNode node];
+    glowEffect.shouldRasterize = YES;
+    glowEffect.filter = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:@"inputRadius", @8.0, nil];
+    [glowEffect addChild:glowLabel];
+    [label addChild:glowEffect];
+
+    // Add sparkle animation
+    SKAction *pulseAction = [SKAction repeatActionForever:[SKAction sequence:@[
+        [SKAction group:@[
+            [SKAction scaleTo:1.05 duration:0.8],
+            [SKAction fadeAlphaTo:0.9 duration:0.8]
+        ]],
+        [SKAction group:@[
+            [SKAction scaleTo:1.0 duration:0.8],
+            [SKAction fadeAlphaTo:1.0 duration:0.8]
+        ]]
+    ]]];
+    [label runAction:pulseAction];
+
+    return label;
+}
+
 -(void)myMakeIntroLabels{
     if (![self childNodeWithName:@"hold on"]) {
-        SKLabelNode *myHoldOnLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-        myHoldOnLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                             CGRectGetMidY(self.frame) + 220 );
-        [myHoldOnLabel setFontSize:24.0];
+        // Create magical "Let's Dance!" intro label
+        SKLabelNode *myHoldOnLabel = [self createMagicalLabelWithText:@"Let's Dance!" fontSize:32.0 color:MAGIC_PINK];
+        myHoldOnLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
         [myHoldOnLabel setZPosition:20.0];
         [myHoldOnLabel setName:@"hold on"];
-        myHoldOnLabel.text = @"Hold On...";
+        myHoldOnLabel.alpha = 0;
+        [myHoldOnLabel setScale:0.5];
         [self addChild:myHoldOnLabel];
-        
+
+        // Entrance animation
         [myHoldOnLabel runAction:[SKAction sequence:@[
-                                                      [SKAction waitForDuration:1.0],
-                                                      [SKAction group:@[
-                                                                        [SKAction fadeAlphaTo:0.1 duration:1.0],
-                                                                        //                                                                    [SKAction scaleTo:0.1 duration:1.0],
-                                                                        ]],
-                                                      [SKAction removeFromParent],
-                                                      ]]];
+            [SKAction group:@[
+                [SKAction fadeAlphaTo:1.0 duration:0.4],
+                [SKAction scaleTo:1.2 duration:0.4]
+            ]],
+            [SKAction scaleTo:1.0 duration:0.2],
+            [SKAction waitForDuration:1.5],
+            [SKAction group:@[
+                [SKAction fadeAlphaTo:0.0 duration:0.5],
+                [SKAction scaleTo:1.5 duration:0.5]
+            ]],
+            [SKAction removeFromParent]
+        ]]];
+
+        // Create sparkle burst at label position
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self createSparkleEffectAtPosition:myHoldOnLabel.position withColor:MAGIC_PINK];
+        });
     }
-          
 
     if ([self childNodeWithName:@"get"]) {
         SKAction *myIntroHelperLabelAction = [SKAction repeatActionForever:[SKAction
@@ -925,24 +1176,17 @@ float myPowerDifference;
                                                                                        [SKAction fadeAlphaTo:0.0 duration:0.5],
                                                                                        [SKAction waitForDuration:60.0],
                                                                                        ]]];
-        
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-        myLabel.text = @"Get";
-        SKLabelNode *my2ndLabel = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-        my2ndLabel.text = @" Ready!";
+
+        // Create magical labels with glow
+        SKLabelNode *myLabel = [self createMagicalLabelWithText:@"Get" fontSize:myImageSpriteSize/4.0 color:MAGIC_CYAN];
+        SKLabelNode *my2ndLabel = [self createMagicalLabelWithText:@"Ready!" fontSize:myImageSpriteSize/4.0 color:MAGIC_GOLD];
+
         [myLabel setName:@"get"];
         [my2ndLabel setName:@"ready"];
-        //
-        // set the font size proportional to the image sprite size
-        myLabel.fontSize = myImageSpriteSize/5.0;
-        my2ndLabel.fontSize = myImageSpriteSize/5.0;
-        myLabel.horizontalAlignmentMode = my2ndLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
         [myLabel setZPosition:20.0];
         [my2ndLabel setZPosition:20.0];
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame) - 200 );
-        my2ndLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                          CGRectGetMidY(self.frame) - (  200 + myImageSpriteSize /3.0 ));
+        myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - 200);
+        my2ndLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) - (200 + myImageSpriteSize / 3.0));
         [self addChild:myLabel];
         [self addChild:my2ndLabel];
         [myLabel setAlpha:0.0];
@@ -960,12 +1204,677 @@ float myPowerDifference;
         [myTapForMenuLabel setFontSize:18.0];
         [myTapForMenuLabel setName:@"tap for label"];
         [myTapForMenuLabel setPosition:CGPointMake(CGRectGetMidX(self.view.frame), 10.0)  ];
+
+        // Add glow effect to label
+        SKLabelNode *glowLabel = [myTapForMenuLabel copy];
+        [glowLabel setFontColor:MAGIC_CYAN];
+        [glowLabel setAlpha:0.5];
+        [glowLabel setZPosition:-1];
+        SKEffectNode *glowEffect = [SKEffectNode node];
+        glowEffect.shouldRasterize = YES;
+        glowEffect.filter = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:@"inputRadius", @5.0, nil];
+        [glowEffect addChild:glowLabel];
+        [myTapForMenuLabel addChild:glowEffect];
+
         [self addChild:myTapForMenuLabel];
-        [myTapForMenuLabel runAction:    [SKAction repeatActionForever:      [SKAction sequence:@[
-                                                                                                  [SKAction waitForDuration:30.0],
-                                                                                                  [SKAction fadeAlphaTo:0.1 duration:10],
-                                                                                                  [SKAction fadeAlphaTo:1.0 duration:20.0],
-                                                                                                  ]]]];
+        [myTapForMenuLabel runAction:[SKAction repeatActionForever:[SKAction sequence:@[
+            [SKAction waitForDuration:30.0],
+            [SKAction fadeAlphaTo:0.1 duration:10],
+            [SKAction fadeAlphaTo:1.0 duration:20.0],
+        ]]]];
+    }
+}
+
+#pragma mark - Audio Display (Song Title, Mic Indicator, VU Meter)
+
+-(void)mySetupAudioDisplay {
+    // Remove existing display if present
+    SKNode *existingDisplay = [self childNodeWithName:@"audioDisplayContainer"];
+    if (existingDisplay) {
+        [existingDisplay removeFromParent];
+    }
+
+    // Create container node for all audio display elements
+    myAudioDisplayNode = [SKNode node];
+    myAudioDisplayNode.name = @"audioDisplayContainer";
+    myAudioDisplayNode.zPosition = 50;
+    myAudioDisplayNode.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - 60);
+    [self addChild:myAudioDisplayNode];
+
+    // Create background pill shape
+    CGFloat pillWidth = MIN(self.frame.size.width - 40, 320);
+    CGFloat pillHeight = 50;
+    SKShapeNode *backgroundPill = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(pillWidth, pillHeight) cornerRadius:pillHeight/2];
+    backgroundPill.fillColor = [SKColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.6];
+    backgroundPill.strokeColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    backgroundPill.lineWidth = 1.5;
+    backgroundPill.name = @"audioDisplayBG";
+    [myAudioDisplayNode addChild:backgroundPill];
+
+    // Add subtle inner glow
+    SKShapeNode *innerGlow = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(pillWidth - 4, pillHeight - 4) cornerRadius:(pillHeight-4)/2];
+    innerGlow.fillColor = [SKColor clearColor];
+    innerGlow.strokeColor = [SKColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
+    innerGlow.lineWidth = 1;
+    [myAudioDisplayNode addChild:innerGlow];
+
+    // Determine display mode
+    BOOL isMicMode = myStartedInMicMode;
+
+    if (isMicMode) {
+        // --- MIC MODE DISPLAY ---
+
+        // Mic icon (using unicode microphone or simple shape)
+        SKLabelNode *micIcon = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-Bold"];
+        micIcon.text = @"MIC";
+        micIcon.fontSize = 12;
+        micIcon.fontColor = MAGIC_PINK;
+        micIcon.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        micIcon.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        micIcon.position = CGPointMake(-pillWidth/2 + 20, 8);
+        micIcon.name = @"micIcon";
+        [myAudioDisplayNode addChild:micIcon];
+
+        // "Listening..." text with pulsing animation
+        SKLabelNode *micLabel = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-Medium"];
+        micLabel.text = @"Listening to you...";
+        micLabel.fontSize = 14;
+        micLabel.fontColor = [SKColor whiteColor];
+        micLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        micLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        micLabel.position = CGPointMake(-pillWidth/2 + 20, -8);
+        micLabel.name = @"micLabel";
+        [myAudioDisplayNode addChild:micLabel];
+
+        // Pulsing mic indicator dot
+        SKShapeNode *pulsingDot = [SKShapeNode shapeNodeWithCircleOfRadius:6];
+        pulsingDot.fillColor = MAGIC_PINK;
+        pulsingDot.strokeColor = [SKColor clearColor];
+        pulsingDot.glowWidth = 4;
+        pulsingDot.position = CGPointMake(pillWidth/2 - 30, 0);
+        pulsingDot.name = @"pulsingDot";
+        [myAudioDisplayNode addChild:pulsingDot];
+
+        // Pulsing animation
+        SKAction *pulseAction = [SKAction repeatActionForever:[SKAction sequence:@[
+            [SKAction group:@[
+                [SKAction scaleTo:1.3 duration:0.5],
+                [SKAction fadeAlphaTo:0.5 duration:0.5]
+            ]],
+            [SKAction group:@[
+                [SKAction scaleTo:0.8 duration:0.5],
+                [SKAction fadeAlphaTo:1.0 duration:0.5]
+            ]]
+        ]]];
+        [pulsingDot runAction:pulseAction];
+
+    } else {
+        // --- MUSIC MODE DISPLAY ---
+
+        // Music note icon
+        SKLabelNode *musicIcon = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-Bold"];
+        musicIcon.text = @"NOW PLAYING";
+        musicIcon.fontSize = 10;
+        musicIcon.fontColor = MAGIC_CYAN;
+        musicIcon.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        musicIcon.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        musicIcon.position = CGPointMake(-pillWidth/2 + 20, 12);
+        musicIcon.name = @"nowPlayingLabel";
+        [myAudioDisplayNode addChild:musicIcon];
+
+        // Song title with scrolling if too long
+        NSString *displayTitle = mySongTitle ? mySongTitle : @"Photo Dance Party!";
+        SKLabelNode *titleLabel = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-DemiBold"];
+        titleLabel.text = displayTitle;
+        titleLabel.fontSize = 15;
+        titleLabel.fontColor = [SKColor whiteColor];
+        titleLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        titleLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+        titleLabel.position = CGPointMake(-pillWidth/2 + 20, -6);
+        titleLabel.name = @"songTitleLabel";
+        [myAudioDisplayNode addChild:titleLabel];
+
+        // Artist name if available
+        if (mySongArtist && mySongArtist.length > 0) {
+            titleLabel.position = CGPointMake(-pillWidth/2 + 20, 0);
+
+            SKLabelNode *artistLabel = [SKLabelNode labelNodeWithFontNamed:@"AvenirNext-Regular"];
+            artistLabel.text = mySongArtist;
+            artistLabel.fontSize = 11;
+            artistLabel.fontColor = [SKColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+            artistLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+            artistLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+            artistLabel.position = CGPointMake(-pillWidth/2 + 20, -14);
+            artistLabel.name = @"artistLabel";
+            [myAudioDisplayNode addChild:artistLabel];
+        }
+
+        // Music bars - controlled by audio level in myUpdateAudioDisplay
+        CGFloat barsStartX = pillWidth/2 - 45;
+        for (int i = 0; i < 4; i++) {
+            SKShapeNode *bar = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(4, 15) cornerRadius:2];
+            bar.fillColor = MAGIC_GOLD;
+            bar.strokeColor = [SKColor clearColor];
+            bar.position = CGPointMake(barsStartX + i * 8, 0);
+            bar.name = [NSString stringWithFormat:@"musicBar%d", i];
+            [bar setYScale:0.3];  // Start at resting state
+            [myAudioDisplayNode addChild:bar];
+        }
+    }
+
+    // --- VU METER (shown in both modes) ---
+    CGFloat vuMeterWidth = pillWidth - 40;
+    CGFloat vuMeterHeight = 4;
+    CGFloat vuMeterY = -pillHeight/2 - 12;
+
+    // VU meter background
+    SKShapeNode *vuMeterBG = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(vuMeterWidth, vuMeterHeight) cornerRadius:vuMeterHeight/2];
+    vuMeterBG.fillColor = [SKColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.8];
+    vuMeterBG.strokeColor = [SKColor clearColor];
+    vuMeterBG.position = CGPointMake(0, vuMeterY);
+    vuMeterBG.name = @"vuMeterBG";
+    [myAudioDisplayNode addChild:vuMeterBG];
+
+    // VU meter fill - use a container node so we can scale from left edge
+    SKNode *vuMeterFillContainer = [SKNode node];
+    vuMeterFillContainer.position = CGPointMake(-vuMeterWidth/2, vuMeterY);
+    vuMeterFillContainer.name = @"vuMeterFillContainer";
+    [myAudioDisplayNode addChild:vuMeterFillContainer];
+
+    SKShapeNode *vuMeterFill = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(2, vuMeterHeight - 1) cornerRadius:(vuMeterHeight-1)/2];
+    vuMeterFill.fillColor = MAGIC_CYAN;
+    vuMeterFill.strokeColor = [SKColor clearColor];
+    vuMeterFill.position = CGPointMake(1, 0);  // Offset so scaling appears from left
+    vuMeterFill.name = @"vuMeterFill";
+    [vuMeterFillContainer addChild:vuMeterFill];
+
+    // VU meter glow
+    SKShapeNode *vuMeterGlow = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(2, vuMeterHeight + 4) cornerRadius:(vuMeterHeight+4)/2];
+    vuMeterGlow.fillColor = MAGIC_CYAN;
+    vuMeterGlow.strokeColor = [SKColor clearColor];
+    vuMeterGlow.alpha = 0.4;
+    vuMeterGlow.position = CGPointMake(1, 0);
+    vuMeterGlow.name = @"vuMeterGlow";
+    [vuMeterFillContainer addChild:vuMeterGlow];
+
+    // Entrance animation for the whole display
+    myAudioDisplayNode.alpha = 0;
+    [myAudioDisplayNode setScale:0.8];
+    [myAudioDisplayNode runAction:[SKAction group:@[
+        [SKAction fadeInWithDuration:0.5],
+        [SKAction scaleTo:1.0 duration:0.5]
+    ]]];
+}
+
+-(void)myUpdateAudioDisplay {
+    if (!myAudioDisplayNode) return;
+
+    // Check if we're actually producing audio
+    BOOL isAudioActive = NO;
+    if (myStartedInMicMode) {
+        isAudioActive = myMicInputEnabled && myMicRecorder.isRecording;
+    } else {
+        isAudioActive = myAudioPlayer && myAudioPlayer.isPlaying;
+    }
+
+    // Calculate VU meter level based on audio power
+    CGFloat vuMeterWidth = MIN(self.frame.size.width - 40, 320) - 40;
+
+    // Convert dB power to linear amplitude (0-1 range)
+    // myInstantPower is in dB (typically -160 to 0, where 0 is loudest)
+    CGFloat amplitudeLevel = isAudioActive ? [self myDbToAmp:myInstantPower] : 0.0;
+    CGFloat normalizedLevel = MIN(amplitudeLevel, 1.0);
+
+    // Add some smoothing - decay faster when not active
+    static CGFloat smoothedLevel = 0;
+    if (isAudioActive) {
+        smoothedLevel = smoothedLevel * 0.6 + normalizedLevel * 0.4;  // Responsive smoothing
+    } else {
+        smoothedLevel = smoothedLevel * 0.85;  // Decay to zero when paused
+        if (smoothedLevel < 0.01) smoothedLevel = 0;
+    }
+
+    // Update VU meter fill width - nodes are inside container
+    SKNode *vuMeterFillContainer = [myAudioDisplayNode childNodeWithName:@"vuMeterFillContainer"];
+    SKNode *vuMeterFill = [vuMeterFillContainer childNodeWithName:@"vuMeterFill"];
+    SKNode *vuMeterGlow = [vuMeterFillContainer childNodeWithName:@"vuMeterGlow"];
+
+    if (vuMeterFill) {
+        CGFloat targetWidth = MAX(smoothedLevel * vuMeterWidth, 2);
+        vuMeterFill.xScale = targetWidth;
+
+        // Change color based on level
+        SKShapeNode *fillShape = (SKShapeNode *)vuMeterFill;
+        if (smoothedLevel > 0.8) {
+            fillShape.fillColor = MAGIC_PINK;
+        } else if (smoothedLevel > 0.5) {
+            fillShape.fillColor = MAGIC_GOLD;
+        } else if (smoothedLevel > 0.25) {
+            fillShape.fillColor = MAGIC_GREEN;
+        } else {
+            fillShape.fillColor = MAGIC_CYAN;
+        }
+    }
+
+    if (vuMeterGlow) {
+        CGFloat targetWidth = MAX(smoothedLevel * vuMeterWidth, 2);
+        vuMeterGlow.xScale = targetWidth;
+
+        SKShapeNode *glowShape = (SKShapeNode *)vuMeterGlow;
+        SKShapeNode *fillShape = (SKShapeNode *)vuMeterFill;
+        if (fillShape) {
+            glowShape.fillColor = fillShape.fillColor;
+        }
+    }
+
+    // Update mic mode pulsing dot size based on audio level
+    if (myStartedInMicMode) {
+        SKNode *pulsingDot = [myAudioDisplayNode childNodeWithName:@"pulsingDot"];
+        if (pulsingDot && normalizedLevel > 0.1) {
+            CGFloat scale = 1.0 + normalizedLevel * 0.5;
+            [pulsingDot runAction:[SKAction scaleTo:scale duration:0.05]];
+        }
+    }
+
+    // Make music bars react to actual audio level
+    if (!myStartedInMicMode) {
+        for (int i = 0; i < 4; i++) {
+            SKNode *bar = [myAudioDisplayNode childNodeWithName:[NSString stringWithFormat:@"musicBar%d", i]];
+            if (bar) {
+                if (isAudioActive && smoothedLevel > 0.05) {
+                    // Active - animate bars based on level
+                    CGFloat barScale = 0.5 + smoothedLevel * 1.5 * ((arc4random() % 50 + 50) / 100.0);
+                    [bar runAction:[SKAction scaleYTo:barScale duration:0.08]];
+                } else if (!isAudioActive) {
+                    // Paused - shrink bars to resting state
+                    [bar runAction:[SKAction scaleYTo:0.3 duration:0.2]];
+                }
+            }
+        }
+    }
+}
+
+#pragma mark - Debug Display
+
+-(void)mySetupDebugDisplay {
+    // Remove existing debug display if present
+    SKNode *existingDebugDisplay = [self childNodeWithName:@"debugDisplayContainer"];
+    if (existingDebugDisplay) {
+        [existingDebugDisplay removeFromParent];
+    }
+
+    // Create container node for all debug display elements
+    self.myDebugDisplayNode = [SKNode node];
+    self.myDebugDisplayNode.name = @"debugDisplayContainer";
+    self.myDebugDisplayNode.zPosition = 51;  // Above audio display
+    self.myDebugDisplayNode.position = CGPointMake(160, 120);
+    [self addChild:self.myDebugDisplayNode];
+
+    // Create background pill shape
+    CGFloat pillWidth = 280;
+    CGFloat pillHeight = 160;
+    SKShapeNode *backgroundPill = [SKShapeNode shapeNodeWithRectOfSize:CGSizeMake(pillWidth, pillHeight) cornerRadius:12];
+    backgroundPill.fillColor = [SKColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+    backgroundPill.strokeColor = [SKColor colorWithRed:1.0 green:0.4 blue:0.6 alpha:0.4];
+    backgroundPill.lineWidth = 2.0;
+    backgroundPill.name = @"debugDisplayBG";
+    [self.myDebugDisplayNode addChild:backgroundPill];
+
+    // Create header label
+    SKLabelNode *headerLabel = [SKLabelNode labelNodeWithFontNamed:@"Courier-Bold"];
+    headerLabel.text = @"DEBUG";
+    headerLabel.fontSize = 14;
+    headerLabel.fontColor = MAGIC_PINK;
+    headerLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    headerLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
+    headerLabel.position = CGPointMake(-pillWidth/2 + 15, pillHeight/2 - 15);
+    headerLabel.name = @"debugHeader";
+    [self.myDebugDisplayNode addChild:headerLabel];
+
+    // Create labels for each debug value
+    NSArray *labelNames = @[@"debugMode", @"debugInstantPwr", @"debugPwrDiff", @"debugScaleTo", @"debugFinal"];
+    CGFloat yOffset = -25;
+    for (int i = 0; i < labelNames.count; i++) {
+        SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Courier-Bold"];
+        label.text = @"---";
+        label.fontSize = 12;
+        label.fontColor = [SKColor whiteColor];
+        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+        label.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
+        label.position = CGPointMake(-pillWidth/2 + 15, pillHeight/2 + yOffset);
+        label.name = labelNames[i];
+        [self.myDebugDisplayNode addChild:label];
+        yOffset -= 25;
+    }
+
+    // Entrance animation
+    self.myDebugDisplayNode.alpha = 0;
+    [self.myDebugDisplayNode runAction:[SKAction fadeInWithDuration:0.3]];
+}
+
+-(void)myUpdateDebugDisplay {
+    if (!self.myDebugDisplayNode || !self.myDebugDisplayVisible) return;
+
+    // Update Mode label
+    SKLabelNode *modeLabel = (SKLabelNode *)[self.myDebugDisplayNode childNodeWithName:@"debugMode"];
+    if (modeLabel) {
+        modeLabel.text = [NSString stringWithFormat:@"Mode: %d", myResizeMethod];
+    }
+
+    // Update InstantPower label
+    SKLabelNode *powerLabel = (SKLabelNode *)[self.myDebugDisplayNode childNodeWithName:@"debugInstantPwr"];
+    if (powerLabel) {
+        powerLabel.text = [NSString stringWithFormat:@"InstantPwr: %.2f dB", myInstantPower];
+    }
+
+    // Update PowerDifference label
+    SKLabelNode *diffLabel = (SKLabelNode *)[self.myDebugDisplayNode childNodeWithName:@"debugPwrDiff"];
+    if (diffLabel) {
+        diffLabel.text = [NSString stringWithFormat:@"PwrDiff: %.2f dB", myPowerDifference];
+    }
+
+    // Update ScaleTo label
+    SKLabelNode *scaleLabel = (SKLabelNode *)[self.myDebugDisplayNode childNodeWithName:@"debugScaleTo"];
+    if (scaleLabel) {
+        scaleLabel.text = [NSString stringWithFormat:@"ScaleTo: %.2f", self.myCurrentScaleTo];
+        // Color code: red for high values
+        if (self.myCurrentScaleTo > 2.0) {
+            scaleLabel.fontColor = MAGIC_PINK;
+        } else if (self.myCurrentScaleTo > 1.5) {
+            scaleLabel.fontColor = MAGIC_GOLD;
+        } else {
+            scaleLabel.fontColor = MAGIC_GREEN;
+        }
+    }
+
+    // Update Final scale label (ScaleTo × multiplier)
+    SKLabelNode *finalLabel = (SKLabelNode *)[self.myDebugDisplayNode childNodeWithName:@"debugFinal"];
+    if (finalLabel) {
+        float finalScale = self.myCurrentScaleTo * myPhotoScaleMultiplier;
+        finalLabel.text = [NSString stringWithFormat:@"Final: %.2fx", finalScale];
+        // Color code: red for high values
+        if (finalScale > 3.0) {
+            finalLabel.fontColor = MAGIC_PINK;
+        } else if (finalScale > 2.0) {
+            finalLabel.fontColor = MAGIC_GOLD;
+        } else {
+            finalLabel.fontColor = MAGIC_GREEN;
+        }
+    }
+}
+
+-(void)myToggleDebugDisplay {
+    if (self.myDebugDisplayVisible) {
+        // Hide debug display
+        self.myDebugDisplayVisible = NO;
+        if (self.myDebugDisplayNode) {
+            [self.myDebugDisplayNode runAction:[SKAction sequence:@[
+                [SKAction fadeOutWithDuration:0.2],
+                [SKAction runBlock:^{
+                    [self.myDebugDisplayNode removeFromParent];
+                    self.myDebugDisplayNode = nil;
+                }]
+            ]]];
+        }
+    } else {
+        // Show debug display
+        self.myDebugDisplayVisible = YES;
+        [self mySetupDebugDisplay];
+    }
+}
+
+#pragma mark - Magical Visual Effects
+
+-(SKColor *)randomMagicColor {
+    NSArray *colors = @[MAGIC_PINK, MAGIC_CYAN, MAGIC_PURPLE, MAGIC_GOLD, MAGIC_GREEN];
+    return colors[arc4random() % colors.count];
+}
+
+-(void)createSparkleEffectAtPosition:(CGPoint)position withColor:(SKColor *)color {
+    // Create a burst of sparkles at the given position
+    for (int i = 0; i < 12; i++) {
+        SKShapeNode *sparkle = [SKShapeNode shapeNodeWithCircleOfRadius:3.0];
+        sparkle.fillColor = color;
+        sparkle.strokeColor = [SKColor clearColor];
+        sparkle.glowWidth = 4.0;
+        sparkle.position = position;
+        sparkle.zPosition = 100;
+        sparkle.alpha = 1.0;
+
+        // Random direction
+        CGFloat angle = (arc4random() % 360) * M_PI / 180.0;
+        CGFloat distance = 50 + arc4random() % 100;
+        CGFloat endX = position.x + cos(angle) * distance;
+        CGFloat endY = position.y + sin(angle) * distance;
+
+        [self addChild:sparkle];
+
+        // Animate outward with fade
+        [sparkle runAction:[SKAction sequence:@[
+            [SKAction group:@[
+                [SKAction moveTo:CGPointMake(endX, endY) duration:0.4],
+                [SKAction fadeOutWithDuration:0.4],
+                [SKAction scaleTo:0.1 duration:0.4]
+            ]],
+            [SKAction removeFromParent]
+        ]]];
+    }
+}
+
+-(void)createMagicBurstAtPosition:(CGPoint)position {
+    // Create colorful magic burst with multiple rings
+    for (int ring = 0; ring < 3; ring++) {
+        SKShapeNode *circle = [SKShapeNode shapeNodeWithCircleOfRadius:5.0];
+        circle.strokeColor = [self randomMagicColor];
+        circle.lineWidth = 3.0;
+        circle.fillColor = [SKColor clearColor];
+        circle.glowWidth = 5.0;
+        circle.position = position;
+        circle.zPosition = 99;
+
+        [self addChild:circle];
+
+        CGFloat delay = ring * 0.08;
+        CGFloat targetRadius = 80 + ring * 30;
+
+        [circle runAction:[SKAction sequence:@[
+            [SKAction waitForDuration:delay],
+            [SKAction group:@[
+                [SKAction scaleTo:targetRadius / 5.0 duration:0.35],
+                [SKAction fadeOutWithDuration:0.35]
+            ]],
+            [SKAction removeFromParent]
+        ]]];
+    }
+
+    // Add sparkles on top
+    [self createSparkleEffectAtPosition:position withColor:[self randomMagicColor]];
+}
+
+-(void)createConfettiBurstAtPosition:(CGPoint)position {
+    // Create colorful confetti explosion
+    for (int i = 0; i < 20; i++) {
+        CGSize size = CGSizeMake(4 + arc4random() % 6, 8 + arc4random() % 10);
+        SKSpriteNode *confetti = [SKSpriteNode spriteNodeWithColor:[self randomMagicColor] size:size];
+        confetti.position = position;
+        confetti.zPosition = 98;
+
+        // Random rotation
+        confetti.zRotation = (arc4random() % 360) * M_PI / 180.0;
+
+        // Physics body for natural falling
+        confetti.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
+        confetti.physicsBody.mass = 0.001;
+        confetti.physicsBody.linearDamping = 2.0;
+        confetti.physicsBody.angularDamping = 0.5;
+        confetti.physicsBody.categoryBitMask = 0;
+        confetti.physicsBody.collisionBitMask = 0;
+        confetti.physicsBody.contactTestBitMask = 0;
+
+        // Random initial velocity
+        CGFloat angle = (arc4random() % 360) * M_PI / 180.0;
+        CGFloat speed = 200 + arc4random() % 300;
+        [confetti.physicsBody applyImpulse:CGVectorMake(cos(angle) * speed * 0.001, sin(angle) * speed * 0.001 + 0.3)];
+        [confetti.physicsBody applyAngularImpulse:0.001 * (arc4random() % 100 - 50)];
+
+        [self addChild:confetti];
+
+        // Fade out and remove
+        [confetti runAction:[SKAction sequence:@[
+            [SKAction waitForDuration:1.5 + (arc4random() % 100) / 100.0],
+            [SKAction fadeOutWithDuration:0.5],
+            [SKAction removeFromParent]
+        ]]];
+    }
+}
+
+-(void)addGlowToSprite:(SKSpriteNode *)sprite withColor:(SKColor *)color {
+    // Delight the photo itself — no colored borders.
+    // 1) Soft white luminous halo behind the photo (uncolored, just light).
+    SKSpriteNode *softHalo = [SKSpriteNode spriteNodeWithTexture:sprite.texture];
+    softHalo.size = CGSizeMake(sprite.size.width * 1.18, sprite.size.height * 1.18);
+    softHalo.color = [SKColor whiteColor];
+    softHalo.colorBlendFactor = 1.0;
+    softHalo.blendMode = SKBlendModeAdd;
+    softHalo.alpha = 0.55;
+    softHalo.zPosition = -1;
+    softHalo.name = @"photo_halo";
+
+    SKEffectNode *haloBlur = [SKEffectNode node];
+    haloBlur.shouldRasterize = YES;
+    haloBlur.filter = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:@"inputRadius", @14.0, nil];
+    haloBlur.zPosition = -1;
+    [haloBlur addChild:softHalo];
+    [sprite addChild:haloBlur];
+
+    // Halo breathes — pulsing intensity + scale
+    [softHalo runAction:[SKAction repeatActionForever:[SKAction sequence:@[
+        [SKAction group:@[
+            [SKAction fadeAlphaTo:0.75 duration:0.7],
+            [SKAction scaleTo:1.06 duration:0.7]
+        ]],
+        [SKAction group:@[
+            [SKAction fadeAlphaTo:0.4 duration:0.7],
+            [SKAction scaleTo:1.0 duration:0.7]
+        ]]
+    ]]]];
+
+    // 2) The photo itself breathes and wobbles — delight on the photo, not around it.
+    [sprite runAction:[SKAction repeatActionForever:[SKAction sequence:@[
+        [SKAction scaleTo:1.04 duration:0.55],
+        [SKAction scaleTo:0.97 duration:0.55]
+    ]]] withKey:@"photo_breathe"];
+
+    [sprite runAction:[SKAction repeatActionForever:[SKAction sequence:@[
+        [SKAction rotateByAngle:0.06 duration:0.45],
+        [SKAction rotateByAngle:-0.12 duration:0.9],
+        [SKAction rotateByAngle:0.06 duration:0.45]
+    ]]] withKey:@"photo_wobble"];
+
+    // 3) Gentle shimmer sparkles emitted from the photo itself.
+    SKEmitterNode *shimmer = [[SKEmitterNode alloc] init];
+    shimmer.particleTexture = [SKTexture textureWithImage:[self createGlowParticleImage]];
+    shimmer.particleBirthRate = 8;
+    shimmer.particleLifetime = 1.0;
+    shimmer.particleLifetimeRange = 0.4;
+    shimmer.particlePositionRange = CGVectorMake(sprite.size.width * 0.9, sprite.size.height * 0.9);
+    shimmer.particleScale = 0.12;
+    shimmer.particleScaleRange = 0.08;
+    shimmer.particleScaleSpeed = -0.1;
+    shimmer.particleAlpha = 0.9;
+    shimmer.particleAlphaSpeed = -0.9;
+    shimmer.particleColor = [SKColor whiteColor];
+    shimmer.particleColorBlendFactor = 1.0;
+    shimmer.particleBlendMode = SKBlendModeAdd;
+    shimmer.zPosition = 1;
+    shimmer.name = @"photo_shimmer";
+    [sprite addChild:shimmer];
+}
+
+-(void)createRainbowTrailForSprite:(SKSpriteNode *)sprite {
+    // Create rainbow trail particles that follow the sprite
+    SKEmitterNode *trail = [[SKEmitterNode alloc] init];
+    trail.particleTexture = [SKTexture textureWithImage:[self createGlowParticleImage]];
+    trail.particleBirthRate = 30;
+    trail.particleLifetime = 0.8;
+    trail.particleLifetimeRange = 0.3;
+    trail.particleScale = 0.3;
+    trail.particleScaleRange = 0.1;
+    trail.particleScaleSpeed = -0.2;
+    trail.particleAlpha = 0.7;
+    trail.particleAlphaSpeed = -0.8;
+    trail.particleColorBlendFactor = 1.0;
+    trail.particleColorSequence = [[SKKeyframeSequence alloc] initWithKeyframeValues:@[
+        MAGIC_PINK, MAGIC_PURPLE, MAGIC_CYAN, MAGIC_GREEN, MAGIC_GOLD
+    ] times:@[@0.0, @0.25, @0.5, @0.75, @1.0]];
+    trail.particleBlendMode = SKBlendModeAdd;
+    trail.targetNode = self;
+    trail.zPosition = -1;
+    trail.name = @"rainbow_trail";
+
+    [sprite addChild:trail];
+}
+
+-(UIImage *)createGlowParticleImage {
+    CGSize size = CGSizeMake(32, 32);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGFloat colors[] = {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0};
+    CGFloat locations[] = {0.0, 1.0};
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, locations, 2);
+
+    CGPoint center = CGPointMake(16, 16);
+    CGContextDrawRadialGradient(ctx, gradient, center, 0, center, 16, kCGGradientDrawsBeforeStartLocation);
+
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorSpace);
+
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
+-(void)createAnimatedBackgroundGradient {
+    // Create a beautiful animated gradient background
+    SKSpriteNode *gradientBG = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:self.size];
+    gradientBG.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    gradientBG.zPosition = -100;
+    gradientBG.name = @"gradient_bg";
+
+    // Add shader for animated gradient
+    SKShader *gradientShader = [SKShader shaderWithSource:@"\
+        void main() {\
+            vec2 uv = v_tex_coord;\
+            float t = u_time * 0.1;\
+            vec3 col1 = vec3(0.1, 0.0, 0.2);\
+            vec3 col2 = vec3(0.0, 0.1, 0.3);\
+            vec3 col3 = vec3(0.2, 0.0, 0.3);\
+            float blend = sin(uv.y * 3.14159 + t) * 0.5 + 0.5;\
+            vec3 finalColor = mix(mix(col1, col2, uv.y), col3, blend);\
+            gl_FragColor = vec4(finalColor, 1.0);\
+        }"];
+
+    gradientBG.shader = gradientShader;
+    [self addChild:gradientBG];
+}
+
+-(void)celebrationEffect {
+    // Big celebration with confetti and sparkles
+    CGPoint center = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+
+    // Multiple confetti bursts
+    for (int i = 0; i < 5; i++) {
+        CGFloat delay = i * 0.15;
+        CGFloat offsetX = (arc4random() % 200) - 100;
+        CGFloat offsetY = (arc4random() % 200) - 100;
+        CGPoint pos = CGPointMake(center.x + offsetX, center.y + offsetY);
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self createConfettiBurstAtPosition:pos];
+            [self createMagicBurstAtPosition:pos];
+        });
     }
 }
 
@@ -1025,11 +1934,22 @@ float myPowerDifference;
 
     [myPictureSprite runAction:myImageSpriteAction];
     [myPictureSprite setBlendMode:SKBlendModeReplace];
+
+    // Add magical glow effect with random color
+    SKColor *glowColor = [self randomMagicColor];
+    [self addGlowToSprite:myPictureSprite withColor:glowColor];
+
+    // Add rainbow trail for extra magic (50% chance)
+    if (arc4random() % 2 == 0) {
+        [self createRainbowTrailForSprite:myPictureSprite];
+    }
+
     [self addChild:myPictureSprite];
-    
-    
+
+    // Entrance sparkle effect
+    [self createSparkleEffectAtPosition:myPictureSprite.position withColor:glowColor];
+
     [myPictureSprite.physicsBody setLinearDamping:myImageSpriteDamping];
-    
 }
 
 
@@ -1187,9 +2107,13 @@ float myPowerDifference;
     //  photo sprite hits photo sprite
     //
     if (( firstNode.physicsBody.contactTestBitMask == 0x02 ) && ( secondNode.physicsBody.contactTestBitMask == 0x02 )  )   {
-        //        if ([deviceType isEqualToString:@"iPhone9"]) {
-        //            [myMediumImpactFeedbackGenerator impactOccurred];
-        //        }
+        // Create magical collision effect at contact point
+        CGPoint collisionPoint = contact.contactPoint;
+        [self createMagicBurstAtPosition:collisionPoint];
+
+        // Haptic feedback on collision
+        [myMediumImpactFeedbackGenerator impactOccurred];
+
         for (SKNode *theNode in [NSArray arrayWithObjects:firstNode,secondNode, nil]) {
             
             NSInteger  myRandomPhotoPhotoAction = [myShuffledRandomSource nextInt];
@@ -1945,10 +2869,12 @@ float myPowerDifference;
                     [mySegment.physicsBody setAffectedByGravity:NO];
                 }
                 else if (myRandomGravity == 1){
-                    [mySegment.physicsBody setMass:-1.0];
+                    [mySegment.physicsBody setAffectedByGravity:NO];
+                    [mySegment.physicsBody applyForce:CGVectorMake(0, 50)];
                 }
                 else if (myRandomGravity == 2){
-                    [mySegment.physicsBody setMass:-2.0];
+                    [mySegment.physicsBody setAffectedByGravity:NO];
+                    [mySegment.physicsBody applyForce:CGVectorMake(0, 100)];
                 }
                 
                 

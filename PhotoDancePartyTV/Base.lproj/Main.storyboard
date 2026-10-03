@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="22505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TVSetupViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="TVSetupViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Dance Party!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="titleLabel01">
+                                <rect key="frame" x="560" y="60" width="800" height="86"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="72"/>
+                                <color key="textColor" red="0.2" green="0.78" blue="0.98" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="photoStack01">
+                                <rect key="frame" x="160" y="180" width="1600" height="280"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="imgView1">
+                                        <rect key="frame" x="0" y="0" width="280" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="w1"/>
+                                            <constraint firstAttribute="height" constant="280" id="h1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="imgView2">
+                                        <rect key="frame" x="310" y="0" width="280" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="w2"/>
+                                            <constraint firstAttribute="height" constant="280" id="h2"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="imgView3">
+                                        <rect key="frame" x="620" y="0" width="280" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="w3"/>
+                                            <constraint firstAttribute="height" constant="280" id="h3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="imgView4">
+                                        <rect key="frame" x="930" y="0" width="280" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="w4"/>
+                                            <constraint firstAttribute="height" constant="280" id="h4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="imgView5">
+                                        <rect key="frame" x="1240" y="0" width="280" height="280"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="w5"/>
+                                            <constraint firstAttribute="height" constant="280" id="h5"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bundled Music: Caution - Skrxlla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="musicLabel01">
+                                <rect key="frame" x="460" y="500" width="1000" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" red="0.2" green="0.78" blue="0.35" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="btnRow1">
+                                <rect key="frame" x="510" y="590" width="900" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="playBtn01">
+                                        <rect key="frame" x="0" y="0" width="420" height="100"/>
+                                        <color key="backgroundColor" red="0.2" green="0.78" blue="0.35" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="playH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playWithDefaultPhotos:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="playAction01"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="randomBtn01">
+                                        <rect key="frame" x="480" y="0" width="420" height="100"/>
+                                        <color key="backgroundColor" red="1.0" green="0.58" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="randH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                        <state key="normal" title="Random Photos">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playWithRandomPhotos:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="randAction01"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="btnRow2">
+                                <rect key="frame" x="510" y="730" width="900" height="86"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="selectPhotosBtn01">
+                                        <rect key="frame" x="0" y="0" width="420" height="86"/>
+                                        <color key="backgroundColor" red="0.6" green="0.3" blue="1.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="86" id="selPH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                        <state key="normal" title="Select Photos">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectFromPhotoLibrary:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="selPhotosAction01"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="selectMusicBtn01">
+                                        <rect key="frame" x="480" y="0" width="420" height="86"/>
+                                        <color key="backgroundColor" red="1.0" green="0.4" blue="0.6" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="86" id="selMH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                        <state key="normal" title="Select Music">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectMusic:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="selMusicAction01"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="helpBtn01">
+                                <rect key="frame" x="810" y="860" width="300" height="70"/>
+                                <color key="backgroundColor" red="0.4" green="0.4" blue="0.45" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="helpH"/>
+                                    <constraint firstAttribute="width" constant="300" id="helpW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
+                                <state key="normal" title="Help">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showHelp:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="helpAction01"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.05" green="0.0" blue="0.15" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="titleLabel01" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="c1"/>
+                            <constraint firstItem="titleLabel01" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c2"/>
+                            <constraint firstItem="photoStack01" firstAttribute="top" secondItem="titleLabel01" secondAttribute="bottom" constant="30" id="c3"/>
+                            <constraint firstItem="photoStack01" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c4"/>
+                            <constraint firstItem="musicLabel01" firstAttribute="top" secondItem="photoStack01" secondAttribute="bottom" constant="30" id="c5"/>
+                            <constraint firstItem="musicLabel01" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c6"/>
+                            <constraint firstItem="btnRow1" firstAttribute="top" secondItem="musicLabel01" secondAttribute="bottom" constant="30" id="c7"/>
+                            <constraint firstItem="btnRow1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c8"/>
+                            <constraint firstItem="btnRow1" firstAttribute="width" constant="900" id="c9"/>
+                            <constraint firstItem="btnRow2" firstAttribute="top" secondItem="btnRow1" secondAttribute="bottom" constant="40" id="c10"/>
+                            <constraint firstItem="btnRow2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c11"/>
+                            <constraint firstItem="btnRow2" firstAttribute="width" constant="900" id="c12"/>
+                            <constraint firstItem="helpBtn01" firstAttribute="top" secondItem="btnRow2" secondAttribute="bottom" constant="40" id="c13"/>
+                            <constraint firstItem="helpBtn01" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c14"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myImage1" destination="imgView1" id="img1conn"/>
+                        <outlet property="myImage2" destination="imgView2" id="img2conn"/>
+                        <outlet property="myImage3" destination="imgView3" id="img3conn"/>
+                        <outlet property="myImage4" destination="imgView4" id="img4conn"/>
+                        <outlet property="myImage5" destination="imgView5" id="img5conn"/>
+                        <outlet property="myMusicLabel" destination="musicLabel01" id="musicLabelConn"/>
+                        <outlet property="myPlayButton" destination="playBtn01" id="playBtnConn"/>
+                        <outlet property="myRandomButton" destination="randomBtn01" id="randBtnConn"/>
+                        <outlet property="mySelectPhotosButton" destination="selectPhotosBtn01" id="selPhotosBtnConn"/>
+                        <outlet property="mySelectMusicButton" destination="selectMusicBtn01" id="selMusicBtnConn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0" y="0"/>
+        </scene>
+    </scenes>
+</document>

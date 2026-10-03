@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate
@@ -18,8 +17,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [NSThread sleepForTimeInterval:2.0];
 
-    // Override point for customization after application launch.
+    // For iOS 12 compatibility: create window manually if not using UIWindowScene
+    if (@available(iOS 13.0, *)) {
+        // iOS 13+: SceneDelegate will handle window creation
+    } else {
+        // iOS 12: Create window here
+        self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        UIViewController *rootViewController = [[UIViewController alloc] init];
+        self.window.rootViewController = rootViewController;
+        [self.window makeKeyAndVisible];
+    }
+
     return YES;
+}
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)sceneSession options:(UISceneConnectionOptions *)connectionOptions  API_AVAILABLE(ios(13.0)) {
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:sceneSession.role];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
